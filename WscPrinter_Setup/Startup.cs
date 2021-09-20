@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -18,11 +20,19 @@ namespace WscPrinter_Setup {
     public IConfiguration Configuration { get; }
     public IWebHostEnvironment Environment { get; }
     public ILogger<Startup> Logger { get; set; }
-  
+    public int mvcMode { get; set; }
+
     public Startup(IConfiguration configuration, IWebHostEnvironment environment) {
       this.Environment = environment;
       this.Configuration = configuration;
-
+      //
+      // ========================================================================
+      // 0 -> addMvc
+      // 1 -> addRazorPages and AddController
+      // 2 -> all of the above
+      // ========================================================================
+      //
+      this.mvcMode = 2; // 0, // 1, // 2
     }
 
 
@@ -34,15 +44,51 @@ namespace WscPrinter_Setup {
 
       // seems ncessary for the injectionof the logger...
       services.AddLogging(config => config.AddSimpleConsole());
-      services.AddControllers();
-      var MvcBuilder = services.AddRazorPages();
+
+
+      // 
+      // mvc-razor-api test start
+      // .net services add test:
+      // 
+      IMvcBuilder MvcBuilder;
+      switch (this.mvcMode) {
+        case 0:
+          // add Mvc includes all modes
+          // TODO: 20210826 - check if really necessary (check MVC configure section comment)
+          // TODO update: 20210920 - this is something to test the TODO...
+          // TODO update: 20210920 - after addRazorMappin correction, the application as is now (razor and swagger) works with:
+          //                         . AddMvc
+          //                         . Add Controllers and addRazorPages
+          //                         . both
+          MvcBuilder = services.AddMvc();
+          break;
+        case 1:
+          services.AddControllers();
+          MvcBuilder = services.AddRazorPages();
+          break;
+        case 2:
+        default:
+          services.AddControllers();
+          MvcBuilder = services.AddRazorPages();
+          services.AddMvc();
+          break;
+      }
+
       MvcBuilder.AddRazorPagesOptions(options => {
         options.RootDirectory = "/Pages";
-        // options.Conventions.AddPageRoute("/cicca", "/Pages/razorTestNoModel");
+        options.Conventions.AddPageRoute("/cicca", "/Pages/Home");
       });
       if (Environment.IsDevelopment()) {
         MvcBuilder.AddRazorRuntimeCompilation();
       }
+      MvcBuilder.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+      MvcBuilder.AddDataAnnotationsLocalization();
+      // 
+      // mvc-razor-api test end
+      // 
+
+
+      // 
       // for localization
       services.AddLocalization(options => {
         options.ResourcesPath = Configuration.GetValue<string>("i18n:LocalizationResourcePath"); // Props.LocalizationResourcePath;
@@ -79,6 +125,9 @@ namespace WscPrinter_Setup {
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+      var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+      app.UseRequestLocalization(locOptions.Value);
+
       if (env.IsDevelopment()) {
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
@@ -96,7 +145,16 @@ namespace WscPrinter_Setup {
       app.UseAuthorization();
 
       app.UseEndpoints(endpoints => {
-        endpoints.MapControllers();
+
+        // 2 razor
+        endpoints.MapRazorPages();
+        var testResult = endpoints.MapControllers();
+
+        // 3 controllers
+        /* var testResult2 = endpoints.MapControllerRoute(
+          name: "language",
+          pattern: "{controller=LanguageManagerController}/{action=Language}/{id?}"
+        );*/
       });
     }
   }
