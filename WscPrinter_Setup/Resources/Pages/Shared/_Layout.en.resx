@@ -121,12 +121,15 @@
     <value>back to Home</value>
     <comment>key=value in en (startup)</comment>
   </data>
-  <data name="Privacy" xml:space="preserve">
-    <value>Privacy</value>
-    <comment>key=value in en (startup)</comment>
-  </data>
   <data name="Our Experiences" xml:space="preserve">
     <value>Our Experiences</value>
+    <comment>key=value in en (startup)</comment>
+  </data>
+  <data name="How does it work" xml:space="preserve">
+    <value>How does it work</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
     <comment>key=value in en (startup)</comment>
   </data>
 </root>
