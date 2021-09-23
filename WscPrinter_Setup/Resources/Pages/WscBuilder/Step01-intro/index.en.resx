@@ -120,8 +120,8 @@
   <data name="Main Page" xml:space="preserve">
     <value>Main Page</value>
   </data>
-  <data name="Home page" xml:space="preserve">
-    <value>Home Page</value>
+  <data name="based on your choices, you will be able to see a series of possible customizations" xml:space="preserve">
+    <value>based on your choices, you will be able to see a series of possible customizations</value>
     <comment>as above</comment>
   </data>
   <data name="Learn about" xml:space="preserve">
@@ -132,8 +132,8 @@
     <value>Welcome</value>
     <comment>as above</comment>
   </data>
-  <data name="Create a new experience" xml:space="preserve">
-    <value>Create a new user experience</value>
+  <data name="follow this short path, it will help you to configure your site" xml:space="preserve">
+    <value>follow this short path, it will help you to configure your site</value>
     <comment>as above</comment>
   </data>
   <data name="Start the process" xml:space="preserve">

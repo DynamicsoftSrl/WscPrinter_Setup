@@ -4,6 +4,21 @@
 }
 
 <h1>Step 5</h1>
+<p>@Localizer["Tell us a little about you"]</p>
+
+<div>
+  <form id="selectCompanyType" asp-controller="StepsController"
+        asp-action="SetCompanyType"
+        method="post" class="form-horizontal" role="form">
+    <label>@Localizer["your data"]</label>
+    <input type="text" name="websitename" /> <label for="name">@Localizer["website name"]</label><br />
+    <input type="email" name="email" /> <label for="prefix">@Localizer["email"]</label><br />
+    <input type="file" name="logo" /> <label for="phone">@Localizer["your logo"]</label><br />
+    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
+  </form>
+</div>
+
+
 
 
 <a asp-page="/WscBuilder/Step06-choose-skin-and-styles/Index">Click</a>

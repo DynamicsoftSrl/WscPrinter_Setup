@@ -117,26 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Main Page" xml:space="preserve">
-    <value>Pagina Principale</value>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
   </data>
-  <data name="Home page" xml:space="preserve">
-    <value>Home Page</value>
-    <comment>as above</comment>
+  <data name="email" xml:space="preserve">
+    <value>email</value>
   </data>
-  <data name="Learn about" xml:space="preserve">
-    <value>Impara qualcosa su</value>
-    <comment>as above</comment>
+  <data name="Tell us a little about you" xml:space="preserve">
+    <value>Tell us a little about you</value>
   </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Benvenuto</value>
-    <comment>as above</comment>
+  <data name="website name" xml:space="preserve">
+    <value>website name</value>
   </data>
-  <data name="Create a new experience" xml:space="preserve">
-    <value>Crea una nuova esperienza</value>
-    <comment>as above</comment>
+  <data name="your data" xml:space="preserve">
+    <value>your data</value>
   </data>
-  <data name="Start the process" xml:space="preserve">
-    <value>Inizia il processo</value>
+  <data name="your logo" xml:space="preserve">
+    <value>your logo</value>
   </data>
 </root>

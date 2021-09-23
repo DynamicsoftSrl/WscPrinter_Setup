@@ -1,9 +1,29 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.Step03_products_sold.Step03ProductsSoldModel
 @{
+  List<SelectListItem> prodItems = new List<SelectListItem> {
+      new SelectListItem { Value = "CRT", Text = "carta" }
+      , new SelectListItem { Value = "STP", Text = "stampanti"  }
+      , new SelectListItem { Value = "CMP", Text = "computers"  }
+      , new SelectListItem { Value = "CNC", Text = "cancelleria"  }
+  };
 }
 
 <h1>Step 3</h1>
+<p>@Localizer["tell us about the products you sell"]</p>
+
+<div>
+  <form id="selectCompanyType" asp-controller="StepsController"
+        asp-action="SetCompanyType"
+        method="post" class="form-horizontal" role="form">
+    <label>@Localizer["Products Type:"]</label>
+    <select name="culture" on-change="this.form.submit()" asp-items="prodItems"></select>
+    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
+  </form>
+</div>
 
 
-<a asp-page="/WscBuilder/Step04-reference-websites/Index">Click</a>
+
+
+
+<a asp-page="/WscBuilder/Step04-reference-websites/Index">@Localizer["Go to next step"]</a>

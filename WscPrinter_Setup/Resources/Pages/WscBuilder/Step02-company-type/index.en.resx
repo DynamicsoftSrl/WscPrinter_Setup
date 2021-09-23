@@ -117,26 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Main Page" xml:space="preserve">
-    <value>Main Page</value>
-  </data>
-  <data name="Home page" xml:space="preserve">
-    <value>Home Page</value>
+  <data name="Insert the type of your company" xml:space="preserve">
+    <value>Insert the type of your company</value>
     <comment>as above</comment>
   </data>
-  <data name="Learn about" xml:space="preserve">
-    <value>Learn about</value>
-    <comment>as above</comment>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
   </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Welcome</value>
-    <comment>as above</comment>
+  <data name="Go to next step" xml:space="preserve">
+    <value>Go to next step</value>
   </data>
-  <data name="Create a new experience" xml:space="preserve">
-    <value>Create a new user experience</value>
-    <comment>as above</comment>
-  </data>
-  <data name="Start the process" xml:space="preserve">
-    <value>Start the process</value>
+  <data name="tell us your company type" xml:space="preserve">
+    <value>tell us your company type</value>
   </data>
 </root>

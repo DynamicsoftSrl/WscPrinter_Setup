@@ -121,12 +121,15 @@
     <value>torna alla Home</value>
     <comment>NC</comment>
   </data>
-  <data name="Privacy" xml:space="preserve">
-    <value>Privacy</value>
-    <comment>NC</comment>
-  </data>
   <data name="Our Experiences" xml:space="preserve">
     <value>Le nostre Esperienze</value>
     <comment>NC</comment>
+  </data>
+  <data name="How does it work" xml:space="preserve">
+    <value>Come funziona</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+    <comment>key=value in en (startup)</comment>
   </data>
 </root>
