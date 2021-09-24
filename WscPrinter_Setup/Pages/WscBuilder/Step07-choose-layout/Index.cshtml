@@ -1,43 +1,76 @@
 ﻿@page
+@using WscPrinter_Setup.ApiModels
 @model WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout.Step07ChooseLayoutModel
 @{
+  string theGuid1 = Guid.NewGuid().ToString();
+  string theGuid2 = Guid.NewGuid().ToString();
+
+  WebsiteEntity[] theItems = {
+    new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
+  };
+
+  string[] cssClasses = {
+    "left withbord"
+    , "middle withbord"
+    , "right withbord"
+  };
+
+
 }
+
+<style>
+  .Row {
+    display: table;
+    width: 100%; /*Optional*/
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+  }
+
+  .Column {
+    display: table-cell;
+    background-color: aqua; /*Optional*/
+  }
+
+  .withbord {
+    border: 2px solid;
+  }
+</style>
 
 <h1>Step 7</h1>
 <p>@Localizer["choose your website"]</p>
-<div>
-  <div style="border:2px solid ">
-    <div>the web one</div>
-    <div><button>test this</button></div>
-    <div><button>buy this this</button></div>
+@for (int xxx = 0; xxx < theItems.Length; xxx += 3) {
+<div class="Row">
+  @for (int yyy = 0; yyy < 3; yyy++) {
+  <div class="Column withbord" style="background-image: url('@theItems[xxx + yyy].Img');">
+    <div><h3>@theItems[xxx + yyy].TemplateName</h3></div>
+    <div><button onclick="openTabWithLink('@theItems[xxx + yyy].TargetLink')">@Localizer["test this"]</button></div>
+    <div><button onclick="buytheLink('@theItems[xxx + yyy].TargetLink', '@theItems[xxx + yyy].TemplateId', '@theItems[xxx + yyy].TemplateName', '@theItems[xxx + yyy].Img' )">@Localizer["save this"]</button></div>
   </div>
-  <div style="border:2px solid ">
-    <div>the web two</div>
-    <div><button>test this</button></div>
-    <div><button>buy this this</button></div>
-  </div>
-  <div style="border:2px solid ">
-    <div>the web three</div>
-    <div><button>test this</button></div>
-    <div><button>buy this this</button></div>
-  </div>
+  }
 </div>
-<div>
-  <div style="border:2px solid ">
-    <div>the web four</div>
-    <div><button>test this</button></div>
-    <div><button>buy this this</button></div>
-  </div>
-  <div style="border:2px solid ">
-    <div>the web five</div>
-    <div><button>test this</button></div>
-    <div><button>buy this this</button></div>
-  </div>
-  <div style="border:2px solid ">
-    <div>the web six</div>
-    <div><button>test this</button></div>
-    <div><button>buy this this</button></div>
-  </div>
-</div>
+}
+
+<script type="text/javascript">
+  function openTabWithLink(theLink) {
+    alert(`you choose to watch ${theLink} !!!`);
+    window.open(theLink, '_blank').focus();
+  }
+  function buytheLink(theLink, templateId, templateName, imgLink){
+    alert(`you choose to buy ${theLink} - ${templateId} !!!`);
+    document.location.href = `/WscBuilder/Step08-ready-to-go/Index?`
+      + `theLink=${encodeURIComponent(theLink)}`
+      + `&templateName=${encodeURIComponent(templateName)}`
+      + `&imgLink=${encodeURIComponent(imgLink)}`
+      + `&templateId=${templateId}`;
+
+  }
+</script>
+
+  
 
 <a asp-page="/WscBuilder/Step08-ready-to-go/Index">Click</a>

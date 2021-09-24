@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="follow this short path, it will help you to configure your site" xml:space="preserve">
+  <data name="based on your choices, you will be able to see a series of possible customizations" xml:space="preserve">
     <value>in base alle tue scelte, potrai vedere una serie di possibili personalizzazioni</value>
     <comment>as above</comment>
   </data>
-  <data name="based on your choices, you will be able to see a series of possible customizations" xml:space="preserve">
+  <data name="follow this short path, it will help you to configure your site" xml:space="preserve">
     <value>segui questo breve percorso, ti aiutera' a configurare il tuo sito</value>
     <comment>as above</comment>
   </data>

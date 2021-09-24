@@ -3,7 +3,7 @@
 *@
 @{
 }
-<h1>GGDB.Login Home page</h1>
+<h1>Wsc Printer Builder Home page</h1>
 
 <div class="row">
   <div class="col-6 text-left">
@@ -17,5 +17,8 @@
   <h1 class="display-4">@Localizer["Welcome"]</h1>
 </div>
 <div class="text-center">
-  <p>Let's start ?... <a asp-page="/SetupNewExperience/Index" asp-route-mode="0">@Localizer["Customize your wscprinter web site"]</a>.</p>
+  <p>@Localizer["Let's start"] ?... @Localizer["Customize your wscprinter web site"].</p>
+<p>
+    <a asp-page="/WscBuilder/Step01-intro/Index">@Localizer["Start the process"]</a>
+  </p>
 </div>
