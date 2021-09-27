@@ -117,14 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="at" xml:space="preserve">
+    <value>at</value>
+  </data>
   <data name="choose your website" xml:space="preserve">
     <value>choose your website</value>
     <comment>as above</comment>
   </data>
-  <data name="save me" xml:space="preserve">
-    <value>save me</value>
+  <data name="save me!" xml:space="preserve">
+    <value>save me!</value>
   </data>
-  <data name="test me" xml:space="preserve">
-    <value>test me</value>
+  <data name="test me..." xml:space="preserve">
+    <value>test me...</value>
+  </data>
+  <data name="you choose to watch" xml:space="preserve">
+    <value>you choose to watch</value>
   </data>
 </root>

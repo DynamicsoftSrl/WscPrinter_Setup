@@ -1,0 +1,24 @@
+﻿@page
+@model WscPrinter_Setup.Pages.WscBuilder.Step05_website_name_email_and_logo.Step05WebsiteNameEmailAndLogo
+@{
+}
+
+<h1>Step 5</h1>
+<p>@Localizer["Tell us a little about you"]</p>
+
+<div>
+  <p>@Localizer["insert your data"]</p>
+  <form id="selectCompanyType" asp-controller="StepsController"
+        asp-action="SetCompanyType"
+        method="post" class="form-horizontal" role="form">
+    <input type="text" name="websitename" id="id_websitename"/> <label for="id_websitename">@Localizer["website name"]</label><br />
+    <input type="email" name="email" id="id_email"/> <label for="id_email">@Localizer["email"]</label><br />
+    <input type="file" name="logo" id="id_logo"/> <label for="id_logo">@Localizer["your company logo"]</label><br />
+    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
+  </form>
+</div>
+
+
+
+
+<a asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index">Click</a>

@@ -123,16 +123,16 @@
   <data name="email" xml:space="preserve">
     <value>email</value>
   </data>
+  <data name="insert your data" xml:space="preserve">
+    <value>insert your data</value>
+  </data>
   <data name="Tell us a little about you" xml:space="preserve">
     <value>Tell us a little about you</value>
   </data>
   <data name="website name" xml:space="preserve">
     <value>website name</value>
   </data>
-  <data name="your data" xml:space="preserve">
-    <value>your data</value>
-  </data>
-  <data name="your logo" xml:space="preserve">
+  <data name="your company logo" xml:space="preserve">
     <value>your logo</value>
   </data>
 </root>

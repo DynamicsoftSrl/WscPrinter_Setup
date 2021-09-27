@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Confirm" xml:space="preserve">
-    <value>Confirm</value>
+    <value>Conferma</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>email</value>
   </data>
+  <data name="insert your data" xml:space="preserve">
+    <value>Inserisci i tuoi dati</value>
+  </data>
   <data name="Tell us a little about you" xml:space="preserve">
-    <value>Tell us a little about you</value>
+    <value>Dicci qualcosa su di te</value>
   </data>
   <data name="website name" xml:space="preserve">
-    <value>website name</value>
+    <value>il nome del tuo sito</value>
   </data>
-  <data name="your data" xml:space="preserve">
-    <value>your data</value>
-  </data>
-  <data name="your logo" xml:space="preserve">
-    <value>your logo</value>
+  <data name="your company logo" xml:space="preserve">
+    <value>Il logo della tua societa'</value>
   </data>
 </root>

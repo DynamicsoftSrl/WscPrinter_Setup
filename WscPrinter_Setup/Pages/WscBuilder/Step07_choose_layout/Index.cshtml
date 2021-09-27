@@ -48,21 +48,21 @@
   @for (int yyy = 0; yyy < 3; yyy++) {
   <div class="Column withbord" style="background-image: url('@theItems[xxx + yyy].Img');">
     <div><h3>@theItems[xxx + yyy].TemplateName</h3></div>
-    <div><button onclick="openTabWithLink('@theItems[xxx + yyy].TargetLink')">@Localizer["test this"]</button></div>
-    <div><button onclick="buytheLink('@theItems[xxx + yyy].TargetLink', '@theItems[xxx + yyy].TemplateId', '@theItems[xxx + yyy].TemplateName', '@theItems[xxx + yyy].Img' )">@Localizer["save this"]</button></div>
+    <div><button onclick="openTabWithLink('@theItems[xxx + yyy].TargetLink', '@theItems[xxx + yyy].TemplateName')">@Localizer["test me..."]</button></div>
+    <div><button onclick="buytheLink('@theItems[xxx + yyy].TargetLink', '@theItems[xxx + yyy].TemplateId', '@theItems[xxx + yyy].TemplateName', '@theItems[xxx + yyy].Img' )">@Localizer["save me!"]</button></div>
   </div>
   }
 </div>
 }
 
 <script type="text/javascript">
-  function openTabWithLink(theLink) {
-    alert(`you choose to watch ${theLink} !!!`);
+  function openTabWithLink(theLink, theName) {
+    alert(`@Localizer["you choose to watch"] ${theName} @Localizer["at"] ${theLink} !!!`);
     window.open(theLink, '_blank').focus();
   }
   function buytheLink(theLink, templateId, templateName, imgLink){
     alert(`you choose to buy ${theLink} - ${templateId} !!!`);
-    document.location.href = `/WscBuilder/Step08-ready-to-go/Index?`
+    document.location.href = `/WscBuilder/Step08_ready_to_go/Index?`
       + `theLink=${encodeURIComponent(theLink)}`
       + `&templateName=${encodeURIComponent(templateName)}`
       + `&imgLink=${encodeURIComponent(imgLink)}`
@@ -73,4 +73,4 @@
 
   
 
-<a asp-page="/WscBuilder/Step08-ready-to-go/Index">Click</a>
+<a asp-page="/WscBuilder/Step08_ready_to_go/Index">Click</a>

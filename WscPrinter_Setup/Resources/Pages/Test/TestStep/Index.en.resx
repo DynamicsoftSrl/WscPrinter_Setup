@@ -117,23 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Main Page" xml:space="preserve">
-    <value>Main Page</value>
-  </data>
-  <data name="Home page" xml:space="preserve">
-    <value>Home Page</value>
+  <data name="based on" xml:space="preserve">
+    <value>according to your choices, you will be able to see a series of possible customizations</value>
     <comment>as above</comment>
   </data>
-  <data name="Learn about" xml:space="preserve">
-    <value>Learn about</value>
-    <comment>as above</comment>
-  </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Welcome</value>
-    <comment>as above</comment>
-  </data>
-  <data name="Create a new experience" xml:space="preserve">
-    <value>Create a new user experience</value>
+  <data name="follow this" xml:space="preserve">
+    <value>follow this small path, it will help you to configure your website</value>
     <comment>as above</comment>
   </data>
   <data name="Start the process" xml:space="preserve">
