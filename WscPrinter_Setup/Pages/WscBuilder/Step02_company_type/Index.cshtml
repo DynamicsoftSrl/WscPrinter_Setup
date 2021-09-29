@@ -13,11 +13,10 @@
 <p>@Localizer["tell us your company type"]</p>
 
 <div>
-  <form id="selectCompanyType" asp-controller="StepsController"
-        asp-action="SetCompanyType"
+  <form id="selectCompanyType" asp-page="/WscBuilder/Step03_products_sold/Index"
         method="post" class="form-horizontal" role="form">
     <label>@Localizer["Company Type:"]</label>
-    <select name="culture" on-change="this.form.submit()" asp-items="socItems"></select>
+    <select name="CompanyType" on-change="this.form.submit()" asp-items="socItems"></select>
     <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
   </form>
 </div>

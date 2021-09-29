@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace WscPrinter_Setup.ApiModels {
   public class UserProfile {
-    string SiteName { get; set; }
-    string TheSkin { get; set; }
-    string TheStyle { get; set; }
-    string UserEmail { get; set; }
-    string ReferenceWebsite { get; set; }
-    string ProductsSold { get; set; }
-    string CompanyType { get; set; }
-    string CompanyLogo { get; set; }
+    public string SiteName { get; set; }
+    public string TheSkin { get; set; }
+    public string TheStyle { get; set; }
+    public string UserEmail { get; set; }
+    public string ReferenceWebsite { get; set; }
+    public string ProductsSold { get; set; }
+    public string CompanyType { get; set; }
+    public string CompanyLogo { get; set; }
   }
 }

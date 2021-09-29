@@ -8,12 +8,11 @@
 
 <div>
   <p>@Localizer["insert your data"]</p>
-  <form id="selectCompanyType" asp-controller="StepsController"
-        asp-action="SetCompanyType"
+  <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
         method="post" class="form-horizontal" role="form">
-    <input type="text" name="websitename" id="id_websitename"/> <label for="id_websitename">@Localizer["website name"]</label><br />
-    <input type="email" name="email" id="id_email"/> <label for="id_email">@Localizer["email"]</label><br />
-    <input type="file" name="logo" id="id_logo"/> <label for="id_logo">@Localizer["your company logo"]</label><br />
+    <input type="text" name="SiteName" id="id_websitename"/> <label for="id_websitename">@Localizer["website name"]</label><br />
+    <input type="email" name="UserEmail" id="id_email"/> <label for="id_email">@Localizer["email"]</label><br />
+    <input type="file" name="CompanyLogo" id="id_logo"/> <label for="id_logo">@Localizer["your company logo"]</label><br />
     <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
   </form>
 </div>

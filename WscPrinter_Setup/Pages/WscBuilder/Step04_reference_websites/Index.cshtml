@@ -13,11 +13,10 @@
 <p>@Localizer["Your preferred websites"]</p>
 
 <div>
-  <form id="selectCompanyType" asp-controller="StepsController"
-        asp-action="SetCompanyType"
+  <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
         method="post" class="form-horizontal" role="form">
     <label>@Localizer["preferred websites:"]</label>
-    <select name="culture" on-change="this.form.submit()" asp-items="siteItems"></select>
+    <select name="ReferenceWebsite" on-change="this.form.submit()" asp-items="siteItems"></select>
     <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
   </form>
 </div>

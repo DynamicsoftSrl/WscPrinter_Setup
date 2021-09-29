@@ -45,6 +45,18 @@ namespace WscPrinter_Setup {
       // seems ncessary for the injectionof the logger...
       services.AddLogging(config => config.AddSimpleConsole());
 
+      //
+      // session state, quick solution: config
+      services.AddDistributedMemoryCache();
+      services.AddSession(options =>
+      {
+        options.IdleTimeout = TimeSpan.FromSeconds(10);
+        options.Cookie.HttpOnly = true;
+        options.Cookie.IsEssential = true;
+      });
+
+
+
 
       // 
       // mvc-razor-api test start
@@ -143,6 +155,11 @@ namespace WscPrinter_Setup {
       app.UseRouting();
 
       app.UseAuthorization();
+
+      // session state enabler
+      app.UseSession();
+
+
 
       app.UseEndpoints(endpoints => {
 
