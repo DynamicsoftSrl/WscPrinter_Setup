@@ -13,13 +13,13 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step03_products_sold
   {
     UserProfile theWalkingUser { get; set;  }
     public void OnGet() {
-      this.theWalkingUser = SessionHelper.GetObjectFromJson<UserProfile>(HttpContext.Session, "USER_PROFILE", new UserProfile());
+      this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
     }
 
     public void OnPost(UserProfile customer) {
-      this.theWalkingUser = SessionHelper.GetObjectFromJson<UserProfile>(HttpContext.Session, "USER_PROFILE", new UserProfile());
+      this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.CompanyType = customer.CompanyType;
-      SessionHelper.SetObjectAsJson(HttpContext.Session, "USER_PROFILE", this.theWalkingUser);
+      HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
   }
 }

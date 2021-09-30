@@ -14,9 +14,9 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step02_company_type {
     public void OnGet() {
     }
     public void OnPostSubmit(string customer_company_type) {
-      this.theWalkingUser = SessionHelper.GetObjectFromJson<UserProfile>(HttpContext.Session, "USER_PROFILE", new UserProfile());
+      this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.CompanyType = customer_company_type;
-      SessionHelper.SetObjectAsJson(HttpContext.Session, "USER_PROFILE", this.theWalkingUser);
+      HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
   }
 }

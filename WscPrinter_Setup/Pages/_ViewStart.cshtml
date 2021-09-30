@@ -1,3 +1,8 @@
 ﻿@{
+  var routeUrl = ViewContext.RouteData.Values["Page"].ToString();
+  if (routeUrl.Contains("Step")) {
+    Layout = "_Layout_Step";
+  } else {
     Layout = "_Layout";
+  }
 }

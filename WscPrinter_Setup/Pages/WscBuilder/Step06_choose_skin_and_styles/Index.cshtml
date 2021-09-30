@@ -17,14 +17,22 @@
 </div>-->
 <p>@Localizer["your preferred skin"]</p>
 <div>
-  <div style="border:2px solid ">one</div>
-  <div style="border:2px solid ">two</div>
-  <div style="border:2px solid ">three</div>
+  <div style="border:2px solid " onclick="goToSeven(1)">one</div>
+  <div style="border:2px solid " onclick="goToSeven(2)">two</div>
+  <div style="border:2px solid " onclick="goToSeven(3)">three</div>
 </div>
 <div>
-  <div style="border:2px solid ">four</div>
-  <div style="border:2px solid ">five</div>
-  <div style="border:2px solid ">six</div>
+  <div style="border:2px solid " onclick="goToSeven(4)">four</div>
+  <div style="border:2px solid " onclick="goToSeven(5)">five</div>
+  <div style="border:2px solid " onclick="goToSeven(6)">six</div>
 </div>
 
-<a asp-page="/WscBuilder/Step07_choose_layout/Index">Click</a>
+
+
+<script>
+  function goToSeven(chosenSkin, chosenStyle) {
+    document.location.href = `/WscBuilder/Step07_choose_layout/Index?skin=${chosenSkin}`;
+    return false;
+  }
+</script>
+<!-- <a asp-page="/WscBuilder/Step07_choose_layout/Index">Click</a>-->

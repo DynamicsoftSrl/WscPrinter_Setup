@@ -50,7 +50,7 @@ namespace WscPrinter_Setup {
       services.AddDistributedMemoryCache();
       services.AddSession(options =>
       {
-        options.IdleTimeout = TimeSpan.FromSeconds(10);
+        options.IdleTimeout = TimeSpan.FromMinutes(20);
         options.Cookie.HttpOnly = true;
         options.Cookie.IsEssential = true;
       });

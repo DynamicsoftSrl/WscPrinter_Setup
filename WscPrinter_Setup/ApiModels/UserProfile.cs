@@ -13,5 +13,6 @@ namespace WscPrinter_Setup.ApiModels {
     public string ProductsSold { get; set; }
     public string CompanyType { get; set; }
     public string CompanyLogo { get; set; }
+    public string CompanyLogoData { get; set; }
   }
 }

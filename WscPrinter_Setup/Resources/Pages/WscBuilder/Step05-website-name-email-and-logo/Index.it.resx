@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add your company logo if you like..." xml:space="preserve">
+    <value>Aggiungi il logo della tua societa' se vuoi...</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Conferma</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>email</value>
   </data>
+  <data name="File upload completed" xml:space="preserve">
+    <value>Salvataggio del file completato</value>
+  </data>
   <data name="insert your data" xml:space="preserve">
     <value>Inserisci i tuoi dati</value>
+  </data>
+  <data name="Load file" xml:space="preserve">
+    <value>Carica immagine (max 2 MB)</value>
+  </data>
+  <data name="Problems loading file" xml:space="preserve">
+    <value>Problemi durante il caricamento del file</value>
   </data>
   <data name="Tell us a little about you" xml:space="preserve">
     <value>Dicci qualcosa su di te</value>

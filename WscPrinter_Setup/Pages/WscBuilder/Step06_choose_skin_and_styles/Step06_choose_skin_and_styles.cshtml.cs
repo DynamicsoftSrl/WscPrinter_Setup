@@ -14,11 +14,11 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step06_choose_skin_and_styles {
     public void OnGet() {
     }
     public void OnPost(UserProfile customer) {
-      this.theWalkingUser = SessionHelper.GetObjectFromJson<UserProfile>(HttpContext.Session, "USER_PROFILE", new UserProfile());
+      this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.SiteName = customer.SiteName;
       this.theWalkingUser.UserEmail = customer.UserEmail;
       this.theWalkingUser.CompanyLogo = customer.CompanyLogo;
-      SessionHelper.SetObjectAsJson(HttpContext.Session, "USER_PROFILE", this.theWalkingUser);
+      HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
   }
 }

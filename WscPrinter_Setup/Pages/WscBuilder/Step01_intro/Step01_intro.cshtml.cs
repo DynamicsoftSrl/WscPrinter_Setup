@@ -12,7 +12,7 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step01_intro
   public class Step01IntroModel : PageModel {
     UserProfile theWalkingUser;
     public void OnGet() {
-      this.theWalkingUser = SessionHelper.GetObjectFromJson<UserProfile>(HttpContext.Session, "USER_PROFILE", new UserProfile());
+      this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
     }
   }
 }

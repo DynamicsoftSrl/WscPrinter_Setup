@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace WscPrinter_Setup.Libs.Session {
-  public static class SessionHelper {
+  public static class SessionExtensions {
     public static void SetObjectAsJson(this ISession session, string key, object value) {
       var options = new JsonSerializerOptions { WriteIndented = true };
       string theSrzdObj = JsonSerializer.Serialize(value, options);
