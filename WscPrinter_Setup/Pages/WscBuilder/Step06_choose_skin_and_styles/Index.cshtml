@@ -2,9 +2,21 @@
 @model WscPrinter_Setup.Pages.WscBuilder.Step06_choose_skin_and_styles.Step06ChooseSkinAndStylesModel
 @{
 }
+<style>
+
+  .divbckimg {
+    background-size: contain;
+    border: 2px solid;
+    width: 300px;
+    height: 300px;
+    background: no-repeat center center;
+    background-size: contain;
+    /* background-repeat: no-repeat; */
+  }
+</style>
 
 <h1>Step 6</h1>
-<!-- <p>@Localizer["your preferred style"]</p>
+<!-- <p>@Localizer["Choose your preferred skin/style"]</p>
 <div>
   <div style="border:2px solid ">one</div>
   <div style="border:2px solid ">two</div>
@@ -17,14 +29,32 @@
 </div>-->
 <p>@Localizer["your preferred skin"]</p>
 <div>
-  <div style="border:2px solid " onclick="goToSeven(1)">one</div>
-  <div style="border:2px solid " onclick="goToSeven(2)">two</div>
-  <div style="border:2px solid " onclick="goToSeven(3)">three</div>
+  <a href="#" onclick="goToSeven(1);">
+    <div class="divbckimg" style="background-image: url('/img/Skins/Skin1.jpg')">
+    </div>
+  </a>
+  <a href="#" onclick="goToSeven(2);">
+    <div class="divbckimg" style="background-image: url('/img/Skins/Skin2.jpg')">
+    </div>
+  </a>
+  <a href="#" onclick="goToSeven(3);">
+    <div class="divbckimg" style="background-image: url('/img/Skins/Skin3.jpg')">
+    </div>
+  </a>
 </div>
 <div>
-  <div style="border:2px solid " onclick="goToSeven(4)">four</div>
-  <div style="border:2px solid " onclick="goToSeven(5)">five</div>
-  <div style="border:2px solid " onclick="goToSeven(6)">six</div>
+  <a href="#" onclick="goToSeven(4);">
+    <div class="divbckimg" style="background-image: url('/img/Skins/Skin4.jpg')">
+    </div>
+  </a>
+  <a href="#" onclick="goToSeven(5);">
+    <div class="divbckimg" style="background-image: url('/img/Skins/Skin5.jpg')">
+    </div>
+  </a>
+  <a href="#" onclick="goToSeven(6);">
+    <div class="divbckimg" style="background-image: url('/img/Skins/Skin6.jpg')">
+    </div>
+  </a>
 </div>
 
 

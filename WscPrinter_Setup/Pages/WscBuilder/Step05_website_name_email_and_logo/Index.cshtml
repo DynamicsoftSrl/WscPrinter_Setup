@@ -12,12 +12,12 @@
         method="post" class="form-horizontal" role="form">
     <input type="text" name="SiteName" id="id_websitename" /> <label for="id_websitename">@Localizer["website name"]</label><br />
     <input type="email" name="UserEmail" id="id_email" /> <label for="id_email">@Localizer["email"]</label><br />
-    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
+    <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
   </form>
 </div>
-<div onclick="toggleVisible('if_formImage')">
-  <p>@Localizer["Add your company logo if you like..."]</p>
-  <div id="if_formImage" disabled="true">
+<div >
+  <button class="btn btn-secondary" onclick="toggleVisible('id_formImage')">@Localizer["Add your company logo if you like..."]</button>
+  <div id="id_formImage" style="display: none;">
     <form enctype="multipart/form-data" method="post" onsubmit="AJAXSubmit(this);return false;">
       <dl>
         <dt>
@@ -34,10 +34,16 @@
     </form>
     <p><img id="output" width="50" /></p>
   </div>
+</div><br /><br />
+<div>
+  <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Confirm"]</button>
+
 </div>
 <script>
   "use strict";
-
+  function submitAll() {
+    document.getElementById("selectSitenameEmailLogo").submit();
+  } 
   function AJAXSubmit(oFormElement) {
     if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
       alert("insert file name...");
@@ -55,10 +61,12 @@
   }
   function loadFile(event) {
     var image = document.getElementById('output');
+    document.getElementById("id_CompanyLogo").value = event.target.files[0];
     image.src = URL.createObjectURL(event.target.files[0]);
   };
   function toggleVisible(psdId) {
-    document.getElementById(psdId).disabled = !document.getElementById(psdId).disabled;
+    var elem = document.getElementById(psdId);
+    elem.style.display = (elem.style.display === 'none') ? 'block' :'none';
   }
 </script>
 
