@@ -6,6 +6,10 @@
       , new SelectListItem { Value = "RTF", Text = "rotofortitorni"  }
       , new SelectListItem { Value = "GRF", Text = "grafica"  }
       , new SelectListItem { Value = "PLS", Text = "poli lembo stratigrafica"  }
+      , new SelectListItem { Value = "KRT", Text = "Kilo paccio femorilica"  }
+      , new SelectListItem { Value = "PRT", Text = "pattu remo trebisondica"  }
+      , new SelectListItem { Value = "TPS", Text = "trapparessa"  }
+      , new SelectListItem { Value = "CCC", Text = "Caciucco"  }
   };
 }
 
@@ -16,7 +20,13 @@
   <form id="selectCompanyType" asp-page="/WscBuilder/Step03_products_sold/Index"
         method="post" class="form-horizontal" role="form">
     <label>@Localizer["Company Type:"]</label>
-    <select name="CompanyType" on-change="this.form.submit()" asp-items="socItems"></select>
+    <select name="CompanyTypeSel" on-change="this.form.submit()" asp-items="socItems"></select><br/>
+
+
+    @for (var i = 0; i < 8; i++) {
+      <input name="CompanyType" type="checkbox" value="@socItems[i].Value" /> @socItems[i].Text<br />
+    }
+
     <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
   </form>
 </div>

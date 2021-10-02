@@ -36,11 +36,14 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step05_website_name_email_and_logo {
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
 
-
-    public async Task<IActionResult> OnPostUploadAsync() {
+    //
+    // https://stackoverflow.com/questions/61223339/multiple-submit-buttons-in-razor-pages-not-able-to-find-handler-pagenamehandler
+    public async Task /* Task<IActionResult> */ OnPostUploadAsync() {
       this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       using (var memoryStream = new MemoryStream()) {
         await FileUpload.FormFile.CopyToAsync(memoryStream);
+
+        string fileName = FileUpload.FormFile.FileName;
 
         // Upload the file if less than 2 MB
         if (memoryStream.Length < 2097152) {
@@ -49,13 +52,14 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step05_website_name_email_and_logo {
           };
           file.B64Content = Convert.ToBase64String(file.Content);
           this.theWalkingUser.CompanyLogoData = file.B64Content;
+          this.theWalkingUser.CompanyLogo = fileName;
           HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
         } else {
           ModelState.AddModelError("File", "The file is too large.");
         }
       }
-
-      return Page();
+      await Task.CompletedTask;
+      // return Page();
     }
 
 

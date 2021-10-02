@@ -98,7 +98,7 @@ namespace WscPrinter_Setup {
       // 
       // mvc-razor-api test end
       // 
-
+      services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
       // 
       // for localization

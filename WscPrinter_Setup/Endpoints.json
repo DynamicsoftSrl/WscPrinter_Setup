@@ -1,4 +1,5 @@
 {
   "EndpointsUrl": "http://localhost",
-  "ApiServerToken": "ciucciamiIlCalzino"
+  "ApiServerToken": "wsc1",
+  "ServicePath": "/backofficeapi/templatebuildercontroller/createcustomertemplate"
 }

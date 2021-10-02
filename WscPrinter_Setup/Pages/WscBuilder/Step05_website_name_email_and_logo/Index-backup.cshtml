@@ -1,0 +1,88 @@
+﻿@page
+@model WscPrinter_Setup.Pages.WscBuilder.Step05_website_name_email_and_logo.Step05WebsiteNameEmailAndLogoModel
+@{
+}
+
+
+
+
+
+
+
+<h1>Step 5</h1>
+<p>@Localizer["Tell us a little about you"]</p>
+
+<div>
+  <p>@Localizer["insert your data"]</p>
+  <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
+        method="post" class="form-horizontal" role="form">
+    <input type="text" name="SiteName" id="id_websitename" /> <label for="id_websitename">@Localizer["website name"]</label><br />
+    <input type="email" name="UserEmail" id="id_email" /> <label for="id_email">@Localizer["email"]</label><br />
+    <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
+  </form>
+</div>
+<div >
+  <button class="btn btn-secondary" onclick="toggleVisible('id_formImage')">@Localizer["Add your company logo if you like..."]</button>
+  <div id="id_formImage" style="display: none;">
+    <form enctype="multipart/form-data" method="post" onsubmit="AJAXSubmit(this);return false;">
+      <dl>
+        <dt>
+          <label asp-for="FileUpload.FormFile"></label>
+        </dt>
+        <dd>
+          <input asp-for="FileUpload.FormFile" type="file" onchange="loadFile(event)">
+        </dd>
+      </dl>
+      <button asp-page-handler="upload" class="btn btn-secondary" type="submit" value="Upload">@Localizer["Load file"]</button>
+      <div style="margin-top:15px">
+        <output name="result"></output>
+      </div>
+    </form>
+    <p><img id="output" width="50" /></p>
+  </div>
+</div><br /><br />
+<div>
+  <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Confirm"]</button>
+
+</div>
+<script>
+  "use strict";
+  function submitAll() {
+    document.getElementById("selectSitenameEmailLogo").submit();
+  } 
+  function AJAXSubmit(oFormElement) {
+    if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
+      alert("insert file name...");
+      return false;
+    };
+
+    var oReq = new XMLHttpRequest();
+
+    oReq.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
+
+    oReq.onload = function(e) {
+    oFormElement.elements.namedItem("result").value =
+      this.status === 200 ?
+      '@Localizer["File upload completed"]' : '@Localizer["Confirm"]';
+    };
+    oReq.open("post", oFormElement.action);
+    oReq.send(new FormData(oFormElement));
+  }
+  function loadFile(event) {
+    var image = document.getElementById('output');
+    document.getElementById("id_CompanyLogo").value = event.target.files[0];
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
+  function toggleVisible(psdId) {
+    var elem = document.getElementById(psdId);
+    elem.style.display = (elem.style.display === 'none') ? 'block' :'none';
+  }
+
+
+ 
+
+</script>
+
+
+
+<!--<a asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index">Click</a>-->

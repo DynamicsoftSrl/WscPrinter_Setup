@@ -6,6 +6,10 @@
       , new SelectListItem { Value = "NYT", Text = "niu iorc taims"  }
       , new SelectListItem { Value = "CDS", Text = "goppiere della serra"  }
       , new SelectListItem { Value = "IMN", Text = "Ilma tino dina"  }
+      , new SelectListItem { Value = "RPB", Text = "Ripubblica"  }
+      , new SelectListItem { Value = "MSS", Text = "Il Massaggero"  }
+      , new SelectListItem { Value = "CEC", Text = "Carciofi e contorni"  }
+      , new SelectListItem { Value = "CAT", Text = "Carriole a turbo"  }
   };
 }
 
@@ -16,7 +20,15 @@
   <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
         method="post" class="form-horizontal" role="form">
     <label>@Localizer["preferred websites:"]</label>
-    <select name="ReferenceWebsite" on-change="this.form.submit()" asp-items="siteItems"></select>
+    <select name="ReferenceWebsiteSel" on-change="this.form.submit()" asp-items="siteItems"></select><br/>
+
+
+    @for (var i = 0; i < 8; i++) {
+      <input name="ReferenceWebsite" type="checkbox" value="@siteItems[i].Value" /> @siteItems[i].Text<br />
+    }
+
+
+
     <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
   </form>
 </div>

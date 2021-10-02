@@ -34,7 +34,7 @@
   }
 
     #gallery img {
-      width: 35px;
+      width: 150px;
       margin-bottom: 10px;
       margin-right: 10px;
       vertical-align: middle;
@@ -77,47 +77,52 @@
 <div>
   <button class="btn btn-secondary" onclick="toggleVisible('id_formImage')">@Localizer["Add your company logo if you like..."]</button>
   <div id="id_formImage" style="display: none;">
+    <p>MECH 1</p>
+    <form id="formfile1"  enctype="multipart/form-data">
+      <!--method="post" onsubmit="AJAXSubmit(this)">-->
+      <dl>
+        <dt>
+          <label asp-for="FileUpload.FormFile"></label>
+        </dt>
+        <dd>
+          <input asp-for="FileUpload.FormFile" type="file" onchange="loadFile(event)">
+        </dd>
+      </dl>
+      <button asp-page-handler="Upload" class="btn btn-secondary" type="button" value="Upload" onclick="submitFormImage1(this)">@Localizer["Load file"]</button>
+      <div style="margin-top:15px">
+        <output name="result"></output>
+      </div>
+    </form>
+    <p><img id="smallPreview" width="50" /></p>
+    <br />
+    <p>MECH 2</p>
     <div id="drop-area">
-      <form class="my-form" id="formfile0">
+      <form class="my-form">
         <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
-        <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event,0)">
-        <!-- <label class="button" for="fileElem">Select some files</label>-->
+        <input type="file" id="fileElem" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFiles(event)">
+        <label class="button" for="fileElem">Select some files</label>
       </form>
-      <progress id="progress-bar" max=100 value=0></progress>
-      <div id="gallery" />
     </div>
-    <div style="margin-top:15px">
-      <output name="result" id="result_out"></output>
-    </div>
-
+    <div id="gallery"></div>
   </div>
 </div>
 <br />
 <br />
 <div>
   <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Confirm"]</button>
+
 </div>
-
-
 <script>
   "use strict";
-  //
-  // inspired by (mixed):
-  // https://codepen.io/joezimjs/pen/yPWQbd
-  // https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
-  // https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads?view=aspnetcore-5.0
-  // 
-  //
-  //
   function submitAll() {
     document.getElementById("selectSitenameEmailLogo").submit();
   }
-  function submitFormImage0(evt) {
+  function submitFormImage1(evt) {
     console.log(evt);
-    let theForm = document.getElementById("formfile0");
+    let theForm = document.getElementById("formfile1");
     AJAXSubmit(theForm);
   }
-  function AJAXSubmit(oFormElement, idFile) {
+  function AJAXSubmit(oFormElement) {
     if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
       alert("insert file name...");
       return false;
@@ -126,22 +131,21 @@
     var oReq = new XMLHttpRequest();
     oReq.open("post", `${oFormElement.action}?handler=Upload`);
 
-    // PROGRESS BAR EVT LISTENER
-    oReq.upload.addEventListener("progress", function (e) {
-      updateProgress(idFile, (e.loaded * 100.0 / e.total) || 100)
-    })
-
-
     // oReq.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
     oReq.setRequestHeader("XSRF-TOKEN", '@token');
 
-    oReq.onload = function (e) {
-      document.getElementById("result_out").value =
+    oReq.onload = function(e) {
+    oFormElement.elements.namedItem("result").value =
       this.status === 200 ?
       '@Localizer["File upload completed"]' : '@Localizer["Confirm"]';
     };
     oReq.send(new FormData(oFormElement));
   }
+  function loadFile(event) {
+    var image = document.getElementById('smallPreview');
+    document.getElementById("id_CompanyLogo").value = event.target.files[0];
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
   function toggleVisible(psdId) {
     var elem = document.getElementById(psdId);
     elem.style.display = (elem.style.display === 'none') ? 'block' :'none';
@@ -153,16 +157,12 @@
   // drop area
   //
   let dropArea = null;
-  let uploadProgress = [];
-  let filesDone = 0
-  let filesToDo = 0
-  let progressBar = null; 
   document.addEventListener('DOMContentLoaded', (event) => {
     //
-    var form = document.getElementById("formfile0");
-    progressBar = document.getElementById('progress-bar')
+    var form = document.getElementById("formfile1");
     function handleForm(event) {
-      preventDefaults(e);
+      event.preventDefault();
+      // AJAXSubmit(event);
     }
     form.addEventListener('submit', handleForm);
     //
@@ -184,25 +184,6 @@
   })
   //
   //
-  // progress
-  //
-  function initializeProgress(numFiles) {
-    progressBar.value = 0
-    uploadProgress = []
-
-    for (let i = numFiles; i > 0; i--) {
-      uploadProgress.push(0)
-    }
-  }
-
-  function updateProgress(fileNumber, percent) {
-    uploadProgress[fileNumber] = percent
-    let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
-    progressBar.value = total
-  }
-
-  //
-  //
   function preventDefaults(e) {
     e.preventDefault()
     e.stopPropagation()
@@ -219,32 +200,42 @@
 
     handleFiles(files)
   }
-  function handleFile(file, idFile) {
-    submitFormImage0(file, idFile);
-    previewFile0(file.target.files[0]);
-  }
   function handleFiles(files) {
-    files = [...files];
-    initializeProgress(files.length);
-    files.forEach((el, idx) => handleFile(el, idx));
+    files = [...files]
+    files.forEach(uploadFile)
+    files.forEach(previewFile)
   }
+  function uploadFile(file) {
+    let url = '@Url.Page("", "Upload")';
+    let theHeaders = new Headers({
+      'XSRF-TOKEN': '@token',
+      'Content-Type': 'multipart/form-data'
+    });
 
+    let formData = new FormData();
+    // .append('file', file);
+    formData.append('file', file);
 
-  //
-  // previews ....
-  //
-
-
-  function previewFile0(file) {
-    previewFileOnEl(file, 'gallery');
+    fetch(url, {
+      method: 'POST',
+      body: formData,
+      headers: theHeaders
+    })
+    .then(() => {
+      alert( "OK" );
+    })
+    .catch((excp) => {
+      alert( "KO" );
+      console.error(excp);
+    });
   }
-  function previewFileOnEl(file, elemId) {
+  function previewFile(file) {
     let reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = function () {
       let img = document.createElement('img')
       img.src = reader.result
-      document.getElementById(elemId).appendChild(img)
+      document.getElementById('gallery').appendChild(img)
     }
   }
 
