@@ -1,28 +1,29 @@
 ﻿@{
-    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
-    var cultureItems = LocOptions.Value.SupportedUICultures
-        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
-        .ToList();
-    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~" : $"~{Context.Request.Path.Value}";
-
+  var requestCulture = Context.Features.Get<IRequestCultureFeature>();    
+  var cultureItems = LocOptions.Value.SupportedUICultures
+      .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+      .ToList();
+  var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~" : $"~{Context.Request.Path.Value}";
 }
+<style>
+  .form-control-xs {
+    height: calc(1em + .375rem + 2px) !important;
+    padding: .125rem .25rem !important;
+    font-size: .75rem !important;
+    line-height: 1.5;
+    border-radius: .2rem;
+  }
+</style>
 
-<div title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
-    <form id="selectLanguage" asp-controller="LanguageManager"
-          asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
-          method="post" class="form-horizontal" role="form">
-        <label asp-for="@requestCulture.RequestCulture.UICulture.Name">@Localizer["Language:"]</label>
-        <select name="culture" on-change="this.form.submit()" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>
-        <!--
-        <select name="culture" asp-for="@requestCulture.RequestCulture.UICulture.Name">
-            <option selected disabled>@Localizer["Choose language"]</option>
-            @foreach (var theItem in cultureItems)
-            {
-                <option value="@theItem.Value" selected="@theItem.Selected">@theItem.Text</option>
-            }
-        </select>
-        -->
-        <button class="btn btn-secondary" type="submit">@Localizer["Change Language"]</button>
-    </form>
+<div title="@Localizer["Language"] - @System.Globalization.CultureInfo.CurrentUICulture">
+  <form class="form-control-xs form-horizontal" id="selectLanguage" method="post" role="form"
+        asp-controller="LanguageManager" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl">
+    <div class="logo form-control-xs">
+      <select class="form-control form-control-xs" onchange="this.form.submit()"
+              name="culture"  
+              asp-for="@requestCulture.RequestCulture.UICulture.Name" 
+              asp-items="cultureItems"></select>
+    </div>
+  </form>
 </div>
 

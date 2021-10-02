@@ -117,12 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="back to Home" xml:space="preserve">
-    <value>back to Home</value>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
     <comment>key=value in en (startup)</comment>
   </data>
-  <data name="Our Experiences" xml:space="preserve">
-    <value>Our Experiences</value>
+  <data name="Explore" xml:space="preserve">
+    <value>Explore</value>
     <comment>key=value in en (startup)</comment>
   </data>
   <data name="How does it work" xml:space="preserve">
@@ -131,5 +131,8 @@
   <data name="Privacy" xml:space="preserve">
     <value>Privacy</value>
     <comment>key=value in en (startup)</comment>
+  </data>
+  <data name="Start Now" xml:space="preserve">
+    <value>Start Now</value>
   </data>
 </root>

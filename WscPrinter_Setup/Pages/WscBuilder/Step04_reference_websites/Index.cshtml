@@ -11,29 +11,99 @@
       , new SelectListItem { Value = "CEC", Text = "Carciofi e contorni"  }
       , new SelectListItem { Value = "CAT", Text = "Carriole a turbo"  }
   };
+  ViewData["Title"] = "Step-4";
 }
 
-<h1>Step 4</h1>
-<p>@Localizer["Your preferred websites"]</p>
+<!--
+=============================================
+  WBUILDER - STEP 4
+==============================================
+-->
+<div class="wbuilder-page">
+  <div class="wbuilder-column-1 d-lg-flex align-items-center">
+    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+      <h2>Quali tra questi siti web   <br />  di stampa online <br /> ti piacciono? </h2>
+      <h6>@Localizer["Your preferred websites"]</h6>
 
-<div>
-  <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
-        method="post" class="form-horizontal" role="form">
-    <label>@Localizer["preferred websites:"]</label>
-    <select name="ReferenceWebsiteSel" on-change="this.form.submit()" asp-items="siteItems"></select><br/>
+    </div>
+  </div>
+  <div class="wbuilder-column-2 d-lg-flex align-items-center">
+    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+      <p class="text">Seleziona uno o pi&ugrave; siti  web  di stampa online che ti piacciono </p>
+      <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
+            method="post" class="form-horizontal" role="form">
 
-
-    @for (var i = 0; i < 8; i++) {
-      <input name="ReferenceWebsite" type="checkbox" value="@siteItems[i].Value" /> @siteItems[i].Text<br />
-    }
-
-
-
-    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
-  </form>
+        <div class="step-block">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pixartprinting" value="pixartprinting">
+                <label for="pixartprinting">Pixartprinting</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="flyeralarm" value="flyeralarm">
+                <label for="flyeralarm">Flyeralarm</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pressup" value="pressup">
+                <label for="pressup">Pressup</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="saxoprint" value="saxoprint">
+                <label for="saxoprint">Saxoprint</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="tictac" value="tictac">
+                <label for="tictac">TicTac</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="vistaprint" value="vistaprint">
+                <label for="vistaprint">Vistaprint</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="onlineprinters" value="onlineprinters">
+                <label for="onlineprinters">Onlineprinters</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="fasterprint" value="fasterprint">
+                <label for="fasterprint">Fasterprint</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea class="form-control" id="altro" placeholder="Inserisci altri siti web di stampa online se non presenti"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+          <!--<a href="#" class="theme-btn-nine">Continua</a>-->
+          <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-
-
-
-
-<!--<a asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index">Click</a>-->

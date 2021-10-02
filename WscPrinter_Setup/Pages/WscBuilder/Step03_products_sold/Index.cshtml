@@ -11,29 +11,115 @@
       , new SelectListItem { Value = "TTT", Text = "etichette"  }
       , new SelectListItem { Value = "PNN", Text = "pennarelli"  }
   };
+  ViewData["Title"] = "Step-3";
+
 }
 
-<h1>Step 3</h1>
-<p>@Localizer["tell us about the products you sell"]</p>
+<!--
+=============================================
+  WBUILDER - STEP 3
+==============================================
+-->
+<div class="wbuilder-page">
+  <div class="wbuilder-column-1 d-lg-flex align-items-center">
+    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+      <h2>Quali prodotti o servizi  <br /> di stampa vorresti <br />  vendere online?</h2>
+      <h6>@Localizer["tell us about the products you sell"]</h6>
+    </div>
+  </div>
+  <div class="wbuilder-column-2 d-lg-flex align-items-center">
+    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+      <p class="text">Seleziona uno o pi&ugrave; prodotti che vorresti vendere online </p>
+      <form id="selectProductsSold" asp-page="/WscBuilder/Step04_reference_websites/Index"
+            method="post" class="form-horizontal" role="form">
 
-<div>
-  <form id="selectProductsSold" asp-page="/WscBuilder/Step04_reference_websites/Index"
-        method="post" class="form-horizontal" role="form">
-    <label>@Localizer["Products Type:"]</label>
-    <select name="ProductsSoldSel" on-change="this.form.submit()" asp-items="prodItems"></select><br/>
+        <div class="step-block">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="prodotti_commerciali" value="prodotti_commerciali">
+                <label for="prodotti_commerciali">Prodotti commerciali</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="prodotti_editoriali" value="prodotti_editoriali">
+                <label for="prodotti_editoriali">Prodotti editoriali</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="prodotti_grande_formato" value="prodotti_grande_formato">
+                <label for="prodotti_grande_formato">Prodotti grande formato</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="espositori" value="espositori">
+                <label for="espositori">Espositori</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="prodotti_packaging" value="prodotti_packaging">
+                <label for="prodotti_packaging">Prodotti di packaging</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="etichette" value="etichette">
+                <label for="etichette">Etichette</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="prodotti_serigrafici" value="prodotti_serigrafici">
+                <label for="prodotti_serigrafici">Prodotti serigrafici</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="gadget_personalizzati" value="gadget_personalizzati">
+                <label for="gadget_personalizzati">Gadget personalizzati</label>
+              </div>
+            </div>
+          </div>
 
-
-    @for (var i = 0; i < 8; i++) {
-      <input name="ProductsSold" type="checkbox" value="@prodItems[i].Value" /> @prodItems[i].Text<br />
-    }
-
-
-    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
-  </form>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="abbigliamento" value="abbigliamento">
+                <label for="abbigliamento">Abbigliamento </label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="servizi" value="servizi">
+                <label for="servizi">Servizi di vario genere</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea class="form-control" id="OtherProductsSold" placeholder="Inserisci altri prodotti o servizi se non presenti"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+          <!--<a href="#" class="theme-btn-nine">Continua</a>-->
+          <button class="btn btn-secondary" type="submit">@Localizer["Continue"]</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-<!--<a asp-page="/WscBuilder/Step04_reference_websites/Index">@Localizer["Go to next step"]</a>-->

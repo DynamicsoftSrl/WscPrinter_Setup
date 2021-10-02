@@ -11,24 +11,98 @@
       , new SelectListItem { Value = "TPS", Text = "trapparessa"  }
       , new SelectListItem { Value = "CCC", Text = "Caciucco"  }
   };
+  ViewData["Title"] = "Step-2";
+
 }
+<!--
+=============================================
+  WBUILDER - STEP 2
+==============================================
+-->
+<div class="wbuilder-page">
+  <div class="wbuilder-column-1 d-lg-flex align-items-center">
+    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+      <h2>Di cosa si occupa <br /> la tua azienda?</h2>
+      <h6>@Localizer["tell us your company type"]</h6>
+    </div>
+  </div>
+  <div class="wbuilder-column-2 d-lg-flex align-items-center">
+    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+      <p class="text">Seleziona uno o pi&ugrave; settori di tuo interesse </p>
+      <form id="selectCompanyType" asp-page="/WscBuilder/Step03_products_sold/Index" method="post" class="form-horizontal" role="form">
 
-<h1>Step 2</h1>
-<p>@Localizer["tell us your company type"]</p>
+        <div class="step-block">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_offset" value="stampa_offset">
+                <label for="stampa_offset">Stampa Offset</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_digitale" value="stampa_digitale">
+                <label for="stampa_digitale">Stampa digitale</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_wide_format" value="stampa_wide_format">
+                <label for="stampa_wide_format">Stampa Wide format</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_etichette" value="stampa_etichette">
+                <label for="stampa_etichette">Stampa etichette</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="packaging" value="packaging">
+                <label for="packaging">Packaging</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_promozionale" value="stampa_promozionale">
+                <label for="stampa_promozionale">Stampa promozionale</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="cartotecnica" value="cartotecnica">
+                <label for="cartotecnica">Cartotecnica</label>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_tessile" value="stampa_tessile">
+                <label for="stampa_tessile">Stampa tessile</label>
+              </div>
+            </div>
+          </div>
 
-<div>
-  <form id="selectCompanyType" asp-page="/WscBuilder/Step03_products_sold/Index"
-        method="post" class="form-horizontal" role="form">
-    <label>@Localizer["Company Type:"]</label>
-    <select name="CompanyTypeSel" on-change="this.form.submit()" asp-items="socItems"></select><br/>
-
-
-    @for (var i = 0; i < 8; i++) {
-      <input name="CompanyType" type="checkbox" value="@socItems[i].Value" /> @socItems[i].Text<br />
-    }
-
-    <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
-  </form>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea class="form-control" id="OtherCompanyType" placeholder="Inserisci altri settori se non presenti"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+          <!-- a href="#" class="theme-btn-nine">Continua</a>-->
+          <button class="btn btn-secondary" type="submit">@Localizer["Continue"]</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-
-<!-- <a asp-page="/WscBuilder/Step03_products_sold/Index">@Localizer["Go to next step"]</a>-->

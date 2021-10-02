@@ -123,6 +123,9 @@
   <data name="Let's start" xml:space="preserve">
     <value>Let's start</value>
   </data>
+  <data name="Start Now" xml:space="preserve">
+    <value>Start Now</value>
+  </data>
   <data name="Start the process" xml:space="preserve">
     <value>Start the process</value>
   </data>

@@ -130,4 +130,7 @@
   <data name="tell us your company type" xml:space="preserve">
     <value>tell us your company type</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
 </root>

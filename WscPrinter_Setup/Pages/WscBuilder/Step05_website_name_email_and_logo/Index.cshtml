@@ -4,6 +4,7 @@
 @inject IAntiforgery antiforgery
 @{
   var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+  ViewData["Title"] = "Step-5";
 }
 
 <style>
@@ -58,30 +59,83 @@
   }
 </style>
 
+<!--
+=============================================
+  WBUILDER - STEP 5
+==============================================
+-->
+<div class="wbuilder-page">
+  <div class="wbuilder-column-1 d-lg-flex align-items-center">
+    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+      <h2>Aggiungi queste informazioni basiche   <br />  per il tuo nuovo <br />sito Web To Print </h2>
+    </div>
+  </div>
+  <div class="wbuilder-column-2 d-lg-flex align-items-center">
+    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+      <p class="text"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
+      <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
+            method="post" class="form-horizontal" role="form">
+        <div class="step-block">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <label for="id_websitename">@Localizer["website name"]</label><br />
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <label for="id_email">@Localizer["email"]</label><br />
+                <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="text" autocomplete="nope" name="username" id="id_username" placeholder="Scrivi il tuo nome" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" type="tel" autocomplete="nope" name="telefono" id="id_telefono" placeholder="Scrivi il tuo numero di telefono" required>
+              </div>
+            </div>
 
-
-
-
-<h1>Step 5</h1>
-<p>@Localizer["Tell us a little about you"]</p>
-
-<div>
-  <p>@Localizer["insert your data"]</p>
-  <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
-        method="post" class="form-horizontal" role="form">
-    <input type="text" name="SiteName" id="id_websitename" /> <label for="id_websitename">@Localizer["website name"]</label><br />
-    <input type="email" name="UserEmail" id="id_email" /> <label for="id_email">@Localizer["email"]</label><br />
-    <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
-  </form>
+          </div>
+        </div>
+        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+          <button class="theme-btn-nine">Continua</button>
+        </div>
+        <div class="wbuilder-terms pt-20">
+          Cliccando su continua, io accetto la normativa sulla <a href="https://www.dynamicsoft.it/informativa-privacy/" target="_blank">Privacy Policy </a>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+
+
+<br />
+<br />
+<div>
+  <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Confirm"]</button>
+</div>
+
+
 <div>
   <button class="btn btn-secondary" onclick="toggleVisible('id_formImage')">@Localizer["Add your company logo if you like..."]</button>
   <div id="id_formImage" style="display: none;">
     <div id="drop-area">
       <form class="my-form" id="formfile0">
         <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
-        <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event,0)">
-        <!-- <label class="button" for="fileElem">Select some files</label>-->
+        <div class="col-sm-12">
+          <div class="form-group form-group-2">
+            <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event,0)" hidden="">
+            <label class="custom-file" for="logo_upload"><img src="/images/website/upload_logo.png" alt="" class="img-responsive" onclick="clickTheFileControl()"><p>Clicca qui per caricare il tuo logo </p></label>
+          </div>
+        </div>
+
+
+
       </form>
       <progress id="progress-bar" max=100 value=0></progress>
       <div id="gallery" />
@@ -92,21 +146,23 @@
 
   </div>
 </div>
-<br />
-<br />
-<div>
-  <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Confirm"]</button>
-</div>
+
 
 
 <script>
   "use strict";
   //
+  // file input is hidden, so it is not clickable....
+  function clickTheFileControl() {
+    document.getElementById("FileUpload_FormFile").click();
+  }
+  //
+  //
   // inspired by (mixed):
   // https://codepen.io/joezimjs/pen/yPWQbd
   // https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
   // https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads?view=aspnetcore-5.0
-  // 
+  //
   //
   //
   function submitAll() {
@@ -156,7 +212,7 @@
   let uploadProgress = [];
   let filesDone = 0
   let filesToDo = 0
-  let progressBar = null; 
+  let progressBar = null;
   document.addEventListener('DOMContentLoaded', (event) => {
     //
     var form = document.getElementById("formfile0");
@@ -251,5 +307,3 @@
 </script>
 
 
-
-<!--<a asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index">Click</a>-->

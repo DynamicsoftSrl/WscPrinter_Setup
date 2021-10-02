@@ -1,6 +1,7 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.Step06_choose_skin_and_styles.Step06ChooseSkinAndStylesModel
 @{
+  ViewData["Title"] = "Step-6";
 }
 <style>
 
@@ -66,4 +67,83 @@
     return false;
   }
 </script>
-<!-- <a asp-page="/WscBuilder/Step07_choose_layout/Index">Click</a>-->
+
+
+
+
+<!--
+=============================================
+  WBUILDER - STEP 6
+==============================================
+-->
+<div class="wbuilder-page">
+  <div class="wbuilder-column-1 d-lg-flex align-items-center">
+    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+      <h2>Scegli un tema <br />che ti piace  </h2>
+    </div>
+  </div>
+  <div class="wbuilder-column-2 d-lg-flex align-items-center">
+    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+      <p class="text"><b>Ecco alcuni temi che ti potrebbero interessare</b><br /> Puoi modificarlo o cambiarlo in seguito </p>
+      <form action="#">
+        <div class="step-block">
+          <div class="row ">
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_blue_dark" required="">
+                <label class="custom-control-label" for="classB_skin_blue_dark"><img src="/images/website/classB_skin_blue_dark.png" alt="" class="img-responsive"></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_blue_light" required="">
+                <label class="custom-control-label" for="classB_skin_blue_light"><img src="/images/website/classB_skin_blue_light.png" alt="" class="img-responsive"></span></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_green" required="">
+                <label class="custom-control-label" for="classB_skin_green"><img src="/images/website/classB_skin_green.png" alt="" class="img-responsive"></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_lime" required="">
+                <label class="custom-control-label" for="classB_skin_lime"><img src="/images/website/classB_skin_lime.png" alt="" class="img-responsive"></span></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_magenta" required="">
+                <label class="custom-control-label" for="classB_skin_magenta"><img src="/images/website/classB_skin_magenta.png" alt="" class="img-responsive"></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_red" required="">
+                <label class="custom-control-label" for="classB_skin_red"><img src="/images/website/classB_skin_red.png" alt="" class="img-responsive"></span></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_orange" required="">
+                <label class="custom-control-label" for="classB_skin_orange"><img src="/images/website/classB_skin_orange.png" alt="" class="img-responsive"></label>
+              </div>
+            </div>
+            <div class="col-sm-6 choose-skin">
+              <div class="custom-radio">
+                <input type="radio" name="donation-type" class="custom-control-input" id="classB_skin_yellow" required="">
+                <label class="custom-control-label" for="classB_skin_yellow"><img src="/images/website/classB_skin_yellow.png" alt="" class="img-responsive"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wbuilder-button mt-50" data-aos="fade-left" data-aos-duration="1200">
+          <a href="#" class="theme-btn-nine">Continua</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
