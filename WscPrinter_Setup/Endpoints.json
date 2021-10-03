@@ -1,5 +1,6 @@
 {
   "EndpointsUrl": "http://localhost",
   "ApiServerToken": "wsc1",
-  "ServicePath": "/backofficeapi/templatebuildercontroller/createcustomertemplate"
+  "ServicePath": "/backofficeapi/templatebuildercontroller/createcustomertemplate",
+  "CheckImgPath": "/backofficeapi/templatebuildercontroller/isreadyimagepreview"
 }

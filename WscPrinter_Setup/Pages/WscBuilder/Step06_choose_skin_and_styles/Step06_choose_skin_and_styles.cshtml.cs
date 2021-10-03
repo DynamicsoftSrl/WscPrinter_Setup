@@ -17,6 +17,8 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step06_choose_skin_and_styles {
       this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.SiteName = customer.SiteName;
       this.theWalkingUser.UserEmail = customer.UserEmail;
+      this.theWalkingUser.UserDeclaredName = customer.UserDeclaredName;
+      this.theWalkingUser.UserPhone = customer.UserPhone;
       // this.theWalkingUser.CompanyLogo = customer.CompanyLogo;
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }

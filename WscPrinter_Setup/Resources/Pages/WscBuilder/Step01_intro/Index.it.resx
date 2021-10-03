@@ -125,6 +125,9 @@
     <value>segui questo breve percorso, ti aiutera' a configurare il tuo sito</value>
     <comment>as above</comment>
   </data>
+  <data name="Start" xml:space="preserve">
+    <value>Inizia</value>
+  </data>
   <data name="Start the process" xml:space="preserve">
     <value>Inizia il processo</value>
   </data>

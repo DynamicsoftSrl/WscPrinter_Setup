@@ -19,6 +19,7 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step03_products_sold
     public void OnPost(UserProfile customer) {
       this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.CompanyType = customer.CompanyType;
+      this.theWalkingUser.OtherCompanyType = customer.OtherCompanyType;
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
   }

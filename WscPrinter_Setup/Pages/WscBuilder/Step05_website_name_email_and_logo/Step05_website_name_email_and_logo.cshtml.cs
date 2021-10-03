@@ -33,6 +33,7 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step05_website_name_email_and_logo {
     public void OnPost(UserProfile customer) {
       this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.ReferenceWebsite = customer.ReferenceWebsite;
+      this.theWalkingUser.OtherReferenceWebsite = customer.OtherReferenceWebsite;
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
 

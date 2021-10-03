@@ -17,6 +17,7 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step04_reference_websites
     public void OnPost(UserProfile customer) {
       this.theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
       this.theWalkingUser.ProductsSold = customer.ProductsSold;
+      this.theWalkingUser.OtherProductsSold = customer.OtherProductsSold;
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
   }

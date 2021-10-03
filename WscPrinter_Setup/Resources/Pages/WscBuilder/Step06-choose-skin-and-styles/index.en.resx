@@ -120,4 +120,7 @@
   <data name="Choose your preferred skin/style" xml:space="preserve">
     <value>Choose your preferred skin/style</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
 </root>

@@ -129,4 +129,7 @@
     <value>So this is your preferred one</value>
     <comment>as above</comment>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
 </root>

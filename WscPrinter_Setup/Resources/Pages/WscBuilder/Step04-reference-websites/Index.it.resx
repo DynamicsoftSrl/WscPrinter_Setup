@@ -120,6 +120,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Conferma</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continua</value>
+  </data>
   <data name="preferred websites:" xml:space="preserve">
     <value>Siti Preferiti</value>
   </data>

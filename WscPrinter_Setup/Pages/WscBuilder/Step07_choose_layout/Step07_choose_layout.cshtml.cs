@@ -13,8 +13,9 @@ using WscPrinter_Setup.Libs.Session;
 
 namespace WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout {
   public class Step07ChooseLayoutModel : PageModel {
-    private UserProfile theWalkingUser { get; set;  }
+    public UserProfile theWalkingUser { get; set;  }
     public List<WebsiteEntity> ResponseCacheAttributeFromServer { get; set; }
+    public JsonConf theApiServerConf { get; set; }
 
     public async Task OnGetAsync() {
 
@@ -22,12 +23,13 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout {
       string theSkin = HttpContext.Request.Query["skin"];
       this.theWalkingUser.TheSkin = theSkin;
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
-      JsonConf TR = this.getApiConf();
+      this.theApiServerConf = this.getApiConf();
       HttpClient theClient = new HttpClient();
-      this.theWalkingUser.AuthToken = TR.ApiServerToken;
-      string theUri = TR.EndpointsUrl + TR.ServicePath;
+      this.theWalkingUser.AuthToken = theApiServerConf.ApiServerToken;
+      string theUri = theApiServerConf.EndpointsUrl + theApiServerConf.ServicePath;
       UserProfile4Wsc theComObj = new UserProfile4Wsc(this.theWalkingUser);
       this.ResponseCacheAttributeFromServer = await WscBuilderServerEndPointsCallers.SendUserData(theComObj, theUri, theClient);
+      HttpContext.Session.SetObjectAsJson("API_GENERATED_WEBSITES", this.ResponseCacheAttributeFromServer);
 
     }
     private JsonConf getApiConf() {
@@ -39,10 +41,11 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout {
     }
   }
 
-  class JsonConf {
+  public class JsonConf {
     public string EndpointsUrl { get; set; }
     public string ApiServerToken { get; set; }
     public string ServicePath { get; set; }
+    public string CheckImgPath { get; set; }
 
   }
 }

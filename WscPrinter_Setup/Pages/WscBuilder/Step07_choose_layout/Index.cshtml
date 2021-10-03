@@ -1,5 +1,6 @@
 ﻿@page
 @using WscPrinter_Setup.ApiModels
+@using WscPrinter_Setup.Libs.Session
 @model WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout.Step07ChooseLayoutModel
 @{
   string theGuid1 = Guid.NewGuid().ToString();
@@ -8,10 +9,26 @@
   WebsiteEntity[] theItems = {
     new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
     , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
     , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
     , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
     , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
+    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+  };
+  if (Model.ResponseCacheAttributeFromServer != null) {
+    foreach (WebsiteEntity theEnt in Model.ResponseCacheAttributeFromServer) {
+      theItems.Append(theEnt);
+    }
+  }
+
+
+
+  string[] fakeimgs = {
+    "/img/sampleWebsitesPreview/DynamicSoft-small.png"
+    , "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png"
+    , "/img/sampleWebsitesPreview/template-small.png"
   };
 
   string[] cssClasses = {
@@ -20,6 +37,7 @@
     , "right withbord"
   };
 
+  ViewData["Title"] = "Step-7";
 
 }
 
@@ -41,21 +59,73 @@
   }
 </style>
 
-<h1>Step 7</h1>
-<p>@Localizer["choose your website"]</p>
-@for (int xxx = 0; xxx < theItems.Length; xxx += 3) {
-<div class="Row">
-  @for (int yyy = 0; yyy < 3; yyy++) {
-  <div class="Column withbord" style="background-image: url('@theItems[xxx + yyy].Img');">
-    <div><h3>@theItems[xxx + yyy].TemplateName</h3></div>
-    <div><button onclick="openTabWithLink('@theItems[xxx + yyy].TargetLink', '@theItems[xxx + yyy].TemplateName')">@Localizer["test me..."]</button></div>
-    <div><button onclick="buytheLink('@theItems[xxx + yyy].TargetLink', '@theItems[xxx + yyy].TemplateId', '@theItems[xxx + yyy].TemplateName', '@theItems[xxx + yyy].Img' )">@Localizer["save me!"]</button></div>
+<!--
+=============================================
+  WBUILDER - STEP 6
+==============================================
+-->
+<div class="wbuilder-page">
+  <div class="wbuilder-column-1 d-lg-flex align-items-center">
+    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+      <h2>Ci siamo !!!<br />Ecco un po' di esempi di come potrebbe essere il tuo sito...</h2>
+    </div>
   </div>
-  }
+  <div class="wbuilder-column-2 d-lg-flex align-items-center">
+    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+      <p class="text">
+        <b>Clicca sull'immagine che ti piace di piu'</b>
+        <br/>puoi visitare i siti generati uno a uno, funzionano tutti!!!
+        <br/>oppue scegliere subito il tuo preferito!
+      </p>
+      <div class="step-block">
+        <div class="row ">
+          @for (int xxx = 0; xxx < theItems.Length; xxx++) {
+          <div class="Column withbord" style="background-image: url('@fakeimgs[xxx % 3]');" id="divWithBckGndStImg_@xxx" role="status">
+            <span class="sr-only">Loading...</span>
+            <div><h3>@theItems[xxx].TemplateName</h3></div>
+            <div><button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateName')">@Localizer["test me..."]</button></div>
+            <div><button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )">@Localizer["save me!"]</button></div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-}
+
+
+
+
+
+
+
 
 <script type="text/javascript">
+  const alltemplatesCount = @theItems.Length;
+  document.addEventListener('DOMContentLoaded'
+    , (event) => {
+      @for (int xxx = 0; xxx < theItems.Length; xxx++) {
+        @:checkImageIsReady('@theItems[xxx].TemplateId', 'divWithBckGndStImg_@xxx', '@theItems[xxx].Img', 0);
+      }
+    }
+  );
+
+  function initImgWaiter(key, divcontainerId){
+    checkImageIsReady(key, divcontainerid, 0);
+    startSpinner(divcontainerId);
+  }
+  function startSpinner(divcontainerId) {
+    document.getElementById(divcontainerId).classList.add("spinner-border");
+  }
+  function stopSpinner(divcontainerId) {
+    document.getElementById(divcontainerId).classList.remove("spinner-border");
+  }
+  function replaceImage(divcontainerid, imgLink) {
+    document.getElementById(divcontainerId).style.backgroundImage = imgLink;
+  }
+
+
   function openTabWithLink(theLink, theName) {
     alert(`@Localizer["you choose to watch"] ${theName} @Localizer["at"] ${theLink} !!!`);
     window.open(theLink, '_blank').focus();
@@ -69,6 +139,37 @@
       + `&templateId=${templateId}`;
 
   }
+  function checkImageIsReady(theKey, divContainerId, imgLink, attemptNowIs) {
+    const url = '@Model.theApiServerConf.EndpointsUrl';
+    const endpoint = '@Model.theApiServerConf.CheckImgPath';
+    const authtoken = '@Model.theApiServerConf.ApiServerToken';
+    const uri = `${url}${endpoint}?authtoken=${authtoken}&key=${theKey}`;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', uri, true);
+
+    xhr.onload = function () {
+      if (this.status == 200) {
+        if (this.responseText.toLowerCase === "true") {
+          console.log(`image ${theKey} is ready`);
+          stopSpinner(divContainerId);
+          replaceImage(divContainerId, imgLink);
+
+        } else {
+          if (attemptNowIs++ < 10) {
+            console.log(`still waiting for image ${theKey}`);
+            setTimeout(checkImageIsReady.bind(null, theKey, divContainerId, imgLink, attemptNowIs), 5000);
+          } else {
+            console.log(`giving up on image ${theKey}`);
+          }
+        }
+      }
+    };
+
+    xhr.send(null);
+
+  }
+
 </script>
 
 <!--<a asp-page="/WscBuilder/Step08_ready_to_go/Index">Click</a>-->

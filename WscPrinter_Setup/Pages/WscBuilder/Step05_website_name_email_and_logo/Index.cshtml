@@ -73,30 +73,36 @@
   </div>
   <div class="wbuilder-column-2 d-lg-flex align-items-center">
     <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-      <p class="text"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
+      <p class="text"><b>Facile come bere un bicchier d'acqua</b><br />
+        <ul>
+          <li>Inserisci il nome della tua attività o sito web</li>
+          <li>Inserisci il tuo nome o soprannome, la tua mail e il tuo telefono</li>
+          <li>Se ne hai uno, puoi caricare il tuo logo/immagine aziendale</li>
+        </ul>
+      </p>
       <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
             method="post" class="form-horizontal" role="form">
         <div class="step-block">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <label for="id_websitename">@Localizer["website name"]</label><br />
+                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <!--<label for="id_websitename">@Localizer["website name"]</label><br />-->
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
-                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <label for="id_email">@Localizer["email"]</label><br />
+                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <!--<label for="id_email">@Localizer["email"]</label><br />-->
                 <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="text" autocomplete="nope" name="username" id="id_username" placeholder="Scrivi il tuo nome" required>
+                <input class="form-control" type="text" autocomplete="nope" name="UserDeclaredName" id="id_UserDeclaredName" placeholder="Scrivi il tuo nome" required>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="tel" autocomplete="nope" name="telefono" id="id_telefono" placeholder="Scrivi il tuo numero di telefono" required>
+                <input class="form-control" type="tel" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Scrivi il tuo numero di telefono" required>
               </div>
             </div>
 
@@ -117,7 +123,7 @@
 <br />
 <br />
 <div>
-  <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Confirm"]</button>
+  <button class="btn btn-secondary" onclick="submitAll()">@Localizer["Continue"]</button>
 </div>
 
 

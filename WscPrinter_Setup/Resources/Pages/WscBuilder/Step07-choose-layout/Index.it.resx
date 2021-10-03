@@ -124,6 +124,9 @@
     <value>choose your website</value>
     <comment>as above</comment>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continua</value>
+  </data>
   <data name="save me!" xml:space="preserve">
     <value>save me!</value>
   </data>
