@@ -4,15 +4,29 @@
 @model WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout.Step07ChooseLayoutModel
 @{
 
-
-  WebsiteEntity[] theItems = {
-  };
+  bool MOCK_MODE = false;
+  WebsiteEntity[] MokkaArray = {
+      new WebsiteEntity { Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it" }
+        , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
+    };
+  List<WebsiteEntity> theLItems = new List<WebsiteEntity>();
+  if (MOCK_MODE) {
+    theLItems.Concat(MokkaArray);
+  }
+  //
   if (Model.ResponseCacheAttributeFromServer != null) {
     foreach (WebsiteEntity theEnt in Model.ResponseCacheAttributeFromServer) {
-      theItems = theItems.Append<WebsiteEntity>(theEnt).ToArray<WebsiteEntity>();
+      theLItems.Add(theEnt);
     }
   }
-
+  WebsiteEntity[] theItems = theLItems.ToArray();
 
 
   string[] fakeimgs = {
@@ -99,7 +113,7 @@
 
 <script type="text/javascript">
   const alltemplatesCount = @theItems.Length;
-  const MAX_RETRIES= 3
+  const MAX_RETRIES = 10;
   document.addEventListener('DOMContentLoaded'
     , (event) => {
       @for (int xxx = 0; xxx < theItems.Length; xxx++) {
