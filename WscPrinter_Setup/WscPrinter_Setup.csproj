@@ -16,5 +16,12 @@
   <ItemGroup>
     <Folder Include="wwwroot\img\Skins\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ViewFiles Include="$(ProjectDir)\Pages\**\*.cshtml" />
+  </ItemGroup>
+  <Target Name="CopyViewFilesAfterPublish" AfterTargets="Publish">
+    <Copy SourceFiles="@(ViewFiles)"
+      DestinationFolder="$(PublishDir)\Pages\%(RecursiveDir)"
+    />
+  </Target>
 </Project>

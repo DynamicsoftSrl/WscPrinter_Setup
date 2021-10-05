@@ -3,23 +3,13 @@
 @using WscPrinter_Setup.Libs.Session
 @model WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout.Step07ChooseLayoutModel
 @{
-  string theGuid1 = Guid.NewGuid().ToString();
-  string theGuid2 = Guid.NewGuid().ToString();
+
 
   WebsiteEntity[] theItems = {
-    new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it"   }
-    , new WebsiteEntity {Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
   };
   if (Model.ResponseCacheAttributeFromServer != null) {
     foreach (WebsiteEntity theEnt in Model.ResponseCacheAttributeFromServer) {
-      theItems.Append(theEnt);
+      theItems = theItems.Append<WebsiteEntity>(theEnt).ToArray<WebsiteEntity>();
     }
   }
 
@@ -42,76 +32,69 @@
 }
 
 <style>
-  .Row {
-    display: table;
-    width: 100%; /*Optional*/
-    table-layout: fixed; /*Optional*/
-    border-spacing: 10px; /*Optional*/
-  }
+    .Row {
+        display: table;
+        width: 100%; /*Optional*/
+        table-layout: fixed; /*Optional*/
+        border-spacing: 10px; /*Optional*/
+    }
 
-  .Column {
-    display: table-cell;
-    background-color: aqua; /*Optional*/
-  }
+    .Column {
+        display: table-cell;
+        background-color: aqua; /*Optional*/
+    }
 
-  .withbord {
-    border: 2px solid;
-  }
+    .withbord {
+        border: 2px solid;
+    }
 
-  spinTop {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+    spinTop {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 </style>
 
 <!--
 =============================================
-  WBUILDER - STEP 6
+  WBUILDER - STEP 7
 ==============================================
 -->
-<div class="wbuilder-page">
-  <div class="wbuilder-column-1 d-lg-flex align-items-center">
-    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
-    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-      <h2>Ci siamo !!!<br />Ecco un po' di esempi di come potrebbe essere il tuo sito...</h2>
-    </div>
-  </div>
-  <div class="wbuilder-column-2 d-lg-flex align-items-center">
-    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-      <p class="text">
-        <b>Clicca sull'immagine che ti piace di piu'</b>
-        <br />puoi visitare i siti generati uno a uno, funzionano tutti!!!
-        <br />oppue scegliere subito il tuo preferito!
-      </p>
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-      <div class="step-block">
-        <div class="row ">
-          @for (int xxx = 0; xxx < theItems.Length; xxx++) {
-            <div class="Column withbord" style="background-image: url('@fakeimgs[xxx % 3]');" id="img_divWithBckGndStImg_@xxx">
-              <div class="spinTop" id="divWithBckGndStImg_@xxx" role="status">
-                <span class="sr-only">Loading...</span>
-              </div>
-              <div><h3>@theItems[xxx].TemplateName</h3></div>
-              <div><button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateName')">@Localizer["test me..."]</button></div>
-              <div><button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )">@Localizer["save me!"]</button></div>
-            </div><br/>
-          }
+
+<div class="app-screen-preview-two lg-container">
+    <div class="container">
+        <div class="wbuilder-info-2 text-center mb-0 md-mb-70">
+            <div class="logo mt-20 md-mt-10"><a href="index-customer-support.html"><img src="images/website/logo_wscprinter.png" alt=""></a></div>
+            <h2 class="mt-20 md-mt-10"><b>Scegli il design per il tuo sito Web To Print</b></h2>
+            <p class="mt-20">Scegli tra oltre 50 template di siti web personalizzabili<br /> creati per soddisfare le tue esigenze di business.</p>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+<div class="pt-10 pb-50 md-pt-100 md-pb-150">
 
+    <div class="wbuild-large-container">
 
-
-
-
-
+        <div class="row">
+            @for (int xxx = 0; xxx < theItems.Length; xxx++) {
+            <div class="col-lg-4">
+                <div class="theme-demo isreadyimage" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
+                    <div class="content-wrapper">
+                        <div class="title-wrapper">
+                            <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateName')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
+                            <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
+                    </div>
+                </div>
+            </div>
+                }
+        </div>
+    </div>
+</div>
 
 
 <script type="text/javascript">
@@ -126,18 +109,13 @@
   );
 
   function initImgWaiter(key, divContainerId, ImgLink){
-    startSpinner(divContainerId);
+   
     checkImageIsReady(key, divContainerId, ImgLink, 0);
   }
-  function startSpinner(divContainerId) {
-    document.getElementById(divContainerId).classList.add("spinner-border");
-  }
-  function stopSpinner(divContainerId) {
-    document.getElementById(divContainerId).classList.remove("spinner-border");
-    document.getElementById(divContainerId).style.display = 'none';
-  }
+  
   function replaceImage(divContainerId, imgLink) {
-    document.getElementById(`img_${divContainerId}`).style.backgroundImage = imgLink;
+      $("#" + divContainerId).attr("src", imgLink);
+        $("#container_" + divContainerId).removeClass( "isreadyimage" )
   }
 
 
@@ -145,17 +123,39 @@
     alert(`@Localizer["you choose to watch"] ${theName} @Localizer["at"] ${theLink} !!!`);
     window.open(theLink, '_blank').focus();
   }
-  function buytheLink(theLink, templateId, templateName, imgLink){
-    alert(`you choose to buy ${theLink} - ${templateId} !!!`);
-    document.location.href = `/WscBuilder/Step08_ready_to_go/Index?`
-      + `theLink=${encodeURIComponent(theLink)}`
-      + `&templateName=${encodeURIComponent(templateName)}`
-      + `&imgLink=${encodeURIComponent(imgLink)}`
-      + `&templateId=${templateId}`;
+  
+    function buytheLink(theLink, theKey, templateName, imgLink) {
+
+    const url = '@Model.theApiServerConf.EndpointsUrl';
+    const endpoint = '@Model.theApiServerConf.SetSelectedTemplatePath';
+    const authtoken = '@Model.theApiServerConf.ApiServerToken';
+    const uri = `${url}${endpoint}?authtoken=${authtoken}&key=${theKey}`;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', uri, true);
+
+    xhr.onload = function () {
+        if (this.status == 200) {
+            if (this.responseText.toLowerCase() === "true") {
+                alert(`you choose to buy ${theLink} - ${theKey} !!!`);
+                document.location.href = `/WscBuilder/Step08_ready_to_go/Index?`
+                    + `theLink=${encodeURIComponent(theLink)}`
+                    + `&templateName=${encodeURIComponent(templateName)}`
+                    + `&imgLink=${encodeURIComponent(imgLink)}`
+                    + `&templateId=${theKey}`;
+            }
+        }
+    };
+
+    xhr.send(null);
 
   }
+
+
+
   function checkImageIsReady(theKey, divContainerId, imgLink, attemptNowIs) {
-    const url = '@Model.theApiServerConf.EndpointsUrl';
+    console.log("qui daniel")
+	const url = '@Model.theApiServerConf.EndpointsUrl';
     const endpoint = '@Model.theApiServerConf.CheckImgPath';
     const authtoken = '@Model.theApiServerConf.ApiServerToken';
     const uri = `${url}${endpoint}?authtoken=${authtoken}&key=${theKey}`;
@@ -165,10 +165,9 @@
 
     xhr.onload = function () {
       if (this.status == 200) {
-        if (this.responseText.toLowerCase === "true") {
-          console.log(`image ${theKey} is ready`);
-          stopSpinner(divContainerId);
-          replaceImage(divContainerId, imgLink);
+        if (this.responseText.toLowerCase() === "true") {
+            console.log(`image ${theKey} is ready`);
+          replaceImage(theKey, imgLink);
 
         } else {
           if (attemptNowIs++ < MAX_RETRIES) {
@@ -176,7 +175,6 @@
             setTimeout(checkImageIsReady.bind(null, theKey, divContainerId, imgLink, attemptNowIs), 5000);
           } else {
             console.log(`${attemptNowIs} - giving up on image ${theKey}`);
-            stopSpinner(divContainerId);
           }
         }
       }
@@ -185,7 +183,6 @@
     xhr.send(null);
 
   }
-
 </script>
 
 <!--<a asp-page="/WscBuilder/Step08_ready_to_go/Index">Click</a>-->

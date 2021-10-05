@@ -76,12 +76,12 @@ namespace WscPrinter_Setup {
           break;
         case 1:
           services.AddControllers();
-          MvcBuilder = services.AddRazorPages();
+          MvcBuilder = services.AddRazorPages().AddRazorRuntimeCompilation();
           break;
         case 2:
         default:
           services.AddControllers();
-          MvcBuilder = services.AddRazorPages();
+          MvcBuilder = services.AddRazorPages().AddRazorRuntimeCompilation();
           services.AddMvc();
           break;
       }
