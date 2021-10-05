@@ -4,6 +4,8 @@
 @model WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout.Step07ChooseLayoutModel
 @{
 
+  string theGuid1 = Guid.NewGuid().ToString();
+  string theGuid2 = Guid.NewGuid().ToString();
   bool MOCK_MODE = false;
   WebsiteEntity[] MokkaArray = {
       new WebsiteEntity { Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
