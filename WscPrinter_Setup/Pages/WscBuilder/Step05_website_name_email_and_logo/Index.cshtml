@@ -305,7 +305,11 @@
 
     handleFiles(files)
   }
+  let fileCounter = 0;
   function handleFile(file, idFile) {
+    if (fileCounter++ > 0) {
+      return;
+    }
     submitFormImage0(file, idFile);
     previewFile0(file.target.files[idFile]);
   }
