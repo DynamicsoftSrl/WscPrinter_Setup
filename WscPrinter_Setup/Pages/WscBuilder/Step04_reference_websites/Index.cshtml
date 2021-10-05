@@ -38,13 +38,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pixartprinting" value="pixartprinting">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pixartprinting" value="pixartprinting" required>
                 <label for="pixartprinting">Pixartprinting</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="flyeralarm" value="flyeralarm">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="flyeralarm" value="flyeralarm" required>
                 <label for="flyeralarm">Flyeralarm</label>
               </div>
             </div>
@@ -52,13 +52,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pressup" value="pressup">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pressup" value="pressup" required>
                 <label for="pressup">Pressup</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="saxoprint" value="saxoprint">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="saxoprint" value="saxoprint" required>
                 <label for="saxoprint">Saxoprint</label>
               </div>
             </div>
@@ -66,13 +66,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="tictac" value="tictac">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="tictac" value="tictac" required>
                 <label for="tictac">TicTac</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="vistaprint" value="vistaprint">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="vistaprint" value="vistaprint" required>
                 <label for="vistaprint">Vistaprint</label>
               </div>
             </div>
@@ -80,13 +80,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="onlineprinters" value="onlineprinters">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="onlineprinters" value="onlineprinters" required>
                 <label for="onlineprinters">Onlineprinters</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="fasterprint" value="fasterprint">
+                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="fasterprint" value="fasterprint" required>
                 <label for="fasterprint">Fasterprint</label>
               </div>
             </div>
@@ -100,10 +100,28 @@
           </div>
         </div>
         <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <!--<a href="#" class="theme-btn-nine">Continua</a>-->
-          <button class="btn btn-secondary" type="submit">@Localizer["Confirm"]</button>
+          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectReferenceWebsites','ReferenceWebsite')">@Localizer["Continue"]</a>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  function validateSubmit(frmId, nameOfItem) {
+    const theForm = document.getElementById(frmId);
+    const chkBxs = theForm.elements.namedItem(nameOfItem);
+    let canGo = false;
+    chkBxs.forEach(chbx => {
+      canGo = canGo || chbx.checked;
+    });
+    if (canGo) {
+      theForm.submit()
+    } else {
+      alert("selezionane almeno uno");
+    }
+
+  }
+
+
+</script>

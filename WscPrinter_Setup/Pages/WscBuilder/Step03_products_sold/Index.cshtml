@@ -38,13 +38,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_commerciali" value="prodotti_commerciali">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_commerciali" value="prodotti_commerciali" required>
                 <label for="prodotti_commerciali">Prodotti commerciali</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_editoriali" value="prodotti_editoriali">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_editoriali" value="prodotti_editoriali" required>
                 <label for="prodotti_editoriali">Prodotti editoriali</label>
               </div>
             </div>
@@ -52,13 +52,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_grande_formato" value="prodotti_grande_formato">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_grande_formato" value="prodotti_grande_formato" required>
                 <label for="prodotti_grande_formato">Prodotti grande formato</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="espositori" value="espositori">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="espositori" value="espositori" required>
                 <label for="espositori">Espositori</label>
               </div>
             </div>
@@ -66,13 +66,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_packaging" value="prodotti_packaging">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_packaging" value="prodotti_packaging" required>
                 <label for="prodotti_packaging">Prodotti di packaging</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="etichette" value="etichette">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="etichette" value="etichette" required>
                 <label for="etichette">Etichette</label>
               </div>
             </div>
@@ -80,13 +80,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_serigrafici" value="prodotti_serigrafici">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_serigrafici" value="prodotti_serigrafici" required>
                 <label for="prodotti_serigrafici">Prodotti serigrafici</label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="gadget_personalizzati" value="gadget_personalizzati">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="gadget_personalizzati" value="gadget_personalizzati" required>
                 <label for="gadget_personalizzati">Gadget personalizzati</label>
               </div>
             </div>
@@ -95,13 +95,13 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="abbigliamento" value="abbigliamento">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="abbigliamento" value="abbigliamento" required>
                 <label for="abbigliamento">Abbigliamento </label>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="servizi" value="servizi">
+                <input type="checkbox" name="ProductsSold" class="form-control" id="servizi" value="servizi" required>
                 <label for="servizi">Servizi di vario genere</label>
               </div>
             </div>
@@ -115,11 +115,28 @@
           </div>
         </div>
         <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <!--<a href="#" class="theme-btn-nine">Continua</a>-->
-          <button class="btn btn-secondary" type="submit">@Localizer["Continue"]</button>
+          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectProductsSold','ProductsSold')">@Localizer["Continue"]</a>
         </div>
       </form>
     </div>
   </div>
 </div>
 
+<script type="text/javascript">
+  function validateSubmit(frmId, nameOfItem) {
+    const theForm = document.getElementById(frmId);
+    const chkBxs = theForm.elements.namedItem(nameOfItem);
+    let canGo = false;
+    chkBxs.forEach(chbx => {
+      canGo = canGo || chbx.checked;
+    });
+    if (canGo) {
+      theForm.submit()
+    } else {
+      alert("selezionane almeno uno");
+    }
+
+  }
+
+
+</script>

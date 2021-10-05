@@ -67,8 +67,6 @@
   }
 </script>
 -->
-
-
 <!--
 =============================================
   WBUILDER - STEP 6
@@ -84,7 +82,7 @@
   <div class="wbuilder-column-2 d-lg-flex align-items-center">
     <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
       <p class="text"><b>Ecco alcuni temi che ti potrebbero interessare</b><br /> Scegline uno: se vorrai, potrai modificarlo o  <br />cambiarlo anche in seguito... </p>
-      <form action="/WscBuilder/Step07_choose_layout/Index" method="get">
+      <form id="chooseSkin" action="/WscBuilder/Step07_choose_layout/Index" method="get">
         <div class="step-block">
           <div class="row ">
             <div class="col-sm-6 choose-skin">
@@ -137,12 +135,29 @@
             </div>
           </div>
         </div>
-        <div class="wbuilder-button mt-50" data-aos="fade-left" data-aos-duration="1200">
-          <!-- href="#" class="theme-btn-nine">Continua</!-->
-          <button class="btn btn-secondary" type="submit">@Localizer["Continue"]</button>
+        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+          <a href="#" class="theme-btn-nine" onclick="validateSubmit('chooseSkin','skin')">@Localizer["Continue"]</a>
         </div>
       </form>
     </div>
   </div>
 </div>
 
+<script type="text/javascript">
+  function validateSubmit(frmId, nameOfItem) {
+    const theForm = document.getElementById(frmId);
+    const chkBxs = theForm.elements.namedItem(nameOfItem);
+    let canGo = false;
+    chkBxs.forEach(chbx => {
+      canGo = canGo || chbx.checked;
+    });
+    if (canGo) {
+      theForm.submit()
+    } else {
+      alert("selezionane almeno uno");
+    }
+
+  }
+
+
+</script>
