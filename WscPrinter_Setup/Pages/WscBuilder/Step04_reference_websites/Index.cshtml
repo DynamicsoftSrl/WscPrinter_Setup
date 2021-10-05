@@ -23,7 +23,7 @@
   <div class="wbuilder-column-1 d-lg-flex align-items-center">
     <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
     <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-		<h2>Quali tra questi siti web   <br />  di stampa online <br /> ti piacciono? </h2>
+      <h2>Quali tra questi siti web   <br />  di stampa online <br /> ti piacciono? </h2>
     </div>
   </div>
   <div class="wbuilder-column-2 d-lg-flex align-items-center">
@@ -98,21 +98,24 @@
           </div>
         </div>
         <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectReferenceWebsites','ReferenceWebsite')">@Localizer["Continue"]</a>
+          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectReferenceWebsites','ReferenceWebsite','OtherReferenceWebsite')">@Localizer["Continue"]</a>
         </div>
       </form>
     </div>
   </div>
 </div>
 
+
 <script type="text/javascript">
-  function validateSubmit(frmId, nameOfItem) {
+  function validateSubmit(frmId, nameOfItem, nameOfTxt) {
     const theForm = document.getElementById(frmId);
     const chkBxs = theForm.elements.namedItem(nameOfItem);
     let canGo = false;
     chkBxs.forEach(chbx => {
       canGo = canGo || chbx.checked;
     });
+    const checco = theForm.elements.namedItem(nameOfTxt).value;
+    canGo = canGo || (checco?.length > 0);
     if (canGo) {
       theForm.submit()
     } else {
@@ -120,6 +123,5 @@
     }
 
   }
-
 
 </script>

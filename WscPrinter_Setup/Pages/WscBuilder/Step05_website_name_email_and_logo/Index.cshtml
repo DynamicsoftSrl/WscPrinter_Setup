@@ -80,7 +80,7 @@
             
             <div class="col-sm-12 " id="drop-area">
               <div class="form-group form-group-2">
-                <input class="form-control"  type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event,0)" hidden="" >
+                <input class="form-control"  type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" hidden="" >
                 <label class="custom-file img-responsive"  for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl()"><p>Clicca qui per caricare il tuo logo </p></label>
               </div>
             </div>
@@ -167,11 +167,6 @@
 
 <script>
   "use strict";
-  //
-  // file input is hidden, so it is not clickable....
-  function clickTheFileControl() {
-    document.getElementById("FileUpload_FormFile").click();
-  }
   //
   //
   // inspired by (mixed):
@@ -294,12 +289,22 @@
     handleFiles(files)
   }
   let fileCounter = 0;
-  function handleFile(file, idFile) {
+  //
+  // file input is hidden, so it is not clickable....
+  function clickTheFileControl() {
     if (fileCounter++ > 0) {
       return;
     }
-    submitFormImage0(file, idFile);
-    previewFile0(file.target.files[idFile]);
+    document.getElementById("FileUpload_FormFile").click();
+  }
+  // handle file
+  function handleFile(file) {
+    if (fileCounter > 0) {
+      return;
+    }
+    submitFormImage0(file, fileCounter);
+    previewFile0(file.target.files[fileCounter]);
+    fileCounter++;
   }
   function handleFiles(files) {
     files = [...files];

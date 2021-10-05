@@ -114,7 +114,7 @@
           </div>
         </div>
         <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectProductsSold','ProductsSold')">@Localizer["Continue"]</a>
+          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectProductsSold','ProductsSold','OtherProductsSold')">@Localizer["Continue"]</a>
         </div>
       </form>
     </div>
@@ -122,13 +122,15 @@
 </div>
 
 <script type="text/javascript">
-  function validateSubmit(frmId, nameOfItem) {
+  function validateSubmit(frmId, nameOfItem, nameOfTxt) {
     const theForm = document.getElementById(frmId);
     const chkBxs = theForm.elements.namedItem(nameOfItem);
     let canGo = false;
     chkBxs.forEach(chbx => {
       canGo = canGo || chbx.checked;
     });
+    const checco = theForm.elements.namedItem(nameOfTxt).value;
+    canGo = canGo || (checco?.length > 0);
     if (canGo) {
       theForm.submit()
     } else {
