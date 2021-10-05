@@ -11274,8 +11274,19 @@ border-color: transparent;
 .isreadyimage:hover .title-wrapper .link-wrapper {
     display: none;
 }
+.wbuilder-hidden {
+    display: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
 /*  Custom animation  */
 #video1 {
     background-color: #ffffff;
@@ -11297,6 +11308,7 @@ border-color: transparent;
     text-align: center;
     opacity: 1;
 }
+
 
 /*  mobile  */
 @media (max-width: 991px) {
@@ -11354,5 +11366,5 @@ border-color: transparent;
     .wbuilder-terms {
         text-align: center;
     }
-
+    
 }

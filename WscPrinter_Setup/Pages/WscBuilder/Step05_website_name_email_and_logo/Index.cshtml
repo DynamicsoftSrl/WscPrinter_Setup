@@ -10,7 +10,7 @@
 <style>
 
   #drop-area {
-    border: 2px dashed #ccc;
+    border: 0px dashed #ccc;
     border-radius: 20px;
     width: 480px;
     font-family: sans-serif;
@@ -73,24 +73,20 @@
   </div>
   <div class="wbuilder-column-2 d-lg-flex align-items-center">
     <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-      <p class="text">
-        <b>Facile come bere un bicchier d'acqua</b><br />
-      </p>
+	  <p class="text"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
       <form class="form-horizontal" role="form" id="formfile0">
         <div class="step-block">
           <div class="row">
-            <div class="col-sm-12">
-              Per una ulteriore personalizzazione, puoi caricare il tuo logo/immagine aziendale
-            </div>
-            <div class="col-sm-12" id="drop-area">
-              <div class="form-group">
-                <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event,0)" hidden="">
-                <label class="custom-file" for="logo_upload"><img src="/images/website/upload_logo.png" alt="" class="img-responsive" onclick="clickTheFileControl()"><p>Clicca qui per caricare il tuo logo </p></label>
+            
+            <div class="col-sm-12 " id="drop-area">
+              <div class="form-group form-group-2">
+                <input class="form-control"  type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event,0)" hidden="" >
+                <label class="custom-file img-responsive"  for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl()"><p>Clicca qui per caricare il tuo logo </p></label>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 wbuilder-hidden" id="uploadSuccessContainer">
               <div class="form-group">
-                <progress id="progress-bar" max=100 value=0></progress>
+                <progress id="progress-bar" max=100 value=0 ></progress>
               </div>
             </div>
             <div class="col-sm-6">
@@ -107,19 +103,9 @@
         <div class="step-block">
           <div class="row">
             <div class="col-sm-12">
-              <p>
-                Inserisci il nome della tua attività o sito web
-              </p>
-            </div>
-            <div class="col-sm-12">
               <div class="form-group">
                 <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <!--<label for="id_websitename">@Localizer["website name"]</label><br />-->
               </div>
-            </div>
-            <div class="col-sm-12">
-              <p>
-                Inserisci il tuo nome o soprannome, la tua mail e il tuo telefono
-              </p>
             </div>
             <div class="col-sm-12">
               <div class="form-group">
@@ -134,7 +120,7 @@
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <input class="form-control" type="tel" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Scrivi il tuo numero di telefono" required>
+                <input class="form-control input-no-arrows" type="number" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Scrivi il tuo numero di telefono" required>
               </div>
             </div>
           </div>
@@ -204,10 +190,12 @@
     AJAXSubmit(theForm, idFile);
   }
   function AJAXSubmit(oFormElement, idFile) {
-    if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
-      alert("insert file name...");
-      return false;
-    };
+  $("#uploadSuccessContainer").removeClass( "wbuilder-hidden" )
+  
+    //if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
+     // alert("insert file name...");
+      //return false;
+    //};
 
     var oReq = new XMLHttpRequest();
     oReq.open("post", `${oFormElement.action}?handler=Upload`);
