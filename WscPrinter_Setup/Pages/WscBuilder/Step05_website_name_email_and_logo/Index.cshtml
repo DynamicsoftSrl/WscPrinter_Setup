@@ -80,13 +80,13 @@
             
             <div class="col-sm-12 " id="drop-area">
               <div class="form-group form-group-2">
-                <input class="form-control"  type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" hidden="" >
-                <label class="custom-file img-responsive"  for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl()"><p>Clicca qui per caricare il tuo logo </p></label>
+                <label class="custom-file img-responsive"  for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl(event)"><p>Clicca qui per caricare il tuo logo </p></label>
               </div>
             </div>
             <div class="col-sm-6 wbuilder-hidden" id="uploadSuccessContainer">
               <div class="form-group">
-                <progress id="progress-bar" max=100 value=0 ></progress>
+                <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" style="display: none;">
+                <progress id="progress-bar" max=100 value=0></progress>
               </div>
             </div>
             <div class="col-sm-6">
@@ -185,7 +185,7 @@
     AJAXSubmit(theForm, idFile);
   }
   function AJAXSubmit(oFormElement, idFile) {
-  $("#uploadSuccessContainer").removeClass( "wbuilder-hidden" )
+    $("#uploadSuccessContainer").removeClass( "wbuilder-hidden" )
   
     //if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
      // alert("insert file name...");
@@ -283,6 +283,10 @@
     dropArea.classList.remove('highlight')
   }
   function handleDrop(e) {
+    if (fileCounter > 0) {
+      preventDefaults(file);
+      return;
+    }
     let dt = e.dataTransfer
     let files = dt.files
 
@@ -291,15 +295,23 @@
   let fileCounter = 0;
   //
   // file input is hidden, so it is not clickable....
-  function clickTheFileControl() {
-    if (fileCounter++ > 0) {
+  function clickTheFileControl(evt) {
+    if (fileCounter > 0) {
+      preventDefaults(evt);
       return;
     }
-    document.getElementById("FileUpload_FormFile").click();
+    elem = document.getElementById("FileUpload_FormFile");
+    if (elem && document.createEvent) {
+      var evt = document.createEvent("MouseEvents");
+      evt.initEvent("click", true, false);
+      elem.dispatchEvent(evt);
+    }
+    // elem.click();
   }
   // handle file
   function handleFile(file) {
     if (fileCounter > 0) {
+      preventDefaults(file);
       return;
     }
     submitFormImage0(file, fileCounter);
