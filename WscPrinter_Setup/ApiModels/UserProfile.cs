@@ -20,7 +20,8 @@ namespace WscPrinter_Setup.ApiModels {
     public string CompanyLogo { get; set; }
     public string CompanyLogoData { get; set; }
     public string AuthToken { get; set; }
-  }
+    public bool IsNewRequest { get; set; }
+    }
 
   public class UserProfile4Wsc {
     public string SiteName { get; set; }

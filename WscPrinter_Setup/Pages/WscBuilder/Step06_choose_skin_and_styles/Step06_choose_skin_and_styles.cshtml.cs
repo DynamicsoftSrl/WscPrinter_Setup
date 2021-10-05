@@ -19,6 +19,7 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step06_choose_skin_and_styles {
       this.theWalkingUser.UserEmail = customer.UserEmail;
       this.theWalkingUser.UserDeclaredName = customer.UserDeclaredName;
       this.theWalkingUser.UserPhone = customer.UserPhone;
+      this.theWalkingUser.IsNewRequest = true;
       // this.theWalkingUser.CompanyLogo = customer.CompanyLogo;
       HttpContext.Session.SetObjectAsJson("USER_PROFILE", this.theWalkingUser);
     }
