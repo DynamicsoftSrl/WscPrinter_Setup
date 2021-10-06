@@ -1,7 +1,7 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.Step03_products_sold.Step03ProductsSoldModel
 @{
-  List<SelectListItem> prodItems = new List<SelectListItem> {
+    List<SelectListItem> prodItems = new List<SelectListItem> {
       new SelectListItem { Value = "CRT", Text = "carta" }
       , new SelectListItem { Value = "STP", Text = "stampanti"  }
       , new SelectListItem { Value = "CMP", Text = "computers"  }
@@ -11,7 +11,7 @@
       , new SelectListItem { Value = "TTT", Text = "etichette"  }
       , new SelectListItem { Value = "PNN", Text = "pennarelli"  }
   };
-  ViewData["Title"] = "Step-3";
+    ViewData["Title"] = "Step-3";
 
 }
 
@@ -21,123 +21,130 @@
 ==============================================
 -->
 <div class="wbuilder-page">
-  <div class="wbuilder-column-1 d-lg-flex align-items-center">
-    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
-    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-      <h2>Quali prodotti o servizi  <br /> di stampa vorresti <br />  vendere online?</h2>
-    </div>
-  </div>
-  <div class="wbuilder-column-2 d-lg-flex align-items-center">
-    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-      <p class="text">Seleziona uno o pi&ugrave; prodotti che vorresti vendere online </p>
-      <form id="selectProductsSold" asp-page="/WscBuilder/Step04_reference_websites/Index"
-            method="post" class="form-horizontal" role="form">
-
-        <div class="step-block">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_commerciali" value="prodotti_commerciali" required>
-                <label for="prodotti_commerciali">Prodotti commerciali</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_editoriali" value="prodotti_editoriali" required>
-                <label for="prodotti_editoriali">Prodotti editoriali</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_grande_formato" value="prodotti_grande_formato" required>
-                <label for="prodotti_grande_formato">Prodotti grande formato</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="espositori" value="espositori" required>
-                <label for="espositori">Espositori</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_packaging" value="prodotti_packaging" required>
-                <label for="prodotti_packaging">Prodotti di packaging</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="etichette" value="etichette" required>
-                <label for="etichette">Etichette</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_serigrafici" value="prodotti_serigrafici" required>
-                <label for="prodotti_serigrafici">Prodotti serigrafici</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="gadget_personalizzati" value="gadget_personalizzati" required>
-                <label for="gadget_personalizzati">Gadget personalizzati</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="abbigliamento" value="abbigliamento" required>
-                <label for="abbigliamento">Abbigliamento </label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ProductsSold" class="form-control" id="servizi" value="servizi" required>
-                <label for="servizi">Servizi di vario genere</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control" name="OtherProductsSold" id="id_OtherProductsSold" placeholder="Inserisci altri prodotti o servizi se non presenti"></textarea>
-              </div>
-            </div>
-          </div>
+    <div class="wbuilder-column-1 d-lg-flex align-items-center">
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+        <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+            <h2>Quali prodotti o servizi  <br /> di stampa vorresti <br />  vendere online?</h2>
         </div>
-        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectProductsSold','ProductsSold','OtherProductsSold')">@Localizer["Continue"]</a>
-        </div>
-      </form>
     </div>
-  </div>
+    <div class="wbuilder-column-2 d-lg-flex align-items-center">
+        <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+            <p class="text">Seleziona uno o pi&ugrave; prodotti che vorresti vendere online </p>
+            <div class="toggler">
+                <div id="alertError" class="alert alert-warning wbuilder-hidden">
+                    <div class="fa fa-warning"> <span> Per proseguire è necessario scegliere almeno un valore</span> </div>
+                </div>
+            </div>
+            <form id="selectProductsSold" asp-page="/WscBuilder/Step04_reference_websites/Index"
+                  method="post" class="form-horizontal" role="form">
+
+                <div class="step-block">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_commerciali" value="prodotti_commerciali" onclick="hideAlert()" required>
+                                <label for="prodotti_commerciali">Prodotti commerciali</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_editoriali" value="prodotti_editoriali" onclick="hideAlert()" required>
+                                <label for="prodotti_editoriali">Prodotti editoriali</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_grande_formato" value="prodotti_grande_formato" onclick="hideAlert()"  required>
+                                <label for="prodotti_grande_formato">Prodotti grande formato</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="espositori" value="espositori" onclick="hideAlert()"  required>
+                                <label for="espositori">Espositori</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_packaging" value="prodotti_packaging" onclick="hideAlert()"  required>
+                                <label for="prodotti_packaging">Prodotti di packaging</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="etichette" value="etichette" onclick="hideAlert()"  required>
+                                <label for="etichette">Etichette</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="prodotti_serigrafici" value="prodotti_serigrafici" required>
+                                <label for="prodotti_serigrafici">Prodotti serigrafici</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="gadget_personalizzati" value="gadget_personalizzati" onclick="hideAlert()"  required>
+                                <label for="gadget_personalizzati">Gadget personalizzati</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="abbigliamento" value="abbigliamento" onclick="hideAlert()"  required>
+                                <label for="abbigliamento">Abbigliamento </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ProductsSold" class="form-control" id="servizi" value="servizi" onclick="hideAlert()"  required>
+                                <label for="servizi">Servizi di vario genere</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="OtherProductsSold" id="id_OtherProductsSold" placeholder="Inserisci altri prodotti o servizi se non presenti" onkeydown="hideAlert()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wbuilder-button" >
+                    <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectProductsSold','ProductsSold','OtherProductsSold')">@Localizer["Continue"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
-  function validateSubmit(frmId, nameOfItem, nameOfTxt) {
-    const theForm = document.getElementById(frmId);
-    const chkBxs = theForm.elements.namedItem(nameOfItem);
-    let canGo = false;
-    chkBxs.forEach(chbx => {
-      canGo = canGo || chbx.checked;
-    });
-    const checco = theForm.elements.namedItem(nameOfTxt).value;
-    canGo = canGo || (checco?.length > 0);
-    if (canGo) {
-      theForm.submit()
-    } else {
-      alert("selezionane almeno uno");
+    function validateSubmit(frmId, nameOfItem, nameOfTxt) {
+        const theForm = document.getElementById(frmId);
+        const chkBxs = theForm.elements.namedItem(nameOfItem);
+        let canGo = false;
+        chkBxs.forEach(chbx => {
+            canGo = canGo || chbx.checked;
+        });
+        const checkbox = theForm.elements.namedItem(nameOfTxt).value;
+        canGo = canGo || (checkbox?.length > 0);
+        if (canGo) {
+            theForm.submit()
+        } else {
+            effect("#alertError");
+        }
     }
-
-  }
+    function hideAlert() {
+        $("#alertError").addClass("wbuilder-hidden");
+    };
 
 
 </script>

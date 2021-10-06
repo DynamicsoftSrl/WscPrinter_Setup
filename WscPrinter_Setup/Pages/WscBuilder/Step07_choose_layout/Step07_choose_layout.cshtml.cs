@@ -63,6 +63,8 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout {
         public string ServicePath { get; set; }
         public string CheckImgPath { get; set; }
         public string SetSelectedTemplatePath { get; set; }
+        public string SetVisitedTemplateSite { get; set; }
 
     }
+    
 }

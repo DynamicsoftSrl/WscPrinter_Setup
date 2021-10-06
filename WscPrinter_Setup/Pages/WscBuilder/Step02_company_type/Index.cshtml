@@ -1,7 +1,7 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.Step02_company_type.Step02CompanyTypeModel
 @{
-  List<SelectListItem> socItems = new List<SelectListItem> {
+    List<SelectListItem> socItems = new List<SelectListItem> {
       new SelectListItem { Value = "BLN", Text = "baleniera" }
       , new SelectListItem { Value = "RTF", Text = "rotofortitorni"  }
       , new SelectListItem { Value = "GRF", Text = "grafica"  }
@@ -11,7 +11,7 @@
       , new SelectListItem { Value = "TPS", Text = "trapparessa"  }
       , new SelectListItem { Value = "CCC", Text = "Caciucco"  }
   };
-  ViewData["Title"] = "Step-2";
+    ViewData["Title"] = "Step-2";
 
 }
 <!--
@@ -20,108 +20,116 @@
 ==============================================
 -->
 <div class="wbuilder-page">
-  <div class="wbuilder-column-1 d-lg-flex align-items-center">
-    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
-    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-      <h2>Di cosa si occupa <br /> la tua azienda?</h2>
-    </div>
-  </div>
-  <div class="wbuilder-column-2 d-lg-flex align-items-center">
-    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-      <p class="text">Seleziona uno o pi&ugrave; settori di tuo interesse </p>
-      <form id="selectCompanyType" asp-page="/WscBuilder/Step03_products_sold/Index" method="post" class="form-horizontal" role="form">
-
-        <div class="step-block">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_offset" value="stampa_offset">
-                <label for="stampa_offset">Stampa Offset</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_digitale" value="stampa_digitale">
-                <label for="stampa_digitale">Stampa digitale</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_wide_format" value="stampa_wide_format">
-                <label for="stampa_wide_format">Stampa Wide format</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_etichette" value="stampa_etichette">
-                <label for="stampa_etichette">Stampa etichette</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="packaging" value="packaging">
-                <label for="packaging">Packaging</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_promozionale" value="stampa_promozionale">
-                <label for="stampa_promozionale">Stampa promozionale</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="cartotecnica" value="cartotecnica">
-                <label for="cartotecnica">Cartotecnica</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_tessile" value="stampa_tessile">
-                <label for="stampa_tessile">Stampa tessile</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control" name="OtherCompanyType" id="id_OtherCompanyType" placeholder="Inserisci altri settori se non presenti"></textarea>
-              </div>
-            </div>
-          </div>
+    <div class="wbuilder-column-1 d-lg-flex align-items-center">
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+        <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+            <h2>Di cosa si occupa <br /> la tua azienda?</h2>
         </div>
-        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectCompanyType','CompanyType','OtherCompanyType')">@Localizer["Continue"]</a>
-        </div>
-      </form>
     </div>
-  </div>
+    <div class="wbuilder-column-2 d-lg-flex align-items-center">
+        <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+            <p class="text">Seleziona uno o pi&ugrave; settori di tuo interesse </p>
+
+            <div class="toggler">
+                <div id="alertError" class="alert alert-warning wbuilder-hidden">
+                    <div class="fa fa-warning"> <span> Per proseguire è necessario scegliere almeno un valore</span> </div>
+                </div>
+            </div>
+
+            <form id="selectCompanyType" asp-page="/WscBuilder/Step03_products_sold/Index" method="post" class="form-horizontal" role="form">
+
+                <div class="step-block">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_offset" value="stampa_offset" onclick="hideAlert()" required>
+                                <label for="stampa_offset">Stampa Offset</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_digitale" value="stampa_digitale" onclick="hideAlert()" required>
+                                <label for="stampa_digitale">Stampa digitale</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_wide_format" value="stampa_wide_format" onclick="hideAlert()" required>
+                                <label for="stampa_wide_format">Stampa Wide format</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_etichette" value="stampa_etichette" required>
+                                <label for="stampa_etichette">Stampa etichette</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="packaging" value="packaging" onclick="hideAlert()" required>
+                                <label for="packaging">Packaging</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_promozionale" value="stampa_promozionale" onclick="hideAlert()" required>
+                                <label for="stampa_promozionale">Stampa promozionale</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="cartotecnica" value="cartotecnica" onclick="hideAlert()" required>
+                                <label for="cartotecnica">Cartotecnica</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="CompanyType" class="form-control" id="stampa_tessile" value="stampa_tessile" onclick="hideAlert()" required>
+                                <label for="stampa_tessile">Stampa tessile</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="OtherCompanyType" id="id_OtherCompanyType" placeholder="Inserisci altri settori se non presenti" onkeydown="hideAlert()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wbuilder-button" >
+                    <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectCompanyType','CompanyType','OtherCompanyType')">@Localizer["Continue"]</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
-  function validateSubmit(frmId, nameOfItem, nameOfTxt) {
-    const theForm = document.getElementById(frmId);
-    const chkBxs = theForm.elements.namedItem(nameOfItem);
-    let canGo = false;
-    chkBxs.forEach(chbx => {
-      canGo = canGo || chbx.checked;
-    });
-    const checco = theForm.elements.namedItem(nameOfTxt).value;
-    canGo = canGo || (checco?.length > 0);
-    if (canGo) {
-      theForm.submit()
-    } else {
-      alert("selezionane almeno uno");
+    function validateSubmit(frmId, nameOfItem, nameOfTxt) {
+        const theForm = document.getElementById(frmId);
+        const chkBxs = theForm.elements.namedItem(nameOfItem);
+        let canGo = false;
+        chkBxs.forEach(chbx => {
+            canGo = canGo || chbx.checked;
+        });
+        const checkbox = theForm.elements.namedItem(nameOfTxt).value;
+        canGo = canGo || (checkbox?.length > 0);
+        if (canGo) {
+            theForm.submit()
+        } else {
+            effect("#alertError");
+        }
+
     }
-
-  }
-
-
+    function hideAlert() {
+        $("#alertError").addClass("wbuilder-hidden");
+    };
 </script>

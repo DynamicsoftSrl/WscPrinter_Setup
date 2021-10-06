@@ -1,7 +1,7 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.Step04_reference_websites.Step04ReferenceWebsitesModel
 @{
-  List<SelectListItem> siteItems = new List<SelectListItem> {
+    List<SelectListItem> siteItems = new List<SelectListItem> {
       new SelectListItem { Value = "DSN", Text = "disnei" }
       , new SelectListItem { Value = "NYT", Text = "niu iorc taims"  }
       , new SelectListItem { Value = "CDS", Text = "goppiere della serra"  }
@@ -11,7 +11,7 @@
       , new SelectListItem { Value = "CEC", Text = "Carciofi e contorni"  }
       , new SelectListItem { Value = "CAT", Text = "Carriole a turbo"  }
   };
-  ViewData["Title"] = "Step-4";
+    ViewData["Title"] = "Step-4";
 }
 
 <!--
@@ -20,108 +20,115 @@
 ==============================================
 -->
 <div class="wbuilder-page">
-  <div class="wbuilder-column-1 d-lg-flex align-items-center">
-    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
-    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-      <h2>Quali tra questi siti web   <br />  di stampa online <br /> ti piacciono? </h2>
+    <div class="wbuilder-column-1 d-lg-flex align-items-center">
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+        <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+            <h2>Quali tra questi siti web   <br />  di stampa online <br /> ti piacciono? </h2>
+        </div>
     </div>
-  </div>
-  <div class="wbuilder-column-2 d-lg-flex align-items-center">
-    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-      <p class="text">Seleziona uno o pi&ugrave; siti  web  di stampa online che ti piacciono </p>
-      <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
-            method="post" class="form-horizontal" role="form">
+    <div class="wbuilder-column-2 d-lg-flex align-items-center">
+        <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+            <p class="text">Seleziona uno o pi&ugrave; siti  web  di stampa online che ti piacciono </p>
+             <div class="toggler">
+                <div id="alertError" class="alert alert-warning wbuilder-hidden">
+                    <div class="fa fa-warning"> <span> Per proseguire è necessario scegliere almeno un valore</span> </div>
+                </div>
+            </div>
+            <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
+                  method="post" class="form-horizontal" role="form">
 
-        <div class="step-block">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pixartprinting" value="pixartprinting" required>
-                <label for="pixartprinting">Pixartprinting</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="flyeralarm" value="flyeralarm" required>
-                <label for="flyeralarm">Flyeralarm</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pressup" value="pressup" required>
-                <label for="pressup">Pressup</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="saxoprint" value="saxoprint" required>
-                <label for="saxoprint">Saxoprint</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="tictac" value="tictac" required>
-                <label for="tictac">TicTac</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="vistaprint" value="vistaprint" required>
-                <label for="vistaprint">Vistaprint</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="onlineprinters" value="onlineprinters" required>
-                <label for="onlineprinters">Onlineprinters</label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="fasterprint" value="fasterprint" required>
-                <label for="fasterprint">Fasterprint</label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <textarea class="form-control" name="OtherReferenceWebsite" id="id_OtherReferenceWebsite" placeholder="Inserisci altri siti web di stampa online se non presenti"></textarea>
-              </div>
-            </div>
-          </div>
+                <div class="step-block">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pixartprinting" value="pixartprinting" onclick="hideAlert()" required>
+                                <label for="pixartprinting">Pixartprinting</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="flyeralarm" value="flyeralarm" onclick="hideAlert()"  required>
+                                <label for="flyeralarm">Flyeralarm</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="pressup" value="pressup" onclick="hideAlert()"  required>
+                                <label for="pressup">Pressup</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="saxoprint" value="saxoprint" onclick="hideAlert()"  required>
+                                <label for="saxoprint">Saxoprint</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="tictac" value="tictac" onclick="hideAlert()"  required>
+                                <label for="tictac">TicTac</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="vistaprint" value="vistaprint" onclick="hideAlert()"  required>
+                                <label for="vistaprint">Vistaprint</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="onlineprinters" value="onlineprinters" required>
+                                <label for="onlineprinters">Onlineprinters</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="checkbox" name="ReferenceWebsite" class="form-control" id="fasterprint" value="fasterprint" onclick="hideAlert()"  required>
+                                <label for="fasterprint">Fasterprint</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="OtherReferenceWebsite" id="id_OtherReferenceWebsite" placeholder="Inserisci altri siti web di stampa online se non presenti" onkeydown="hideAlert()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+                    <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectReferenceWebsites','ReferenceWebsite','OtherReferenceWebsite')">@Localizer["Continue"]</a>
+                </div>
+            </form>
         </div>
-        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectReferenceWebsites','ReferenceWebsite','OtherReferenceWebsite')">@Localizer["Continue"]</a>
-        </div>
-      </form>
     </div>
-  </div>
 </div>
 
 
 <script type="text/javascript">
-  function validateSubmit(frmId, nameOfItem, nameOfTxt) {
-    const theForm = document.getElementById(frmId);
-    const chkBxs = theForm.elements.namedItem(nameOfItem);
-    let canGo = false;
-    chkBxs.forEach(chbx => {
-      canGo = canGo || chbx.checked;
-    });
-    const checco = theForm.elements.namedItem(nameOfTxt).value;
-    canGo = canGo || (checco?.length > 0);
-    if (canGo) {
-      theForm.submit()
-    } else {
-      alert("selezionane almeno uno");
+    function validateSubmit(frmId, nameOfItem, nameOfTxt) {
+        const theForm = document.getElementById(frmId);
+        const chkBxs = theForm.elements.namedItem(nameOfItem);
+        let canGo = false;
+        chkBxs.forEach(chbx => {
+            canGo = canGo || chbx.checked;
+        });
+        const checkbox = theForm.elements.namedItem(nameOfTxt).value;
+        canGo = canGo || (checkbox?.length > 0);
+        if (canGo) {
+            theForm.submit()
+        } else {
+            effect("#alertError");
+        }
     }
-
-  }
+    function hideAlert() {
+        $("#alertError").addClass("wbuilder-hidden");
+    };
 
 </script>

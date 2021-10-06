@@ -89,6 +89,7 @@
         <!-- Optional JavaScript _____________________________  -->
         <!-- jQuery -->
         <script src="/vendor/jquery.min.js"></script>
+        <script src="/vendor/jquery-ui.js"></script>
         <!-- Popper js -->
         <script src="/vendor/popper.js/popper.min.js"></script>
         <!-- Bootstrap JS -->
@@ -103,32 +104,37 @@
         <!-- MixIt Up -->
         <script src="/vendor/mixitup-3/mixitup.min.js"></script>
 
-                       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    	
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!-- Theme js -->
         <script src="/js/theme.js"></script>
     </div> <!-- /.main-page-wrapper -->
-	
-	    <script>
-	 function scrollImage_hover() {
-    $('.theme-demo:not(.theme-comming-soon)')
-        .mouseenter(function() {
-            var height = $(this).find('.image-wrapper').height() - $(this).find('.image-wrapper img').height();
-            if(height < 0 ) {
-                $(this).find('.image-wrapper img').css('transform', 'translateY('+height+'px)');
-            }
-        })
-        .mouseleave(function() {
-            $(this).find('.image-wrapper img').css('transform', 'translateY(0)');
+
+    <script>
+        function scrollImage_hover() {
+            $('.theme-demo:not(.theme-comming-soon)')
+                .mouseenter(function () {
+                    var height = $(this).find('.image-wrapper').height() - $(this).find('.image-wrapper img').height();
+                    if (height < 0) {
+                        $(this).find('.image-wrapper img').css('transform', 'translateY(' + height + 'px)');
+                    }
+                })
+                .mouseleave(function () {
+                    $(this).find('.image-wrapper img').css('transform', 'translateY(0)');
+                });
+        };
+
+        $(document).ready(function () {
+            scrollImage_hover();
         });
-};
-
- $(document).ready(function() {
-    scrollImage_hover();
-});
-
-
- </script>
+        function effect(divName) {
+            $("#alertError").removeClass("wbuilder-hidden");
+            var options = {};
+            $( "#alertError" ).effect( "bounce", options, 500, callback );
+        };
+        function callback() {
+                $("#alertError").removeAttr("style").hide().fadeIn();
+        };
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

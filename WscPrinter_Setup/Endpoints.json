@@ -3,5 +3,6 @@
   "ApiServerToken": "wsc1",
   "ServicePath": "/backofficeapi/templatebuildercontroller/createcustomertemplate",
   "CheckImgPath": "/backofficeapi/templatebuildercontroller/isreadyimagepreview",
-  "SetSelectedTemplatePath": "/backofficeapi/templatebuildercontroller/setselectedtemplate"
+  "SetSelectedTemplatePath": "/backofficeapi/templatebuildercontroller/setselectedtemplate",
+  "SetVisitedTemplateSite": "/backofficeapi/templatebuildercontroller/setvisitedtemplatesite"
 }

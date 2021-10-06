@@ -11287,6 +11287,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+.fa span {
+    font: 16px/1 'gilroy-light', sans-serif !important;
+}
+.toggler {
+    width: 500px;
+    position: relative;
+}
+
 /*  Custom animation  */
 #video1 {
     background-color: #ffffff;

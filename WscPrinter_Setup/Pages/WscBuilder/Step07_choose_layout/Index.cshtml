@@ -135,9 +135,23 @@
   }
 
 
-  function openTabWithLink(theLink, theName) {
-    alert(`@Localizer["you choose to watch"] ${theName} @Localizer["at"] ${theLink} !!!`);
-    window.open(theLink, '_blank').focus();
+    function openTabWithLink(theLink, theName) {
+    const url = '@Model.theApiServerConf.EndpointsUrl';
+    const endpoint = '@Model.theApiServerConf.SetVisitedTemplateSite';
+    const authtoken = '@Model.theApiServerConf.ApiServerToken';
+    const uri = `${url}${endpoint}?authtoken=${authtoken}&key=${theKey}`;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', uri, true);
+
+    xhr.onload = function () {
+        if (this.status == 200) {
+            if (this.responseText.toLowerCase() === "true") {
+               window.open(theLink, '_blank').focus();
+            }
+        }
+    };
+    xhr.send(null);
   }
   
     function buytheLink(theLink, theKey, templateName, imgLink) {
@@ -153,7 +167,7 @@
     xhr.onload = function () {
         if (this.status == 200) {
             if (this.responseText.toLowerCase() === "true") {
-                alert(`you choose to buy ${theLink} - ${theKey} !!!`);
+                //alert(`you choose to buy ${theLink} - ${theKey} !!!`);
                 document.location.href = `/WscBuilder/Step08_ready_to_go/Index?`
                     + `theLink=${encodeURIComponent(theLink)}`
                     + `&templateName=${encodeURIComponent(templateName)}`
