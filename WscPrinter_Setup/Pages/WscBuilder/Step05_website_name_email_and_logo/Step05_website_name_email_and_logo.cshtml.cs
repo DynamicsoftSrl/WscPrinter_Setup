@@ -19,7 +19,6 @@ namespace WscPrinter_Setup.Pages.WscBuilder.Step05_website_name_email_and_logo {
 
   public class BufferedSingleFileUploadObj {
     [Required]
-    [Display(Name = "File")]
     public IFormFile FormFile { get; set; }
   }
   public class Step05WebsiteNameEmailAndLogoModel : PageModel {

@@ -157,13 +157,13 @@
       <div id="gallery" />
     </div>
     <div style="margin-top:15px">
-      <output name="result" id="result_out"></output>
+      
     </div>
 
   </div>
 </div>
   -->
-
+       <output name="result" id="result_out"></output>
 
 <script>
   "use strict";
@@ -180,8 +180,8 @@
     document.getElementById("selectSitenameEmailLogo").submit();
   }
   function submitFormImage0(evt, idFile) {
-    console.log(evt);
-    let theForm = document.getElementById("formfile0");
+    //console.log(evt);
+      let theForm = document.getElementById("formfile0");
     AJAXSubmit(theForm, idFile);
   }
   function AJAXSubmit(oFormElement, idFile) {
@@ -283,10 +283,11 @@
     dropArea.classList.remove('highlight')
   }
   function handleDrop(e) {
-    if (fileCounter > 0) {
-      preventDefaults(file);
-      return;
-    }
+    //if (fileCounter > 0) {
+    //  preventDefaults(file);
+    //  return;
+    //}
+      
     let dt = e.dataTransfer
     let files = dt.files
 
@@ -296,10 +297,10 @@
   //
   // file input is hidden, so it is not clickable....
   function clickTheFileControl(evt) {
-    if (fileCounter > 0) {
-      preventDefaults(evt);
-      return;
-    }
+    //if (fileCounter > 0) {
+    //  preventDefaults(evt);
+    //  return;
+    //}
     elem = document.getElementById("FileUpload_FormFile");
     if (elem && document.createEvent) {
       var evt = document.createEvent("MouseEvents");
@@ -310,13 +311,14 @@
   }
   // handle file
   function handleFile(file) {
-    if (fileCounter > 0) {
-      preventDefaults(file);
-      return;
-    }
+    //if (fileCounter > 0) {
+    //  preventDefaults(file);
+    //  return;
+    //}
+      console.log(file)
     submitFormImage0(file, fileCounter);
     previewFile0(file.target.files[fileCounter]);
-    fileCounter++;
+    //fileCounter++;
   }
   function handleFiles(files) {
     files = [...files];
@@ -334,12 +336,13 @@
     previewFileOnEl(file, 'gallery');
   }
   function previewFileOnEl(file, elemId) {
-    let reader = new FileReader()
+      let reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = function () {
       let img = document.createElement('img')
-      img.src = reader.result
-      document.getElementById(elemId).appendChild(img)
+        img.src = reader.result
+        document.getElementById(elemId).innerHTML = ""
+             document.getElementById(elemId).appendChild(img)
     }
   }
 
