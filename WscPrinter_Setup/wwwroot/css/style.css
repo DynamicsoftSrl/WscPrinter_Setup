@@ -11336,7 +11336,7 @@ p {
     display: none;
 }
 
-#gallery {
+.galleryclass {
     align-content: center;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
