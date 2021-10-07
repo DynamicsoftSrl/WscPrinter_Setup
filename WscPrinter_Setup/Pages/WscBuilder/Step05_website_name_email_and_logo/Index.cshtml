@@ -3,60 +3,11 @@
 @using Microsoft.AspNetCore.Antiforgery
 @inject IAntiforgery antiforgery
 @{
-  var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
-  ViewData["Title"] = "Step-5";
+    var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+    ViewData["Title"] = "Step-5";
 }
 
 <style>
-
-  #drop-area {
-    border: 0px dashed #ccc;
-    border-radius: 20px;
-    width: 480px;
-    font-family: sans-serif;
-    margin: 10px auto;
-    padding: 10px;
-  }
-
-    #drop-area.highlight {
-      border-color: purple;
-    }
-
-  p {
-    margin-top: 0;
-  }
-
-  .my-form {
-    margin-bottom: 10px;
-  }
-
-  #gallery {
-    margin-top: 10px;
-  }
-
-    #gallery img {
-      width: 35px;
-      margin-bottom: 10px;
-      margin-right: 10px;
-      vertical-align: middle;
-    }
-
-  .button {
-    display: inline-block;
-    padding: 10px;
-    background: #ccc;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-    .button:hover {
-      background: #ddd;
-    }
-
-  #fileElem {
-    display: none;
-  }
 </style>
 
 <!--
@@ -65,75 +16,76 @@
 ==============================================
 -->
 <div class="wbuilder-page">
-  <div class="wbuilder-column-1 d-lg-flex align-items-center">
-    <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
-    <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-      <h2>Aggiungi queste informazioni basiche   <br />  per il tuo nuovo <br />sito Web To Print </h2>
-    </div>
-  </div>
-  <div class="wbuilder-column-2 d-lg-flex align-items-center">
-    <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-	  <p class="text"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
-      <form class="form-horizontal" role="form" id="formfile0">
-        <div class="step-block">
-          <div class="row">
-            
-            <div class="col-sm-12 " id="drop-area">
-              <div class="form-group form-group-2">
-                <label class="custom-file img-responsive"  for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl(event)"><p>Clicca qui per caricare il tuo logo </p></label>
-              </div>
-            </div>
-            <div class="col-sm-6 wbuilder-hidden" id="uploadSuccessContainer">
-              <div class="form-group">
-                <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" style="display: none;">
-                <progress id="progress-bar" max=100 value=0></progress>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <div id="gallery" />
-              </div>
-            </div>
-          </div>
+    <div class="wbuilder-column-1 d-lg-flex align-items-center">
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+        <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
+            <h2>Aggiungi queste informazioni basiche   <br />  per il tuo nuovo <br />sito Web To Print </h2>
         </div>
-      </form>
+    </div>
+    <div class="wbuilder-column-2 d-lg-flex align-items-center">
+        <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+            <p class="text"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
+            <form class="form-horizontal" role="form" id="formfile0">
+                <div class="step-block">
+                    <div class="row">
 
-      <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
-            method="post" class="form-horizontal" role="form">
-        <div class="step-block">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <!--<label for="id_websitename">@Localizer["website name"]</label><br />-->
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <!--<label for="id_email">@Localizer["email"]</label><br />-->
-                <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control" type="text" autocomplete="nope" name="UserDeclaredName" id="id_UserDeclaredName" placeholder="Scrivi il tuo nome" required>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input class="form-control input-no-arrows" type="number" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Scrivi il tuo numero di telefono" required>
-              </div>
-            </div>
-          </div>
+                        <div class="col-sm-12 " id="drop-area">
+                            <div class="form-group form-group-2">
+                                <label class="custom-file img-responsive" for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl(event)"><p>Clicca qui per caricare il tuo logo </p></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 wbuilder-hidden" id="uploadSuccessContainer">
+                            <div class="form-group" id="containerGallery">
+                                @*<progress id="progress-bar" max=100 value=0></progress>*@
+                                <div id="gallery" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form id="selectSitenameEmailLogo" asp-page="/WscBuilder/Step06_choose_skin_and_styles/Index"
+                  method="post" class="form-horizontal" role="form">
+                <div class="step-block">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <!--<label for="id_websitename">@Localizer["website name"]</label><br />-->
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+
+
+                                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <!--<label for="id_email">@Localizer["email"]</label><br />-->
+                                <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control" type="text" autocomplete="nope" name="UserDeclaredName" id="id_UserDeclaredName" placeholder="Scrivi il tuo nome" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input class="form-control input-no-arrows" type="number" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Scrivi il tuo numero di telefono" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+                    <button class="theme-btn-nine">Continua</button>
+                </div>
+                <div class="wbuilder-terms pt-20">
+                    Cliccando su continua, io accetto la normativa sulla <a href="https://www.dynamicsoft.it/informativa-privacy/" target="_blank"></a>
+                </div>
+            </form>
         </div>
-        <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-          <button class="theme-btn-nine">Continua</button>
-        </div>
-        <div class="wbuilder-terms pt-20">
-          Cliccando su continua, io accetto la normativa sulla <a href="https://www.dynamicsoft.it/informativa-privacy/" target="_blank">Privacy Policy </a>
-        </div>
-      </form>
     </div>
-  </div>
 </div>
 
 <!--
@@ -157,13 +109,13 @@
       <div id="gallery" />
     </div>
     <div style="margin-top:15px">
-      
+
     </div>
 
   </div>
 </div>
   -->
-       <output name="result" id="result_out"></output>
+<output name="result" id="result_out"></output>
 
 <script>
   "use strict";
@@ -184,33 +136,37 @@
       let theForm = document.getElementById("formfile0");
     AJAXSubmit(theForm, idFile);
   }
-  function AJAXSubmit(oFormElement, idFile) {
-    $("#uploadSuccessContainer").removeClass( "wbuilder-hidden" )
-  
-    //if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
-     // alert("insert file name...");
-      //return false;
-    //};
+    function AJAXSubmit(oFormElement, idFile) {
+        $("#uploadSuccessContainer").removeClass("wbuilder-hidden");
+        var div = "<div id=\"loaderGallery\"class=\"progress\"><span class=\"progress-left\"><span class=\"progress-bar\"></span> </span> <span class=\"progress-right\"> <span class=\"progress-bar\"></span> </span></div>";
+        $("#containerGallery").append(div)
+        $("#gallery").addClass("wbuilder-hidden")
+        
+        //if (!oFormElement.elements.namedItem("FileUpload_FormFile").value) {
+        // alert("insert file name...");
+        //return false;
+        //};
 
-    var oReq = new XMLHttpRequest();
-    oReq.open("post", `${oFormElement.action}?handler=Upload`);
+        var oReq = new XMLHttpRequest();
+        oReq.open("post", `${oFormElement.action}?handler=Upload`);
 
-    // PROGRESS BAR EVT LISTENER
-    oReq.upload.addEventListener("progress", function (e) {
-      updateProgress(idFile, (e.loaded * 100.0 / e.total) || 100)
-    })
+        // PROGRESS BAR EVT LISTENER
+        oReq.upload.addEventListener("progress", function (e) {
+            updateProgress(idFile, (e.loaded * 100.0 / e.total) || 100)
+        });
 
 
-    // oReq.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
-    oReq.setRequestHeader("XSRF-TOKEN", '@token');
+        // oReq.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
+        oReq.setRequestHeader("XSRF-TOKEN", '@token');
 
-    oReq.onload = function (e) {
-      document.getElementById("result_out").value =
-      this.status === 200 ?
-      '@Localizer["File upload completed"]' : '@Localizer["Confirm"]';
-    };
-    oReq.send(new FormData(oFormElement));
-  }
+        oReq.onload = function (e) {
+            document.getElementById("result_out").value =
+            this.status === 200 ?
+            '@Localizer["File upload completed"]' : '@Localizer["Confirm"]';
+        };
+        oReq.send(new FormData(oFormElement));
+        
+    }
   function toggleVisible(psdId) {
     var elem = document.getElementById(psdId);
     elem.style.display = (elem.style.display === 'none') ? 'block' :'none';
@@ -229,7 +185,7 @@
   document.addEventListener('DOMContentLoaded', (event) => {
     //
     var form = document.getElementById("formfile0");
-    progressBar = document.getElementById('progress-bar')
+    //progressBar = document.getElementById('progress-bar')
     function handleForm(event) {
       preventDefaults(e);
     }
@@ -256,18 +212,18 @@
   // progress
   //
   function initializeProgress(numFiles) {
-    progressBar.value = 0
-    uploadProgress = []
+    //progressBar.value = 0
+    //uploadProgress = []
 
-    for (let i = numFiles; i > 0; i--) {
-      uploadProgress.push(0)
-    }
+    //for (let i = numFiles; i > 0; i--) {
+    //  uploadProgress.push(0)
+    //}
   }
 
   function updateProgress(fileNumber, percent) {
-    uploadProgress[fileNumber] = percent
-    let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
-    progressBar.value = total
+    //uploadProgress[fileNumber] = percent
+    //let total = uploadProgress.reduce((tot, curr) => tot + curr, 0) / uploadProgress.length
+    //progressBar.value = total
   }
 
   //
@@ -287,7 +243,7 @@
     //  preventDefaults(file);
     //  return;
     //}
-      
+
     let dt = e.dataTransfer
     let files = dt.files
 
@@ -341,10 +297,20 @@
     reader.onloadend = function () {
       let img = document.createElement('img')
         img.src = reader.result
+        img.classList.add("img-thumbnail");
+
+
         document.getElementById(elemId).innerHTML = ""
-             document.getElementById(elemId).appendChild(img)
+        document.getElementById(elemId).appendChild(img)
+            
+        setTimeout(function () {
+            alert("qui")
+            $("#gallery").removeClass("wbuilder-hidden")
+            $( "#loaderGallery" ).remove();
+        }, 7000);
     }
   }
+
 
 </script>
 
