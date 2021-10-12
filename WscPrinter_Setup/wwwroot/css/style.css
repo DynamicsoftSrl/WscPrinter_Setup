@@ -10727,6 +10727,49 @@ body .theme-btn-nine {
     line-height: 1.32em;
 }
 
+.title-style-eight h2 {
+    font-size: 62px;
+    line-height: 1.15em;
+    font-weight: 500;
+    font-family: 'gilroy-bold', sans-serif;
+}
+
+.title-functions-one h2 {
+    font-size: 52px;
+    line-height: 1.26em;
+    padding: 14px 0 14px;
+    font-family: 'gilroy-bold' !important;
+}
+
+
+.title-functions-one p{
+    font-size: 22px;
+    line-height: 1.54em;
+    padding-bottom: 15px;
+}
+
+
+
+.title-future-one h4 {
+    font-size: 18px;
+    line-height: 1.26em;
+    padding: 14px 0 14px;
+    font-family: 'gilroy-bold' !important;
+}
+
+.title-future-one p {
+    font-size: 16px;
+    line-height: 1.54em;
+    padding-bottom: 35px;
+}
+
+
+.fancy-feature-twentyOne {
+    background: #f9f9f9;
+    padding: 70px 0 70px;
+}
+
+
 .bg-home-1 {
     background: #2c363c !important;
 }
@@ -11562,7 +11605,7 @@ p {
 @media (max-width: 991px) {
 
 
-    .bg-home-1 .title-style-six h2, .bg-home-2 .title-style-six h2 {
+    .bg-home-1 .title-style-six h2, .bg-home-2 .title-style-six h2, .title-style-eight h2, .title-functions-one h2 {
         font-size: 34px;
     }
 
@@ -11580,10 +11623,6 @@ p {
     .how_to_point {
         font-size: 22px;
     }
-
-
-
-
     .wbuilder-column-1 {
         padding: 15px 20px 40px 5%;
         width: 100%;
@@ -11644,6 +11683,13 @@ p {
         line-height: 1.51em;
         font-family: 'gilroy-light', sans-serif;
     }
+
+    .title-functions-one p {
+        font-size: 18px;
+        line-height: 1.51em;
+        font-family: 'gilroy-light', sans-serif;
+    }
+
 
 }
 
