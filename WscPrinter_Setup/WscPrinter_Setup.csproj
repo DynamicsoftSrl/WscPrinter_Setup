@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.AspNet.WebHelpers" Version="3.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
@@ -19,9 +20,11 @@
   <ItemGroup>
     <ViewFiles Include="$(ProjectDir)\Pages\**\*.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ViewFiles Remove="Pages\Shared\_Layout_Preview.cshtml" />
+    <ViewFiles Remove="Pages\WscBuilder\TemplatePreview\Index.cshtml" />
+  </ItemGroup>
   <Target Name="CopyViewFilesAfterPublish" AfterTargets="Publish">
-    <Copy SourceFiles="@(ViewFiles)"
-      DestinationFolder="$(PublishDir)\Pages\%(RecursiveDir)"
-    />
+    <Copy SourceFiles="@(ViewFiles)" DestinationFolder="$(PublishDir)\Pages\%(RecursiveDir)" />
   </Target>
 </Project>

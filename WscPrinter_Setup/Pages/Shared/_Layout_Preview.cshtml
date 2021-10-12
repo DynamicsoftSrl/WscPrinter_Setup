@@ -37,16 +37,18 @@
     <meta name="msapplication-navbutton-color" content="#7034FF">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#7034FF">
-    <title>@ViewData["Title"] - WscBuilder</title>
+    <title>@ViewData["Title"]</title>
     <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="56x56" href="/images/fav-icon/icon.png">
+    <!-- Fonts -->
+          <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="56x56" href="/images/fav-icon/icon.png">
     <!-- Fonts -->
     <link rel="stylesheet" type="text/css" href="/fonts/recoleta/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="/fonts/gordita/stylesheet.css">
-    <!-- Main style sheet -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- responsive style sheet -->
     <link rel="stylesheet" type="text/css" href="/css/responsive.css">
+       <link rel="stylesheet" type="text/css" href="/css/style2.css">
 </head>
 
 <body>
@@ -83,9 +85,10 @@
                 </div>
             </div>
         </section>
-
-        @RenderBody()
-
+           <section class="preview">
+                @RenderBody()
+</section>
+       
         <!-- Optional JavaScript _____________________________  -->
         <!-- jQuery -->
         <script src="/vendor/jquery.min.js"></script>

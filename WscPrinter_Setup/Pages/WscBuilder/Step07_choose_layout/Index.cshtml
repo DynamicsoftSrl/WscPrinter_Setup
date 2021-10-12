@@ -93,21 +93,25 @@
     <div class="wbuild-large-container">
 
         <div class="row">
-            @for (int xxx = 0; xxx < theItems.Length; xxx++) {
-            <div class="col-lg-4">
-                <div class="theme-demo isreadyimage" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
-                    <div class="content-wrapper">
-                        <div class="title-wrapper">
-                            <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateName')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
-                            <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
+            @for (int xxx = 0; xxx < theItems.Length; xxx++)
+            {
+                <div class="col-lg-4">
+                    <div class="theme-demo isreadyimage" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
+                        <div class="content-wrapper">
+                            <div class="title-wrapper">
+                                <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
+                                <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
+                            </div>
+                        </div>
+                        <div class="image-wrapper">
+                            <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
                         </div>
                     </div>
-                    <div class="image-wrapper">
-                        <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
-                    </div>
                 </div>
-            </div>
-                }
+                <form id="formPreview_@theItems[xxx].TemplateId" asp-page="/WscBuilder/TemplatePreview/Index" method="post" class="form-horizontal" role="form" target="_blank" >
+                    <input name="thelink" value="@theItems[xxx].TargetLink" type="hidden"/>
+                </form>
+            }
         </div>
     </div>
 </div>
@@ -135,7 +139,7 @@
   }
 
 
-    function openTabWithLink(theLink, theName) {
+    function openTabWithLink(theLink, theKey) {
     const url = '@Model.theApiServerConf.EndpointsUrl';
     const endpoint = '@Model.theApiServerConf.SetVisitedTemplateSite';
     const authtoken = '@Model.theApiServerConf.ApiServerToken';
@@ -147,7 +151,12 @@
     xhr.onload = function () {
         if (this.status == 200) {
             if (this.responseText.toLowerCase() === "true") {
-               window.open(theLink, '_blank').focus();
+                             alert("qui")    
+                const theForm = document.getElementById("formPreview_"+theKey);
+                theForm.submit()
+                 // elem = document.getElementById("link_"+theKey);
+                 //elem.click();
+              // window.open(theLink, '_blank').focus();
             }
         }
     };
@@ -184,7 +193,7 @@
 
 
   function checkImageIsReady(theKey, divContainerId, imgLink, attemptNowIs) {
-    console.log("qui daniel")
+    //console.log("qui daniel")
 	const url = '@Model.theApiServerConf.EndpointsUrl';
     const endpoint = '@Model.theApiServerConf.CheckImgPath';
     const authtoken = '@Model.theApiServerConf.ApiServerToken';
@@ -201,10 +210,10 @@
 
         } else {
           if (attemptNowIs++ < MAX_RETRIES) {
-            console.log(`${attemptNowIs} - still waiting for image ${theKey}`);
+            //console.log(`${attemptNowIs} - still waiting for image ${theKey}`);
             setTimeout(checkImageIsReady.bind(null, theKey, divContainerId, imgLink, attemptNowIs), 5000);
           } else {
-            console.log(`${attemptNowIs} - giving up on image ${theKey}`);
+            //console.log(`${attemptNowIs} - giving up on image ${theKey}`);
           }
         }
       }

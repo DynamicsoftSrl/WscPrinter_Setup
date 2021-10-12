@@ -1,0 +1,474 @@
+
+/* CSS Document */
+
+/* 
+    Created on   : 19/06/2021.
+    Theme Name   : Deski-Saas & Software HTML Template
+    Version      : 1.0.
+    Developed by : (me@heloshape.com) / (www.me.heloshape.com)
+   
+*/
+    /*   01 - Loading Transition  */
+/*   02 - Global style  */
+/*   03 - Prefix  */
+/*   04 - Section Title */
+/*   05 - Theme Button */
+/*   06 - Pagination  */
+/*   07 - Theme Menu  */
+/*   08 - Theme Hero Banner/One  */
+/*   09 - Fancy Feature One  */
+/*   10 - TFancy Feature Two  */
+/*   11 - Useable Tools  */
+/*   12 - Fancy Feature Three  */
+/*   13 - Fancy Short Banner One  */
+/*   14 - Faq Classic   */
+/*   15 - Footer One  */
+/*   16 - Fancy Hero One  */
+/*   17 - Fancy Text block One  */
+/*   18 - Counter Info Standard  */
+/*   19 - Fancy Text block Two   */
+/*   20 - Fancy Text block Three */
+/*   21 - Team Section One */
+/*   22 - Feature Blog One */
+/*   23 - Fancy Text block Four  */
+/*   24 - Fancy Text block Five  */
+/*   25 - Feature Blog Two  */
+/*   26 - Contact Us Light */
+/*   27 - Theme Hero Banner/Two  */
+/*   28 - Fancy Feature Two   */
+/*   29 - Fancy Text block Six   */
+/*   30 - Counter With Icon One   */
+/*   31 - Fancy Text block Seven   */
+/*   32 - Fancy Text block Eight   */
+/*   33 - Useable Tools Two   */
+/*   34 - Client Feedback Slider One   */
+/*   35 - Fancy Short Banner Three   */
+/*   36 - Footer Style Two   */
+/*   37 - Fancy Hero Two   */
+/*   38 - Fancy Text block Nine  */
+/*   39 - Fancy Text block Ten   */
+/*   40 - Fancy Feature Five   */
+/*   41 - Team Section Two   */
+/*   42 - Fancy Hero Three   */
+/*   43 - Fancy Text block Eleven   */
+/*   44 - Fancy Feature Six   */
+/*   45 - Fancy Text block Twelve   */
+/*   46 - Fancy Feature Seven   */
+/*   47 - Fancy Text Block Thirteen   */
+/*   48 - Fancy Text Block Fourteen   */
+/*   49 - Pricing Section One   */
+/*   50 - Fancy Text Block Fifteen   */
+/*   51 - Fancy Hero Four   */
+/*   52 - Pricing Section Two   */
+/*   53 - FAQ Section   */
+/*   54 - Contact Style Two   */
+/*   55 - Faqs   */
+/*   56 - Login/Sign Up   */
+/*   57 - Blog Pages  */
+/*   58 - Theme Hero Banner/Three  */
+/*   59 - Fancy Feature Eight   */
+/*   60 - Fancy Text block Sixteen   */
+/*   61 - Fancy Feature Eight   */
+/*   62 - Client Feedback Slider Two   */
+/*   63 - Useable Tools / Three  */
+/*   64 - Fancy Short Banner Four   */
+/*   65 - Footer Style Three   */
+/*   66 - Fancy Hero Five   */
+/*   67 - Fancy Text block Seventeen   */
+/*   68 - Fancy Text block Eighteen   */
+/*   69 - Team Section Three  */
+/*   70 - Map Area One    */
+/*   71 - Documentation  */
+/*   72 - Theme Hero Banner/Four   */
+/*   73 - Fancy Feature Eight   */
+/*   74 - Fancy Text block Nineteen   */
+/*   75 - Fancy Feature Nine   */
+/*   76 - Pricing Section Three   */
+/*   77 - Client Feedback Slider Three   */
+/*   78 - Faq Section Three   */
+/*   79 - Fancy Short Banner Five   */
+
+
+
+
+
+
+
+/*========================================================================================
+
+*************************** Start Styling Your theme from here ***************************
+
+==========================================================================================*/
+/*** 
+
+====================================================================
+  Loading Transition
+====================================================================
+
+ ***/
+
+/*----bootstrap css ----- */
+@import url('../vendor/bootstrap/css/bootstrap.min.css');
+.ctn-preloader {
+  align-items: center;
+  -webkit-align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  height: 100%;
+  justify-content: center;
+  -webkit-justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+  background: #fff;
+}
+.ctn-preloader .animation-preloader {
+  position: absolute;
+  z-index: 100;
+}
+/* Spinner cargando */
+    .ctn-preloader .animation-preloader .spinner {
+        animation: spinner 1.5s infinite linear;
+        border-radius: 50%;
+        border: 3px solid rgb(101 92 151 / 6%);
+        border-top-color: #ee811f;
+        border-bottom-color: #ee811f;
+        height: 170px;
+        margin: 0 auto 45px auto;
+        width: 170px;
+    }
+/* Texto cargando */
+.ctn-preloader .animation-preloader .txt-loading {
+  text-align: center;
+  user-select: none;
+}
+    .ctn-preloader .animation-preloader .txt-loading .letters-loading:before {
+        animation: letters-loading 4s infinite;
+        color: #ee811f;
+        content: attr(data-text-preloader);
+        left: 0;
+        opacity: 0;
+        top: 0;
+        line-height: 70px;
+        position: absolute;
+    }
+.ctn-preloader .animation-preloader .txt-loading .letters-loading {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  letter-spacing: 15px;
+  display: inline-block;
+  color: rgb(101 92 151 / 14%);
+  position: relative;
+  font-size: 70px;
+  line-height: 70px;
+}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {animation-delay: 0.2s;}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {animation-delay: 0.4s;}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {animation-delay: 0.6s;}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {animation-delay: 0.8s;}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before { animation-delay: 1s;}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before { animation-delay: 1.2s;}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before { animation-delay: 1.4s;}
+.ctn-preloader .loader-section {
+  background-color: #ffffff;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: calc(50% + 1px);
+}
+.loaded .animation-preloader {
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+/* Animación del preloader */
+@keyframes spinner {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes letters-loading {
+  0%,
+  75%,
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ctn-preloader .animation-preloader .spinner {
+    height: 8em;
+    width: 8em;
+  }
+}
+@media screen and (max-width: 500px) {
+  .ctn-preloader .animation-preloader .spinner {
+    height: 7em;
+    width: 7em;
+  }
+  .ctn-preloader .animation-preloader .txt-loading .letters-loading {font-size: 40px; letter-spacing: 10px;}
+}
+/******************************************/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    color: #fff;
+    background: #fff!important;
+}
+
+#container {
+    background: #1b1b1b !important;
+}
+
+/*Basic Phone styling*/
+
+.phone {
+    border: 40px solid #121212;
+    border-width: 55px 7px;
+    border-radius: 40px;
+    margin: 50px auto;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+.phone2 {
+    
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+.phone2 iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+    .phone iframe {
+        border: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+    }
+
+    /*Different Perspectives*/
+
+    /* Table View */
+    .phone.view_1 {
+        -webkit-transform: rotateX(50deg) rotateY(0deg) rotateZ(-30deg);
+        transform: rotateX(50deg) rotateY(0deg) rotateZ(-30deg);
+        box-shadow: -3px 3px 0 #000, -6px 6px 0 #000, -9px 9px 0 #000, -12px 12px 0 #000, -14px 10px 20px #000;
+    }
+    /*  Front View */
+    .phone.view_2 {
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        box-shadow: 0px 3px 0 #000, 0px 4px 0 #000, 0px 5px 0 #000, 0px 7px 0 #000, 0px 10px 20px #000;
+    }
+
+
+@-webkit-keyframes rotate {
+
+    0% {
+        -webkit-transform: rotateX(50deg) rotateY(0deg) rotateZ(-30deg);
+    }
+
+    50% {
+        -webkit-transform: rotateX(50deg) rotateY(0deg) rotateZ(-40deg);
+    }
+
+    100% {
+        -webkit-transform: rotateX(50deg) rotateY(0deg) rotateZ(-30deg);
+    }
+}
+
+/* Rotate Animation */
+
+.view_1.rotate {
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 15s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+
+/*Controls*/
+
+#controls {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    font-size: 0.9em;
+    color: #333;
+    width: 17px;
+}
+
+    #controls div {
+        margin: 10px;
+    }
+
+        #controls div label {
+            width: 150px;
+            display: block;
+            float: left;
+            color: #fff;
+        }
+
+/*#phone-controls {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    width: 200px;
+    font-size: 14px;
+}*/
+
+#phones {
+    /*border-top: 1px solid #fff;*/
+    margin-top: 20px;
+}
+
+    #phones button {
+        outline: none;
+        width: 198px;
+        border: 1px solid #016aa0;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -o-border-radius: 5px;
+        background-color: #016aa0;
+        height: 40px;
+        margin: 10px 0;
+        color: #fff;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+
+        #phones button:hover {
+            color: #444;
+            background-color: #eee;
+        }
+
+#views button {
+    outline: none;
+    width: 198px;
+    border: 1px solid #00a8ff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color: #00a8ff;
+    height: 40px;
+    margin: 10px 0;
+    color: #fff;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+    #views button:hover {
+        color: #444;
+        background-color: #eee;
+    }
+
+@media (max-width:900px) {
+    #wrapper {
+        -webkit-transform: scale(0.8, 0.8);
+        transform: scale(0.8, 0.8);
+    }
+}
+
+@media (max-width:700px) {
+    #wrapper {
+        -webkit-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6);
+    }
+
+    .phone {
+        margin: 0 0 0 -70px;
+    }
+}
+
+@media (max-width:500px) {
+    #wrapper {
+        -webkit-transform: scale(0.4, 0.4);
+        transform: scale(0.4, 0.4);
+    }
+}
+
+/* Fade In Animation */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
