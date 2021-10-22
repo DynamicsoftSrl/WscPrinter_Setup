@@ -10935,6 +10935,19 @@ body .theme-btn-nine {
     color: #101621;
 }
 
+.wbuilder-info .text-title {
+    font-size: 21px;
+    padding: 15px 0 5px;
+    font-weight:600;
+}
+
+.wbuilder-info .text-content {
+    font-size: 17px;
+    padding: 10px 0 15px;
+    font-family: 'gilroy-light', sans-serif;
+}
+
+
 .wbuilder-img-logo-center {
     position: static;
     text-align: center;
@@ -11787,6 +11800,10 @@ p {
         text-align: center;
         margin-top: 30px;
     }
+
+    
+
+
 
     .wbuilder-info-2 p {
         font-size: 21px;
