@@ -4,7 +4,7 @@
 @inject IAntiforgery antiforgery
 @{
     var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
-    ViewData["Title"] = "Step-5";
+    ViewData["Title"] = "Step 5";
 }
 
 <style>
@@ -17,34 +17,32 @@
 -->
 <div class="wbuilder-page">
     <div class="wbuilder-column-1 d-lg-flex align-items-center">
-        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print"></a></div>
         <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
             <h2>Aggiungi queste informazioni basiche   <br />  per il tuo nuovo <br />sito Web To Print </h2>
         </div>
     </div>
     <div class="wbuilder-column-2 d-lg-flex align-items-center">
         <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-            <p class="text"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
+            <p class="text-2"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
             <form class="form-horizontal" role="form" id="formfile0">
                 <div class="step-block">
                     <div class="row">
-
                         <div class="col-sm-12 " id="drop-area">
                             <div class="form-group form-group-2">
-                                <label class="custom-file img-responsive" for="FileUpload_FormFile"><img src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl(event)"><p>Clicca qui per caricare il tuo logo </p></label>
+                                <label class="custom-file img-responsive" for="FileUpload_FormFile">
+                                    <p id="UploadLogoText">Clicca qui per caricare il tuo logo </p>
+                                    <img id="UploadLogoImg" src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl(event)">
+                                    <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" style="display: none;">
+                                     <div class="wbuilder-hidden" id="uploadSuccessContainer">
+                                        <div class="form-groups" id="containerGallery">
+                                            @*<progress id="progress-bar" max=100 value=0></progress>*@
+                                            <div id="gallery" class="galleryclass"/>
+                                        </div>
+                                    </div>
+                                </label>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" style="display: none;">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 wbuilder-hidden" id="uploadSuccessContainer">
-                            <div class="form-group" id="containerGallery">
-                                @*<progress id="progress-bar" max=100 value=0></progress>*@
-                                <div id="gallery" class="galleryclass"/>
-                            </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </form>
@@ -59,8 +57,6 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
-
-
                                 <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <!--<label for="id_email">@Localizer["email"]</label><br />-->
                                 <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
                             </div>
@@ -77,11 +73,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
-                    <button class="theme-btn-nine">Continua</button>
+                <div class="wbuilder-button">
+                    <button class="theme-btn-nine buttonContinue">@Localizer["Continue"]</button>
                 </div>
                 <div class="wbuilder-terms pt-20">
-                    Cliccando su continua, io accetto la normativa sulla <a href="https://www.dynamicsoft.it/informativa-privacy/" target="_blank"></a>
+                    Cliccando su continua, io accetto la normativa sulla <a href="https://www.dynamicsoft.it/informativa-privacy/" target="_blank">Privacy policy</a>
                 </div>
             </form>
         </div>
@@ -138,6 +134,8 @@
   }
     function AJAXSubmit(oFormElement, idFile) {
         $("#uploadSuccessContainer").removeClass("wbuilder-hidden");
+        $("#UploadLogoImg").hide();
+        $("#UploadLogoText").hide();
         var div = "<div id=\"loaderGallery\"class=\"progress\"><span class=\"progress-left\"><span class=\"progress-bar\"></span> </span> <span class=\"progress-right\"> <span class=\"progress-bar\"></span> </span></div>";
         $("#containerGallery").append(div)
         $("#gallery").addClass("wbuilder-hidden")
@@ -297,7 +295,7 @@
     reader.onloadend = function () {
       let img = document.createElement('img')
         img.src = reader.result
-        img.classList.add("img-thumbnail");
+        img.classList.add("img-thumbnail-logo");
 
 
         document.getElementById(elemId).innerHTML = ""
@@ -305,7 +303,9 @@
             
         setTimeout(function () {
             $("#gallery").removeClass("wbuilder-hidden")
-            $( "#loaderGallery" ).remove();
+            $("#loaderGallery").remove();
+            $("#UploadLogoText").show();
+
         }, 3000);
     }
   }

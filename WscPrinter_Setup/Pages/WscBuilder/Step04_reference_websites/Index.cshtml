@@ -11,7 +11,7 @@
       , new SelectListItem { Value = "CEC", Text = "Carciofi e contorni"  }
       , new SelectListItem { Value = "CAT", Text = "Carriole a turbo"  }
   };
-    ViewData["Title"] = "Step-4";
+    ViewData["Title"] = "Step 4";
 }
 
 <!--
@@ -21,7 +21,7 @@
 -->
 <div class="wbuilder-page">
     <div class="wbuilder-column-1 d-lg-flex align-items-center">
-        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print"></a></div>
         <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
             <h2>Quali tra questi siti web   <br />  di stampa online <br /> ti piacciono? </h2>
         </div>
@@ -29,9 +29,9 @@
     <div class="wbuilder-column-2 d-lg-flex align-items-center">
         <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
             <p class="text">Seleziona uno o pi&ugrave; siti  web  di stampa online che ti piacciono </p>
-             <div class="toggler">
+             <div class="togglers">
                 <div id="alertError" class="alert alert-warning wbuilder-hidden">
-                    <div class="fa fa-warning"> <span> Per proseguire è necessario scegliere almeno un valore</span> </div>
+                    <div class="fa fa-warning"> <span>Scegli almeno un'opzione. Grazie.</span> </div>
                 </div>
             </div>
             <form id="selectReferenceWebsites" asp-page="/WscBuilder/Step05_website_name_email_and_logo/Index"
@@ -102,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="wbuilder-button" data-aos="fade-left" data-aos-duration="1200">
+                <div class="wbuilder-button">
                     <a href="#" class="theme-btn-nine" onclick="validateSubmit('selectReferenceWebsites','ReferenceWebsite','OtherReferenceWebsite')">@Localizer["Continue"]</a>
                 </div>
             </form>

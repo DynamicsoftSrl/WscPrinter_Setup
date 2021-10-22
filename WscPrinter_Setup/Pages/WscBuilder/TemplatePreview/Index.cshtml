@@ -3,87 +3,85 @@
 @{
 
 }
-<div class="col-md-12">
-    <div id="phone-controls" >
-        <div id="phones">
-            <button value="1"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-		    <path d="M0 0h24v24H0z" fill="none"></path>
-		    <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"></path>
-		</svg></button>
-            <button value="2"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-		    <path d="M0 0h24v24H0z" fill="none"/>
-		    <path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 1.99-.9 1.99-2L23 6c0-1.1-.9-2-2-2zm-2 14H5V6h14v12z"/>
-		</svg></button>
-            <button value="3"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-		    <path d="M0 0h24v24H0z" fill="none"/>
-		    <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/>
-		</svg></button>
+<div class="theme-main-menu-preview theme-menu-two">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="logo">
+            <a href="/"><img src="/images/website/logo_header_wscprinter.png" alt=""></a>
+        </div>
+        <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
+            <div class="container nav-container nav-container-mobile">
+
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <div class="d-lg-flex justify-content-between align-items-center">
+                        <div id="phone-controls">
+                            <div id="phones">
+                                <img id="screen_desktop" onclick="updateIframeSelected(1)" class="icon-template-preview icon-template-selected" src="/images/website/icon_preview_desktop.svg" alt="">
+                                <img id="screen_mobile" onclick="updateIframeSelected(2)" class="icon-template-preview" src="/images/website/icon_preview_mobile.svg" alt="">
+                            </div>
+                        </div>
+                        <ul class="right-widget">
+                            <li class="d-sm-flex">
+                                <ul class="user-login-button d-flex align-items-center justify-content-center">
+                                    <li class="theme-main-menu-preview-text">
+                                        Anteprima sito <b>@Model.CustomerName </b>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="iframe-preview wbuilder-template-preview-iframe-desktop">
+    <div id="wrapper">
+        <div class="phone2 view_2" id="phone_1" style="width: 100%; height: 1024px;">
+            <iframe src="@Model.LinkUrl" id="frame_1"></iframe>
         </div>
     </div>
 </div>
-
-<div class="col-md-12">
-    <!--The Main Thing-->
-    <div id="wrapper" style="perspective: 1300px;">
-        <div class="phone view_2" id="phone_1" style="width: 375px; height: 667px;">
-            <iframe src="https://sviluppo.wscprinter.it" id="frame_1"></iframe>
-        </div>
-    </div>
+<div class="iframe-preview wbuilder-template-preview-iframe-mobile">
+    <iframe src="@Model.LinkUrl" width="100%" height="100%" class="iframe-mobile"></iframe>
 </div>
 
 <script type="text/javascript">
-
-    /*Only needed for the controls*/
     phone = document.getElementById("phone_1"),
-    iframe = document.getElementById("frame_1");
-    /*View*/
+        iframe = document.getElementById("frame_1");
     function updateView(view) {
         if (view) {
             phone.className = "phone view_" + view;
         }
     }
-    /*Controls*/
     function updateIframe() {
-
-        // preload iphone width and height
-        phone.style.width = "375px";
-        phone.style.height = "667px";
+        phone.style.width = "1900px";
+        phone.style.height = "1024px";
     }
-
-    //updateIframe();
-    document.getElementById("phones").addEventListener("click", function (evt) {
-
-        if (evt.target.value == 1) {
-            // iphone 6
-            width = 375;
-            height = 667;
-            $("#phone_1").removeClass("phone2")
-            $("#phone_1").addClass("phone")
-        }
-
-        if (evt.target.value == 2) {
-           // ipad mini
-            width = 667;
-            height = 375;
-           $("#phone_1").removeClass("phone2")
-            $("#phone_1").addClass("phone")
-        }
-
-        if (evt.target.value == 3) {
-            // microsoft
+    function updateIframeSelected(device) {
+        if (device == 1) {
+            // desktop
             width = 1900;
             height = 1024;
             $("#phone_1").removeClass("phone")
             $("#phone_1").addClass("phone2")
+            $("#screen_desktop").addClass("icon-template-selected")
+            $("#screen_mobile").removeClass("icon-template-selected")
         }
-
-
+        if (device == 2) {
+            // mobile
+            width = 375;
+            height = 667;
+            $("#phone_1").removeClass("phone2")
+            $("#phone_1").addClass("phone")
+            $("#screen_desktop").removeClass("icon-template-selected")
+            $("#screen_mobile").addClass("icon-template-selected")
+        }
+    }
+    document.getElementById("phones").addEventListener("click", function (evt) {
         phone.style.width = width + "px";
         phone.style.height = height + "px";
-
     });
     iframe = document.getElementById('frame_1');
-
     if (iframe.attachEvent) {
         iframe.attachEvent("onload", function () {
             afterLoading();
@@ -93,11 +91,6 @@
             afterLoading();
         };
     }
-
     function afterLoading() {
-
-
     }
-
-
 </script>
