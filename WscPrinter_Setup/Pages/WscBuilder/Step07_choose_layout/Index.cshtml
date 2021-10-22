@@ -49,12 +49,20 @@
   WBUILDER - STEP 7
 ==============================================
 -->
-<div class="app-screen-preview-two lg-container">
+<div class="app-screen-preview-two lg-container wbuilder-hidden" id="isLoaded" >
     <div class="container">
         <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
             <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
             <h2 class="mt-20 md-mt-10"><b> Scegli il design per il tuo sito Web To Print</b></h2>
             <p class="mt-20">Woow! Questi siti sono stati fatti su misura per te.<br /> Puoi vedere l'anteprima di tutti e scegliere il tuo preferito. Potrai personalizzarli in secondo momento.</p>
+        </div>
+    </div>
+</div>
+<div class="app-screen-preview-two lg-container" id="isLoading">
+    <div class="container">
+        <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
+             <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+            <h2 class="mt-20 md-mt-10"><b> Stiamo caricando</b></h2>
         </div>
     </div>
 </div>
@@ -174,9 +182,10 @@
     xhr.onload = function () {
       if (this.status == 200) {
         if (this.responseText.toLowerCase() === "true") {
-            console.log(`image ${theKey} is ready`);
-          replaceImage(theKey, imgLink);
-
+            //console.log(`image ${theKey} is ready`);
+            replaceImage(theKey, imgLink);
+            $("#isLoaded").removeClass("wbuilder-hidden");
+            $("#isLoading").addClass("wbuilder-hidden");
         } else {
           if (attemptNowIs++ < MAX_RETRIES) {
             //console.log(`${attemptNowIs} - still waiting for image ${theKey}`);
