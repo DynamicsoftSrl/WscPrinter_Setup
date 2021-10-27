@@ -1,55 +1,34 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.Step08_ready_to_go.Step08ReadyToGoModel
 @{
-  string templateName = Request.Query["templateName"];
-  string templateId = Request.Query["templateId"];
-  string templateLink = Request.Query["theLink"];
-  string templateImg = Request.Query["imgLink"];
-  ViewData["Title"] = "Congratulazioni";
+    string templateName = Request.Query["templateName"];
+    string templateId = Request.Query["templateId"];
+    string templateLink = Request.Query["theLink"];
+    string templateImg = Request.Query["imgLink"];
+    ViewData["Title"] = "Congratulazioni";
 }
-
-
-  <div class="wbuilder-page">
+<div class="wbuilder-page">
     <div class="wbuilder-column-1 d-lg-flex align-items-center">
         <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print"></a></div>
         <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
             <h2><span>Congratulazioni!</span> </h2>
             <p class="text">Il tuo sito &egrave; stato pubblicato ed &egrave; live online</p>
-
-
         </div>
     </div>
     <div class="wbuilder-column-2 d-lg-flex align-items-center">
         <div class="wbuilder-info">
-            <p class="text-title">Prossimo passo</p>
-            <p class="text-content">&Egrave; tutto pronto per avviare la tua attivit&agrave; online.<br /> Contatta subito il nostro team di assistenza clienti che sarà felice di aiutarti per informazioni di carattere tecnico ed economico. 
-            
-            <br />Il tuo sito Web To Print personalizzato rimarrà pubblicato online per 30 giorni</p>
-
+            <p class="text"><b>Adesso &egrave; quasi tutto pronto per avviare la tua attivit&agrave; online</b></p>
+            <p class="text-title">Ultimo passo</p>
+            <p class="text-content">Contattaci subito al numero telefonico <b>02 87 388 790</b> o inviaci un'email a <b>commerciale@dynamicsoft.it</b> <br /> Il nostro team di assistenza clienti sarà felice di aiutarti proponendoti la miglior offerta economica sul mercato.</p>
+            <p class="text-content-2">Nel frattempo inzia la navigazione del tuo nuovo sito Web To Print.</p>
             <div class="wbuilder-button">
                 <a onclick="leave();" class="theme-btn-nine">Vai al tuo sito</a>
             </div>
+
+
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-<h1>Step 8</h1>
-
-<p>@Localizer["So this is your preferred one"]</p>
-
-<div class="inner2 withbord">
-</div>
-<button onclick="leave();">@Localizer["Goto your website"]</button>
-<p>@Localizer["We will contact you soon..."]</p>
-
-
-
 <script>
   function leave() {
     var url = '@templateLink';

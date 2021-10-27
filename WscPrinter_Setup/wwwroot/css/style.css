@@ -10685,11 +10685,12 @@ body .theme-btn-nine:hover {background: #EB5E2A;}
 body .theme-btn-nine {
     line-height: 58px;
     border-radius: 50px;
-    color: #fff;
+    color: #fff !important;
     padding: 0 34px;
     text-align: center;
     background: #ee811f;
     transition: all 0.3s ease-in-out;
+    cursor:pointer;
 }
 .title-style-eleven h2 {
     font-size: 58px;
@@ -10943,9 +10944,23 @@ body .theme-btn-nine {
 
 .wbuilder-info .text-content {
     font-size: 17px;
-    padding: 10px 0 15px;
+    padding: 10px 0 0px;
     font-family: 'gilroy-light', sans-serif;
 }
+
+.wbuilder-info .text-content-2 {
+    font-size: 17px;
+    padding: 10px 0 50px;
+    font-family: 'gilroy-light', sans-serif;
+}
+
+
+.wbuilder-info .text-content-info {
+    font-size: 12px;
+    padding: 0px 0 0px;
+    font-family: 'gilroy-light', sans-serif;
+}
+
 
 
 .wbuilder-img-logo-center {
