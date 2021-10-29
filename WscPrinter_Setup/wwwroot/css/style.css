@@ -11880,13 +11880,15 @@ p {
 
 
     .theme-demo .content-wrapper {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .theme-demo .title-wrapper .preview, .theme-demo .title-wrapper .choose {
         padding: 3px 8px;
     }
 
-
+    .theme-demo .title-wrapper .link-wrapper {
+        display: block;
+    }
 }
 
