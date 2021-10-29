@@ -23,6 +23,8 @@ namespace WscPrinter_Setup.ApiModels
         public string CompanyLogoData { get; set; }
         public string AuthToken { get; set; }
         public bool IsNewRequest { get; set; }
+        public string UserIp { get; set; }
+
     }
 
     public class UserProfile4Wsc
@@ -42,6 +44,8 @@ namespace WscPrinter_Setup.ApiModels
         public string CompanyLogo { get; set; }
         public string CompanyLogoData { get; set; }
         public string AuthToken { get; set; }
+        public string UserIp { get; set; }
+
         public UserProfile4Wsc(UserProfile theWalkingObj)
         {
             this.ProductsSold = theWalkingObj.ProductsSold != null && theWalkingObj.ProductsSold.Count() > 0 ? quickArrayToString(theWalkingObj.ProductsSold) : "";
@@ -56,7 +60,7 @@ namespace WscPrinter_Setup.ApiModels
             this.UserEmail = theWalkingObj.UserEmail ?? "";
             this.UserPhone = theWalkingObj.UserPhone ?? "";
             this.UserDeclaredName = theWalkingObj.UserDeclaredName ?? "";
-
+            this.UserIp= theWalkingObj.UserIp ?? "";
             this.CompanyLogo = theWalkingObj.CompanyLogo ?? "";
             this.CompanyLogoData = theWalkingObj.CompanyLogoData ?? "";
             this.AuthToken = theWalkingObj.AuthToken;

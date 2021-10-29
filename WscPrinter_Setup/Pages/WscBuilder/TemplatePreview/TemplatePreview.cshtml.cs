@@ -18,15 +18,16 @@ namespace WscPrinter_Setup.Pages.WscBuilder.TemplatePreview
         public string LinkUrl { get; set; }
         public void OnGet()
         {
-           
-        }
-        public void OnPost(string thelink)
-        {
             var theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
-
             this.CustomerName = theWalkingUser.SiteName;
-            this.LinkUrl = thelink;
+            //this.LinkUrl = theWalkingUser.LinkUrl;
         }
+        //public void OnPost(string thelink)
+        //{
+        //    var theWalkingUser = HttpContext.Session.GetObjectFromJson<UserProfile>("USER_PROFILE", new UserProfile());
 
+        //    this.CustomerName = theWalkingUser.SiteName;
+        //    this.LinkUrl = thelink;
+        //}
     }
 }

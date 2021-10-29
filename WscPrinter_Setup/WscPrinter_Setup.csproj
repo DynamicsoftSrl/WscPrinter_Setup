@@ -22,7 +22,19 @@
   </ItemGroup>
   <ItemGroup>
     <ViewFiles Remove="Pages\Shared\_Layout_Preview.cshtml" />
-    <ViewFiles Remove="Pages\WscBuilder\TemplatePreview\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pages\WscBuilder\Step01_intro\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step02_company_type\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step03_products_sold\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step04_reference_websites\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step05_website_name_email_and_logo\Index-backup.cshtml" />
+    <None Include="Pages\WscBuilder\Step05_website_name_email_and_logo\Index-backup2.cshtml" />
+    <None Include="Pages\WscBuilder\Step05_website_name_email_and_logo\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step06_choose_skin_and_styles\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step07_choose_layout\Index.cshtml" />
+    <None Include="Pages\WscBuilder\Step08_ready_to_go\Index.cshtml" />
+    <None Include="Pages\WscBuilder\TemplatePreview\Index.cshtml" />
   </ItemGroup>
   <Target Name="CopyViewFilesAfterPublish" AfterTargets="Publish">
     <Copy SourceFiles="@(ViewFiles)" DestinationFolder="$(PublishDir)\Pages\%(RecursiveDir)" />

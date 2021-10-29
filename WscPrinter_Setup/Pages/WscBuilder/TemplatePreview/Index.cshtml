@@ -1,7 +1,7 @@
 ﻿@page
 @model WscPrinter_Setup.Pages.WscBuilder.TemplatePreview.TemplatePreviewModel
 @{
-
+       ViewData["Title"] = "Preview";
 }
 <div class="theme-main-menu-preview theme-menu-two">
     <div class="d-flex align-items-center justify-content-center">
@@ -37,15 +37,16 @@
 <div class="iframe-preview wbuilder-template-preview-iframe-desktop">
     <div id="wrapper">
         <div class="phone2 view_2" id="phone_1" style="width: 100%; height: 1024px;">
-            <iframe src="@Model.LinkUrl" id="frame_1"></iframe>
+            <iframe src="" id="frame_1"></iframe>
         </div>
     </div>
 </div>
 <div class="iframe-preview wbuilder-template-preview-iframe-mobile">
-    <iframe src="@Model.LinkUrl" width="100%" height="100%" class="iframe-mobile"></iframe>
+    <iframe src="" width="100%" height="100%" class="iframe-mobile" id="frame_2"></iframe>
 </div>
 
 <script type="text/javascript">
+             
     phone = document.getElementById("phone_1"),
         iframe = document.getElementById("frame_1");
     function updateView(view) {

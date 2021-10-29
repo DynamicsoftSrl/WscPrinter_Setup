@@ -4,10 +4,10 @@
 @model WscPrinter_Setup.Pages.WscBuilder.Step07_choose_layout.Step07ChooseLayoutModel
 @{
 
-  string theGuid1 = Guid.NewGuid().ToString();
-  string theGuid2 = Guid.NewGuid().ToString();
-  bool MOCK_MODE = false;
-  WebsiteEntity[] MokkaArray = {
+    string theGuid1 = Guid.NewGuid().ToString();
+    string theGuid2 = Guid.NewGuid().ToString();
+    bool MOCK_MODE = false;
+    WebsiteEntity[] MokkaArray = {
       new WebsiteEntity { Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
         , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it" }
         , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/template-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
@@ -18,38 +18,41 @@
         , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png", TemplateId = theGuid2, TemplateName = "WscPrinter test", TargetLink = "https://sviluppo.wscprinter.it" }
         , new WebsiteEntity { Img = "/img/sampleWebsitesPreview/DynamicSoft-small.png", TemplateId = theGuid1, TemplateName = "Dynamic Institutional", TargetLink = "https://www.dynamicsoft.it" }
     };
-  List<WebsiteEntity> theLItems = new List<WebsiteEntity>();
-  if (MOCK_MODE) {
-    theLItems.Concat(MokkaArray);
-  }
-  //
-  if (Model.ResponseCacheAttributeFromServer != null) {
-    foreach (WebsiteEntity theEnt in Model.ResponseCacheAttributeFromServer) {
-      theLItems.Add(theEnt);
+    List<WebsiteEntity> theLItems = new List<WebsiteEntity>();
+    if (MOCK_MODE)
+    {
+        theLItems.Concat(MokkaArray);
     }
-  }
-  WebsiteEntity[] theItems = theLItems.ToArray();
+    //
+    if (Model.ResponseCacheAttributeFromServer != null)
+    {
+        foreach (WebsiteEntity theEnt in Model.ResponseCacheAttributeFromServer)
+        {
+            theLItems.Add(theEnt);
+        }
+    }
+    WebsiteEntity[] theItems = theLItems.ToArray();
 
 
-  string[] fakeimgs = {
+    string[] fakeimgs = {
     "/img/sampleWebsitesPreview/DynamicSoft-small.png"
     , "/img/sampleWebsitesPreview/SviluppoWscPrinter-small.png"
     , "/img/sampleWebsitesPreview/template-small.png"
   };
 
-  string[] cssClasses = {
+    string[] cssClasses = {
     "left withbord"
     , "middle withbord"
     , "right withbord"
   };
-  ViewData["Title"] = "Step 7";
+    ViewData["Title"] = "Step 7";
 }
 <!--
 =============================================
   WBUILDER - STEP 7
 ==============================================
 -->
-<div class="app-screen-preview-two lg-container wbuilder-hiddens" id="isLoaded" >
+<div class="app-screen-preview-two lg-container wbuilder-hidden" id="isLoaded">
     <div class="container">
         <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
             <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
@@ -61,7 +64,7 @@
 <div class="app-screen-preview-two lg-container" id="isLoading">
     <div class="container">
         <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
-             <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
+            <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt=""></a></div>
             <h2 class="mt-20 md-mt-10"><b>Stiamo creando i tuoi design personalizzati</b></h2>
             <p class="mt-20">Attendi qualche secondo <br /><img src="/images/website/wait_preview.gif" alt="" style="display: inline;"></p>
         </div>
@@ -87,8 +90,8 @@
                         </div>
                     </div>
                 </div>
-                <form id="formPreview_@theItems[xxx].TemplateId" asp-page="/WscBuilder/TemplatePreview/Index" method="post" class="form-horizontal" role="form" target="_blank" >
-                    <input name="thelink" value="@theItems[xxx].TargetLink" type="hidden"/>
+                <form id="formPreview_@theItems[xxx].TemplateId" asp-page="/WscBuilder/TemplatePreview/Index" method="post" class="form-horizontal" role="form" target="_blank">
+                    <input name="thelink" value="@theItems[xxx].TargetLink" type="hidden" />
                 </form>
             }
         </div>
@@ -108,10 +111,10 @@
   );
 
   function initImgWaiter(key, divContainerId, ImgLink){
-   
+
     checkImageIsReady(key, divContainerId, ImgLink, 0);
   }
-  
+
   function replaceImage(divContainerId, imgLink) {
       $("#" + divContainerId).attr("src", imgLink);
         $("#container_" + divContainerId).removeClass( "isreadyimage" )
@@ -127,20 +130,54 @@
     const xhr = new XMLHttpRequest();
     xhr.open('GET', uri, true);
 
-    xhr.onload = function () {
-        if (this.status == 200) {
-            if (this.responseText.toLowerCase() === "true") {
-                const theForm = document.getElementById("formPreview_"+theKey);
-                theForm.submit()
-                 // elem = document.getElementById("link_"+theKey);
-                 //elem.click();
-              // window.open(theLink, '_blank').focus();
+        xhr.onload = function () {
+            if (this.status == 200) {
+                if (this.responseText.toLowerCase() === "true") {
+                    var cookievalue = "SelectedLink=" + theLink + "; path=/";
+                    document.cookie = cookievalue;
+                    checkRedirect()
+                    //const theForm = document.getElementById("formPreview_"+theKey);
+                    //theForm.submit()
+                    // elem = document.getElementById("link_"+theKey);
+                    //elem.click();
+                    //window.open(link, '_blank').focus();
+                }
+            }
+        };
+        xhr.send(null);
+    }
+
+    function redirect() {
+        var link = `/WscBuilder/TemplatePreview/Index`
+
+        $('<a href="' + link + '" target="_blank"></a>')[0].click();
+    }
+
+    function checkRedirect() {
+        let value = getCookie("SelectedLink");
+        if (value != null || value != "") {
+           setTimeout(function(){  redirect(); }, 200);
+        }
+        else {
+            checkRedirect()
+        }
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
             }
         }
-    };
-    xhr.send(null);
-  }
-  
+        return "";
+    }
+
     function buytheLink(theLink, theKey, templateName, imgLink) {
 
     const url = '@Model.theApiServerConf.EndpointsUrl';
