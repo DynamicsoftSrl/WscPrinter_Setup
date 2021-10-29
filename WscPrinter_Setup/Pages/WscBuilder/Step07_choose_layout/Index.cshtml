@@ -90,9 +90,6 @@
                         </div>
                     </div>
                 </div>
-                <form id="formPreview_@theItems[xxx].TemplateId" asp-page="/WscBuilder/TemplatePreview/Index" method="post" class="form-horizontal" role="form" target="_blank">
-                    <input name="thelink" value="@theItems[xxx].TargetLink" type="hidden" />
-                </form>
             }
         </div>
     </div>
@@ -149,7 +146,6 @@
 
     function redirect() {
         var link = `/WscBuilder/TemplatePreview/Index`
-
         $('<a href="' + link + '" target="_blank"></a>')[0].click();
     }
 
