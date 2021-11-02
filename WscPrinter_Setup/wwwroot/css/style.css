@@ -11524,6 +11524,18 @@ border-color: transparent;
     font-weight: 500;
 }
 
+.step-8-whatsapp a {
+    font-family: 'gilroy-bold';
+    color: #29a71a !important;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+    .step-8-whatsapp  a .icon-whatsapp {
+        font-size: 18px;
+        color: #29a71a;
+        font-weight: 600;
+    }
 
 .whatsapp-float {
     position: fixed;
