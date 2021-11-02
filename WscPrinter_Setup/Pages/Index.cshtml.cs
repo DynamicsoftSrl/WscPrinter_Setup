@@ -9,8 +9,12 @@ namespace WscPrinter_Setup.Pages
 {
     public class IndexModel : PageModel
     {
+        public Boolean isYoutube = false;
         public void OnGet()
         {
+            string isyoutube = Request.Query["youtube"];
+            isyoutube = string.IsNullOrEmpty(isyoutube) ? "false" : isyoutube;
+            this.isYoutube = isyoutube.ToLower() == "true";
         }
     }
 }
