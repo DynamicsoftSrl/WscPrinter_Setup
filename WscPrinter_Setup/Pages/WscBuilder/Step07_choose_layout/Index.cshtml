@@ -77,19 +77,19 @@
         <div class="row">
             @for (int xxx = 0; xxx < theItems.Length; xxx++)
             {
-                <div class="col-lg-4">
-                    <div class="theme-demo isreadyimage mb-50 md-mb-50" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
-                        <div class="content-wrapper">
-                            <div class="title-wrapper">
-                                <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
-                                <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
-                            </div>
-                        </div>
-                        <div class="image-wrapper">
-                            <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
+            <div class="col-lg-4">
+                <div class="theme-demo isreadyimage mb-50 md-mb-50" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
+                    <div class="content-wrapper">
+                        <div class="title-wrapper">
+                            <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
+                            <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
                         </div>
                     </div>
+                    <div class="image-wrapper">
+                        <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
+                    </div>
                 </div>
+            </div>
             }
         </div>
     </div>
@@ -213,7 +213,7 @@
     const xhr = new XMLHttpRequest();
     xhr.open('GET', uri, true);
 
-    xhr.onload = function () {
+    xhr.onload = function () {                                      
       if (this.status == 200) {
         if (this.responseText.toLowerCase() === "true") {
             //console.log(`image ${theKey} is ready`);
@@ -233,16 +233,7 @@
 
     xhr.send(null);
 
-  }
-</script>
-<!-- Global site tag (gtag.js) - Google Ads: 1050678622 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1050678622"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-1050678622');
+    }
 </script>
 
 
