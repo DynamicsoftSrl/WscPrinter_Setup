@@ -71,9 +71,9 @@
                         <p class="sub-text pt-30 pb-20">
                             Segui questi semplici passaggi per creare il tuo sito e-commerce per la stampa oggi stesso.
                         </p>
-                         <a data-fancybox="" href="https://www.youtube.com/embed/aXFSJTjVjw0" class="fancybox video-button d-flex align-items-center align-items-center learn-more-5 mt-20 5">                             
+                        <a id="youtubeVideoA" data-fancybox="" href="https://www.youtube.com/embed/aXFSJTjVjw0" class="fancybox video-button d-flex align-items-center align-items-center learn-more-5 mt-20 5">
                             <img src="images/website/play.png" alt="">
-                                <span>Guarda il video</span>
+                            <span>Guarda il video</span>
                         </a>
 
 
@@ -361,7 +361,16 @@
 </div>
 
 <a href="https://wa.me/+390287388790/?text=Sono%20interessato%20a%20Wsc%20Printer%20Web%20To%20Print" class="whatsapp-float" target="_blank">
-<i class="fa fa-whatsapp whatsapp-my-float"></i>
+    <i class="fa fa-whatsapp whatsapp-my-float"></i>
 </a>
 
-
+<script>
+    window.onload = function () {
+        const youtube = '@Model.isYoutube'.toLowerCase();
+        if(youtube=="true")
+        {
+            const theForm = document.getElementById("youtubeVideoA");
+            theForm.click()
+        }
+    };
+</script>

@@ -150,19 +150,19 @@
 </div>
 
 <script type="text/javascript">
-  function validateSubmit(frmId, nameOfItem) {
-    const theForm = document.getElementById(frmId);
-    const chkBxs = theForm.elements.namedItem(nameOfItem);
-    let canGo = false;
-    chkBxs.forEach(chbx => {
-      canGo = canGo || chbx.checked;
-    });
-      if (canGo) {
-      theForm.submit()
-    } else {
-         effect("#alertError");
+    function validateSubmit(frmId, nameOfItem) {
+        const theForm = document.getElementById(frmId);
+        const chkBxs = theForm.elements.namedItem(nameOfItem);
+        let canGo = false;
+        chkBxs.forEach(chbx => {
+            canGo = canGo || chbx.checked;
+        });
+        if (canGo) {
+            theForm.submit()
+        } else {
+            effect("#alertError");
+        }
     }
-  }
     function hideAlert() {
         $("#alertError").addClass("wbuilder-hidden");
     };
