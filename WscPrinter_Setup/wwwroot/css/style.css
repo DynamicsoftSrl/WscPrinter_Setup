@@ -10850,6 +10850,28 @@ body .theme-btn-nine {
     text-decoration: none;
 }
 
+
+.learn-more-5 {
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'gilroy-bold';
+}
+
+    .learn-more-5:hover {
+        color: #ee811f !important;
+        text-decoration: underline;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .learn-more-5 img {
+        margin-right: 15px;
+        transition: all 0.3s ease-in-out;
+    }
+
+
+
+
 .bg-home-2 {
     background: #f9f9f9 !important;
 }
@@ -11478,6 +11500,67 @@ border-color: transparent;
     display: block;
 }
 
+
+
+.theme-menu-two .contacts li, .theme-menu-two .contacts li a {
+    font-family: 'gilroy-light';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 43px;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+    padding-right: 10px;
+}
+
+    .theme-menu-two .contacts li a .icon-whatsapp {
+        font-size: 24px;
+        color: #29a71a;
+        font-weight: 600;
+    }
+.text-whatsapp {
+    font-family: 'gilroy-bold';
+    color: #29a71a !important;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 5px;
+    right: 5px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display:none;
+}
+
+.whatsapp-float a:hover, .whatsapp-float a:active{
+    color: #FFF;
+}
+
+.whatsapp-my-float {
+    margin-top: 16px;
+}
+
+
+.faq-classic .card .card-body p a {
+    text-decoration: none;
+    color: #29a71a;
+    font-weight: bold;
+}
+
+
+
+
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -11835,7 +11918,7 @@ p {
         text-align: center;
     }
 
-    .learn-more-1, .learn-more-2, .learn-more-3, .learn-more-4 {
+    .learn-more-1, .learn-more-2, .learn-more-3, .learn-more-4, .learn-more-5 {
         justify-content: center;
         font-size: 22px;
     }
@@ -11890,5 +11973,10 @@ p {
     .theme-demo .title-wrapper .link-wrapper {
         display: block;
     }
+
+    .whatsapp-float {
+        display: block;
+    }
+
 }
 
