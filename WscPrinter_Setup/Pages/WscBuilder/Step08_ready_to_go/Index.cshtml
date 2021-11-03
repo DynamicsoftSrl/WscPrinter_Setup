@@ -5,7 +5,6 @@
     string templateId = Request.Query["templateId"];
     string templateLink = Request.Query["theLink"];
     string templateImg = Request.Query["imgLink"];
-    string linkWhatsapp = "https://wa.me/+390287388790/?text=Ho%20creato%20il%20mio%20sito%20Web%20To%20Print.%20%" + templateId + "%5D.%20Vorrei%20informazioni.";
     ViewData["Title"] = "Congratulazioni";
 }
 <div class="wbuilder-page">
@@ -20,7 +19,12 @@
         <div class="wbuilder-info">
             <p class="text"><b>Adesso &egrave; quasi tutto pronto per avviare la tua attivit&agrave; online</b></p>
             <p class="text-title">Ultimo passo</p>
-            <p class="text-content">Contattaci subito al numero telefonico <b>02 87 388 790</b>, <span class="step-8-whatsapp">chatta subito con  noi  su <a href="https://wa.me/+390287388790/?text=Salve%20sono%20Michele%2C%0Aho%20creato%20il%20mio%20sito%20Web%20To%20Print.%0A%5Bfe326af8-5b01-40c5-9ec5-9eaec6b0128d%5D%0AVorrei%20maggiori%20informazioni.%0AGrazie%0A" target="_blank"><i class="fa fa-whatsapp icon-whatsapp"></i> WhatsApp</a></span>, oppure inviaci un'email a <b>commerciale@dynamicsoft.it</b> <br /> Il nostro team di assistenza clienti sarà felice di aiutarti proponendoti la miglior offerta economica sul mercato.</p>
+            <p class="text-content">
+                Contattaci subito al numero telefonico <b>02 87 388 790</b>, <span class="step-8-whatsapp">
+                    chatta subito con  noi  su
+                    <a href="" id="whatsapp1" target="_blank"><i class="fa fa-whatsapp icon-whatsapp"></i> WhatsApp</a>
+                </span>, oppure inviaci un'email a <b>commerciale@dynamicsoft.it</b> <br /> Il nostro team di assistenza clienti sarà felice di aiutarti proponendoti la miglior offerta economica sul mercato.
+            </p>
             <p class="text-content-2">Nel frattempo inzia la navigazione del tuo nuovo sito Web To Print.</p>
             <div class="wbuilder-button">
                 <a onclick="leave();" class="theme-btn-nine">Vai al tuo sito</a>
@@ -30,14 +34,47 @@
         </div>
     </div>
 </div>
-<a href="@linkWhatsapp"  class="whatsapp-float" target="_blank">
-<i class="fa fa-whatsapp whatsapp-my-float"></i>
+<a href="" class="whatsapp-float" target="_blank" id="whatsapp2">
+    <i class="fa fa-whatsapp whatsapp-my-float"></i>
 </a>
 
 <script>
   function leave() {
     var url = '@templateLink';
     window.open(url, '_blank');
-  }
+    }
+
+    window.onload = function () {
+        var customerName = GetCustomerName();
+		var template='@templateId';
+        var linkWhatsapp = "https://wa.me/+390287388790/?text=Salve%20sono%20"+ customerName + "%2C%0Aho%20creato%20il%20mio%20sito%20Web%20To%20Print.%0A%5B"+template+"%5D%0AVorrei%20maggiori%20informazioni.%0AGrazie%0A"
+		  document.getElementById("whatsapp1").href = linkWhatsapp;
+		   document.getElementById("whatsapp2").href = linkWhatsapp;
+    };
+
+
+    function GetCustomerName() {
+        let value = getCookie("CustomerName");
+        if (value != null || value != "") {
+          return value;
+        }
+        else {
+            GetCustomerName()
+        }
+    }
+    function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 </script>
-<script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "5c4c12d99c3d443a324c9bd26d5ca7473c1b814bf888e70af4135e9ed4ee805f1a2010ab7b6727677d37b27582c0e9c4", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+<script type="text/javascript" id="zsiqchat">var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || { widgetcode: "5c4c12d99c3d443a324c9bd26d5ca7473c1b814bf888e70af4135e9ed4ee805f1a2010ab7b6727677d37b27582c0e9c4", values: {}, ready: function () { } }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t);</script>
