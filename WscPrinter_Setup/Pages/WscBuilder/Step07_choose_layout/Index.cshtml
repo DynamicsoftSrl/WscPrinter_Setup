@@ -77,19 +77,19 @@
         <div class="row">
             @for (int xxx = 0; xxx < theItems.Length; xxx++)
             {
-                <div class="col-lg-4">
-                    <div class="theme-demo isreadyimage mb-50 md-mb-50" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
-                        <div class="content-wrapper">
-                            <div class="title-wrapper">
-                                <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
-                                <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
-                            </div>
-                        </div>
-                        <div class="image-wrapper">
-                            <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
+            <div class="col-lg-4">
+                <div class="theme-demo isreadyimage mb-50 md-mb-50" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
+                    <div class="content-wrapper">
+                        <div class="title-wrapper">
+                            <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Anteprima <i class="fa fa-external-link"></i></span></button>
+                            <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Usa questo design</span></button>
                         </div>
                     </div>
+                    <div class="image-wrapper">
+                        <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.gif" alt="">
+                    </div>
                 </div>
+            </div>
             }
         </div>
         <form style='display:none;' action='https://crm.zoho.com/crm/WebToLeadForm' name=WebToLeads1795052000035365001 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1795052000035365001()' accept-charset='UTF-8'>
@@ -256,13 +256,15 @@
             if (this.responseText.toLowerCase() === "true") {
                 document.getElementById("LEADCF24").setAttribute('value', theLink);
                 document.getElementById("LEADCF23").setAttribute('value', theKey);
-                document.getElementById("redicrectUrlZoho").setAttribute('value', site);
+                var cookievalue = "CustomerName=" + '@Model.theWalkingUser.UserDeclaredName' + "; path=/";
+				document.cookie = cookievalue;
                 const theForm = document.getElementById("formsubmit");
                 var site = `https://www.wscprinter.it/WscBuilder/Step08_ready_to_go/Index?`
                     + `theLink=${encodeURIComponent(theLink)}`
                     + `&templateName=${encodeURIComponent(templateName)}`
                     + `&imgLink=${encodeURIComponent(imgLink)}`
                     + `&templateId=${theKey}`;
+				document.getElementById("redicrectUrlZoho").setAttribute('value', site);
                 theForm.click()
                 //alert(`you choose to buy ${theLink} - ${theKey} !!!`);
             }
