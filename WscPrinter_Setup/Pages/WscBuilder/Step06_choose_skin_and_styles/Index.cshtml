@@ -151,6 +151,8 @@
 
 <script type="text/javascript">
     function validateSubmit(frmId, nameOfItem) {
+        $('#ctn-preloader').show();
+        $('#preloader').show();
         const theForm = document.getElementById(frmId);
         const chkBxs = theForm.elements.namedItem(nameOfItem);
         let canGo = false;
