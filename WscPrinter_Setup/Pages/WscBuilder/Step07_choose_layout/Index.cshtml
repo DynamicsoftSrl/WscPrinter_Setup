@@ -241,7 +241,7 @@
     }
 
     function buytheLink(theLink, theKey, templateName, imgLink) {
-             $('#ctn-preloader').show();
+        $('#ctn-preloader').show();
         $('#preloader').show();
     const url = '@Model.theApiServerConf.EndpointsUrl';
     const endpoint = '@Model.theApiServerConf.SetSelectedTemplatePath';
@@ -263,10 +263,6 @@
                     + `&templateName=${encodeURIComponent(templateName)}`
                     + `&imgLink=${encodeURIComponent(imgLink)}`
                     + `&templateId=${theKey}`;
-
-
-
-
                 theForm.click()
                 //alert(`you choose to buy ${theLink} - ${theKey} !!!`);
             }
