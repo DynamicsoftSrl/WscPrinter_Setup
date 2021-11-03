@@ -5,6 +5,7 @@
     string templateId = Request.Query["templateId"];
     string templateLink = Request.Query["theLink"];
     string templateImg = Request.Query["imgLink"];
+    string linkWhatsapp = "https://wa.me/+390287388790/?text=Ho%20creato%20il%20mio%20sito%20Web%20To%20Print.%20%" + templateId + "%5D.%20Vorrei%20informazioni.";
     ViewData["Title"] = "Congratulazioni";
 }
 <div class="wbuilder-page">
@@ -29,7 +30,7 @@
         </div>
     </div>
 </div>
-<a href="https://wa.me/+390287388790/?text=Ho%20creato%20il%20mio%20sito%20Web%20To%20Print.%20%5Bfe326af8-5b01-40c5-9ec5-9eaec6b0128d%5D.%20Vorrei%20informazioni." class="whatsapp-float" target="_blank">
+<a href="@linkWhatsapp"  class="whatsapp-float" target="_blank">
 <i class="fa fa-whatsapp whatsapp-my-float"></i>
 </a>
 
