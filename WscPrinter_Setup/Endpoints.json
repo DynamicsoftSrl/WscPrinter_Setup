@@ -1,5 +1,5 @@
 {
-  "EndpointsUrl": "http://localhost",
+  "EndpointsUrl": "https://wbuilder.wscprinter.com/backoffice",
   "ApiServerToken": "wsc1",
   "ServicePath": "/backofficeapi/templatebuildercontroller/createcustomertemplate",
   "CheckImgPath": "/backofficeapi/templatebuildercontroller/isreadyimagepreview",

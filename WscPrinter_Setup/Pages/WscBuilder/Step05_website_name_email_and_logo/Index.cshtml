@@ -17,21 +17,21 @@
 -->
 <div class="wbuilder-page">
     <div class="wbuilder-column-1 d-lg-flex align-items-center">
-        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter.png" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print"></a></div>
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter_v_dark.svg" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print" class="wsc-logo"></a></div>
         <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
-            <h2>Aggiungi queste informazioni basiche   <br />  per il tuo nuovo <br />sito Web To Print </h2>
+          <h2>Enter this information <br />for your new Storefront</h2>
         </div>
     </div>
     <div class="wbuilder-column-2 d-lg-flex align-items-center">
         <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-            <p class="text-2"><b>Facile come bere un bicchier d'acqua</b><br /> Carica il tuo logo se ne hai uno a disposizione, scrivi il nome della tua attività<br /> o sito web, inserisci la tua email.   </p>
+          <p class="text-2"><b>As simple as drinking a glass of water</b><br /> Upload your logo if you have one available,<br /> write the name of your business or website, add your email.</p>
             <form class="form-horizontal" role="form" id="formfile0">
                 <div class="step-block">
                     <div class="row">
                         <div class="col-sm-12 " id="drop-area">
                             <div class="form-group form-group-2">
                                 <label class="custom-file img-responsive" for="FileUpload_FormFile">
-                                    <p id="UploadLogoText">Clicca qui per caricare il tuo logo </p>
+                                  <p id="UploadLogoText">Click here to upload your logo</p>
                                     <img id="UploadLogoImg" src="/images/website/upload_logo.png" alt="" onclick="clickTheFileControl(event)">
                                     <input type="file" asp-for="FileUpload.FormFile" multiple accept="image/*" onchange="handleFile(event)" style="display: none;">
                                      <div class="wbuilder-hidden" id="uploadSuccessContainer">
@@ -52,32 +52,32 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Scrivi il nome della tua attività" required /> <!--<label for="id_websitename">@Localizer["website name"]</label><br />-->
+                                <input class="form-control" type="text" autocomplete="nope" name="SiteName" id="id_websitename" placeholder="Write your business name" required /> <!--<label for="id_websitename">@Localizer["website name"]</label><br />-->
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Scrivi la tua email" required /> <!--<label for="id_email">@Localizer["email"]</label><br />-->
+                                <input class="form-control" type="email" autocomplete="nope" name="UserEmail" id="id_email" placeholder="Type your email" required /> <!--<label for="id_email">@Localizer["email"]</label><br />-->
                                 <input type="hidden" name="CompanyLogo" id="id_CompanyLogo" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control" type="text" autocomplete="nope" name="UserDeclaredName" id="id_UserDeclaredName" placeholder="Scrivi il tuo nome" required>
+                                <input class="form-control" type="text" autocomplete="nope" name="UserDeclaredName" id="id_UserDeclaredName" placeholder="Type your name" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control input-no-arrows" type="number" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Scrivi il tuo numero di telefono" required>
+                                <input class="form-control input-no-arrows" type="number" autocomplete="nope" name="UserPhone" id="id_UserPhone" placeholder="Write your phone number" required>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="wbuilder-button">
-                    <button class="theme-btn-nine buttonContinue">@Localizer["Continue"]</button>
+                    <button class="theme-btn-nine buttonContinue">@Localizer["Next"]</button>
                 </div>
                 <div class="wbuilder-terms pt-20">
-                    Cliccando su continua, io accetto la normativa sulla <a href="https://www.dynamicsoft.it/informativa-privacy/" target="_blank">Privacy policy</a>
+                  By clicking continue, I accept the  <a href="https://www.wscprinter.com/privacy-policy/" target="_blank">Privacy Policy</a>
                 </div>
             </form>
         </div>
@@ -124,6 +124,21 @@
   //
   //
   //
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var elements = document.getElementsByTagName("input");
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].oninvalid = function (e) {
+        e.target.setCustomValidity("");
+        if (!e.target.validity.valid) {
+          e.target.setCustomValidity("This field cannot be left blank");
+        }
+      };
+      elements[i].oninput = function (e) {
+        e.target.setCustomValidity("");
+      };
+    }
+  })
   function submitAll() {
     document.getElementById("selectSitenameEmailLogo").submit();
   }

@@ -4,94 +4,95 @@
        ViewData["Title"] = "Preview";
 }
 <div class="theme-main-menu-preview theme-menu-two">
-    <div class="d-flex align-items-center justify-content-center">
-        <div class="logo">
-            <a href="/"><img src="/images/website/logo_header_wscprinter.png" alt=""></a>
-        </div>
-        <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
-            <div class="container nav-container nav-container-mobile">
-
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                    <div class="d-lg-flex justify-content-between align-items-center">
-                        <div id="phone-controls">
-                            <div id="phones">
-                                <img id="screen_desktop" onclick="updateIframeSelected(1)" class="icon-template-preview icon-template-selected" src="/images/website/icon_preview_desktop.svg" alt="">
-                                <img id="screen_mobile" onclick="updateIframeSelected(2)" class="icon-template-preview" src="/images/website/icon_preview_mobile.svg" alt="">
-                            </div>
-                        </div>
-                        <ul class="right-widget">
-                            <li class="d-sm-flex">
-                                <ul class="user-login-button d-flex align-items-center justify-content-center">
-                                    <li class="theme-main-menu-preview-text">
-                                        Anteprima sito <b>@Model.CustomerName </b>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="logo">
+      <a href="/"><img src="/images/website/logo_wscprinter_v_dark.svg" alt="" class="wsc-logo"></a>
     </div>
+    <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
+      <div class="container nav-container nav-container-mobile">
+
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+          <div class="d-lg-flex justify-content-between align-items-center">
+            <div id="phone-controls">
+              <div id="phones">
+                <img id="screen_desktop" onclick="updateIframeSelected(1)" class="icon-template-preview icon-template-selected" src="/images/website/icon_preview_desktop.svg" alt="">
+                <img id="screen_mobile" onclick="updateIframeSelected(2)" class="icon-template-preview" src="/images/website/icon_preview_mobile.svg" alt="">
+              </div>
+            </div>
+            <ul class="right-widget">
+              <li class="d-sm-flex">
+                <ul class="user-login-button d-flex align-items-center justify-content-center">
+                  <li class="theme-main-menu-preview-text">
+                    Storefront preview <b>@Model.CustomerName </b>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>
 <div class="iframe-preview wbuilder-template-preview-iframe-desktop">
-    <div id="wrapper">
-        <div class="phone2 view_2" id="phone_1" style="width: 100%; height: 1024px;">
-            <iframe src="" id="frame_1"></iframe>
-        </div>
+  <div id="wrapper">
+    <div class="phone2 view_2" id="phone_1" style="width: 100%; height: 1024px;">
+      <iframe src="" id="frame_1"></iframe>
     </div>
+  </div>
 </div>
 <div class="iframe-preview wbuilder-template-preview-iframe-mobile">
-    <iframe src="" width="100%" height="100%" class="iframe-mobile" id="frame_2"></iframe>
+  <iframe src="" width="100%" height="100%" class="iframe-mobile" id="frame_2"></iframe>
 </div>
 
 <script type="text/javascript">
-             
-    phone = document.getElementById("phone_1"),
-        iframe = document.getElementById("frame_1");
-    function updateView(view) {
-        if (view) {
-            phone.className = "phone view_" + view;
-        }
+
+  phone = document.getElementById("phone_1"),
+    iframe = document.getElementById("frame_1");
+  function updateView(view) {
+    if (view) {
+      phone.className = "phone view_" + view;
     }
-    function updateIframe() {
-        phone.style.width = "1900px";
-        phone.style.height = "1024px";
+  }
+  function updateIframe() {
+    phone.style.width = "1900px";
+    phone.style.height = "1024px";
+  }
+  function updateIframeSelected(device) {
+    if (device == 1) {
+      // desktop
+      width = $(window).width();
+      height = $(window).height();
+      console.log(height)
+      $("#phone_1").removeClass("phone")
+      $("#phone_1").addClass("phone2")
+      $("#screen_desktop").addClass("icon-template-selected")
+      $("#screen_mobile").removeClass("icon-template-selected")
     }
-    function updateIframeSelected(device) {
-        if (device == 1) {
-            // desktop
-            width = 1900;
-            height = 1024;
-            $("#phone_1").removeClass("phone")
-            $("#phone_1").addClass("phone2")
-            $("#screen_desktop").addClass("icon-template-selected")
-            $("#screen_mobile").removeClass("icon-template-selected")
-        }
-        if (device == 2) {
-            // mobile
-            width = 375;
-            height = 667;
-            $("#phone_1").removeClass("phone2")
-            $("#phone_1").addClass("phone")
-            $("#screen_desktop").removeClass("icon-template-selected")
-            $("#screen_mobile").addClass("icon-template-selected")
-        }
+    if (device == 2) {
+      // mobile
+      width = 375;
+      height = 667;
+      $("#phone_1").removeClass("phone2")
+      $("#phone_1").addClass("phone")
+      $("#screen_desktop").removeClass("icon-template-selected")
+      $("#screen_mobile").addClass("icon-template-selected")
     }
-    document.getElementById("phones").addEventListener("click", function (evt) {
-        phone.style.width = width + "px";
-        phone.style.height = height + "px";
+  }
+  document.getElementById("phones").addEventListener("click", function (evt) {
+    phone.style.width = width + "px";
+    phone.style.height = height + "px";
+  });
+  iframe = document.getElementById('frame_1');
+  if (iframe.attachEvent) {
+    iframe.attachEvent("onload", function () {
+      afterLoading();
     });
-    iframe = document.getElementById('frame_1');
-    if (iframe.attachEvent) {
-        iframe.attachEvent("onload", function () {
-            afterLoading();
-        });
-    } else {
-        iframe.onload = function () {
-            afterLoading();
-        };
-    }
-    function afterLoading() {
-    }
+  } else {
+    iframe.onload = function () {
+      afterLoading();
+    };
+  }
+  function afterLoading() {
+  }
 </script>

@@ -88,7 +88,7 @@ namespace WscPrinter_Setup {
 
       MvcBuilder.AddRazorPagesOptions(options => {
         options.RootDirectory = "/Pages";
-        options.Conventions.AddPageRoute("/cicca", "/Pages/Home");
+        options.Conventions.AddPageRoute("/cicca", "/Pages/WscBuilder/Step01_intro");
       });
       if (Environment.IsDevelopment()) {
         MvcBuilder.AddRazorRuntimeCompilation();
