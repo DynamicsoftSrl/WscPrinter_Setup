@@ -53,110 +53,103 @@
 ==============================================
 -->
 <div class="app-screen-preview-two lg-container wbuilder-hidden" id="isLoaded">
-    <div class="container">
-        <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
-            <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt="" class="wsc-logo"></a></div>
-            <h2 class="mt-20 md-mt-10"><b> Choose the layout for your Storefront</b></h2>
-            <p class="mt-20">Wow! These websites were tailor-made for you.<br /> You can preview all of them and choose your favorite. You can customize them later.</p>
-        </div>
+  <div class="container">
+    <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
+      <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt="" class="wsc-logo"></a></div>
+      <h2 class="mt-20 md-mt-10"><b> Choose the layout for your Storefront</b></h2>
+      <p class="mt-20">Wow! These websites were tailor-made for you.<br /> You can preview all of them and choose your favorite. You can customize them later.</p>
     </div>
+  </div>
 </div>
 <div class="app-screen-preview-two lg-container" id="isLoading">
-    <div class="container">
-        <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
-            <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt="" class="wsc-logo"></a></div>
-            <h2 class="mt-20 md-mt-10"><b>We are creating your custom designs</b></h2>
-            <p class="mt-20">Wait a few seconds <br /><img src="/images/website/wait_preview.svg" alt="" style="display: inline;" class="wsc-loading"></p>
-        </div>
+  <div class="container">
+    <div class="wbuilder-info-2 text-center mb-0 md-mb-20">
+      <div class="logo mt-20 md-mt-10"><a href="#"><img src="/images/website/logo_wscprinter.png" alt="" class="wsc-logo"></a></div>
+      <h2 class="mt-20 md-mt-10"><b>We are creating your custom designs</b></h2>
+      <p class="mt-20">Wait a few seconds <br /><img src="/images/website/wait_preview.svg" alt="" style="display: inline;" class="wsc-loading"></p>
     </div>
+  </div>
 </div>
 <div class=" pb-50 md-pt-0 md-pb-150">
 
-    <div class="wbuild-large-container">
+  <div class="wbuild-large-container">
 
-        <div class="row">
-            @for (int xxx = 0; xxx < theItems.Length; xxx++)
+    <div class="row">
+      @for (int xxx = 0; xxx < theItems.Length; xxx++)
             {
-            <div class="col-lg-4">
-                <div class="theme-demo isreadyimage mb-50 md-mb-50" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
-                    <div class="content-wrapper">
-                        <div class="title-wrapper">
-                            <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Preview <i class="fa fa-external-link"></i></span></button>
-                            <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Use this layout</span></button>
-                        </div>
-                    </div>
-                    <div class="image-wrapper">
-                        <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.svg" alt="">
-                    </div>
-                </div>
+      <div class="col-lg-4">
+        <div class="theme-demo isreadyimage mb-50 md-mb-50" onmouseover="scrollImage_hover();" id="container_@theItems[xxx].TemplateId">
+          <div class="content-wrapper">
+            <div class="title-wrapper">
+              <button onclick="openTabWithLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId')" class="preview"><span class="link-wrapper"> Preview <i class="fa fa-external-link"></i></span></button>
+              <button onclick="buytheLink('@theItems[xxx].TargetLink', '@theItems[xxx].TemplateId', '@theItems[xxx].TemplateName', '@theItems[xxx].Img' )" class="choose"><span class="link-wrapper">Use this layout</span></button>
             </div>
-            }
+          </div>
+          <div class="image-wrapper">
+            <img id="@theItems[xxx].TemplateId" src="/images/website/20817-skeleton-loading-card.svg" alt="">
+          </div>
         </div>
-        <form style='display:none;' action='https://crm.zoho.com/crm/WebToLeadForm' name=WebToLeads1795052000035365001 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1795052000035365001()' accept-charset='UTF-8'>
-            <input type='text' style='display:none;' name='xnQsjsdp' value='2e090d687bc552d360e813030b033a2dc52ee287e50c67919e764aeef82df157'></input>
-            <input type='hidden' name='zc_gad' id='zc_gad' value=''></input>
-            <input type='text' style='display:none;' name='xmIwtLD' value='0325ad63cb1977f1588ef4966203579762d19229bf5cda964b55df19d18f6f5c'></input>
-            <input type='text' style='display:none;' name='actionType' value='TGVhZHM='></input>
-            <input type='text' style='display:none;' name='returnURL' value='' id="redicrectUrlZoho"> </input>
-            <select class='zcwf_col_fld_slt' id='LEADCF19' name='LEADCF19'>
-                <option value='-None-'>-None-</option>
-                <option selected value='Alessia Limone'>Alessia Limone</option>
-                <option value='Daniel&#x20;Della&#x20;Puzza'>Daniel Della Puzza</option>
-                <option value='Michele&#x20;Ingenito'>Michele Ingenito</option>
-            </select>
-            <select class='zcwf_col_fld_slt' id='Lead_Status' name='Lead Status'>
-                <option value='-None-'>-None-</option>
-                <option selected value='Attivo'>Attivo</option>
-                <option value='Convertito&#x20;in&#x20;potenziale'>Convertito in potenziale</option>
-                <option value='Perso'>Perso</option>
-                <option value='Prospect'>Prospect</option>
-                <option value='Rifiutato'>Rifiutato</option>
-                <option value='Non&#x20;qualificato'>Non qualificato</option>
-            </select>
-            <select class='zcwf_col_fld_slt' id='Lead_Source' name='Lead Source'>
-                <option value='-None-'>-None-</option>
-                <option value='Pubblicit&agrave;'>Pubblicit&agrave;</option>
-                <option value='Webinar&#x20;produzione&#x20;-&#x20;ottobre&#x20;2017'>Webinar produzione - ottobre 2017</option>
-                <option value='Chiamata&#x20;urgente'>Chiamata urgente</option>
-                <option value='Segnalazione&#x20;dipendente'>Segnalazione dipendente</option>
-                <option value='Collegamenti&#x20;esterni'>Collegamenti esterni</option>
-                <option value='Negozio&#x20;online'>Negozio online</option>
-                <option value='Partner'>Partner</option>
-                <option value='Relazioni&#x20;pubbliche'>Relazioni pubbliche</option>
-                <option value='Mail&#x20;vendite'>Mail vendite</option>
-                <option value='Partner&#x20;seminario'>Partner seminario</option>
-                <option value='Seminario&#x20;-&#x20;interno'>Seminario - interno</option>
-                <option value='Mostra&#x20;affari'>Mostra affari</option>
-                <option value='Download&#x20;via&#x20;Web'>Download via Web</option>
-                <option value='Ricerca&#x20;sul&#x20;web'>Ricerca sul web</option>
-                <option value='Chat'>Chat</option>
-                <option value='Dynamicsoft.it'>Dynamicsoft.it</option>
-                <option selected value='Wscprinter.it'>Wscprinter.it</option>
-                <option value='Lostampatorefelice.it'>Lostampatorefelice.it</option>
-                <option value='Google&#x20;AdWords'>Google AdWords</option>
-                <option value='Ricerca&#x20;online'>Ricerca online</option>
-            </select>
-            <select class='zcwf_col_fld_slt' id='LEADCF8' name='LEADCF8'>
-                <option value='-None-'>-None-</option>
-                <option value='Nessuna'>Nessuna</option>
-                <option value='Demo&#x20;Wsc&#x20;Printer'>Demo Wsc Printer</option>
-                <option value='Informazioni'>Informazioni</option>
-                <option value='Dynamicsoft&#x20;Program'>Dynamicsoft Program</option>
-                <option value='Attivazione&#x20;Promo'>Attivazione Promo</option>
-                <option value='Voucher&#x20;digitalizzazione'>Voucher digitalizzazione</option>
-                <option value='Informazioni&#x20;Promo&#x20;Wsc&#x20;Printer&#x20;Ecommerce'>Informazioni Promo Wsc Printer Ecommerce</option>
-                <option value='Informazioni&#x20;Wsc&#x20;Printer&#x20;Industry&#x20;4.0'>Informazioni Wsc Printer Industry 4.0</option>
-                <option selected value='Creazione Wsc Printer Builder'>Creazione Wsc Printer Builder</option>
-            </select>
-            <input type='text' id='Company' name='Company' maxlength='200' value='@Model.theWalkingUser.SiteName'></input>
-            <input type='text' id='Last_Name' name='Last Name' maxlength='80' value='@Model.theWalkingUser.UserDeclaredName'></input>
-            <input type='text' ftype='email' id='Email' name='Email' maxlength='100' value='@Model.theWalkingUser.UserEmail'></input>
-            <input type='text' id='Phone' name='Phone' maxlength='30' value='@Model.theWalkingUser.UserPhone'></input>
-            <input type='text' id='LEADCF23' name='LEADCF23' maxlength='255' value=''></input>
-            <input type='text' id='LEADCF24' name='LEADCF24' maxlength='450' value=''></input>
-            <input type='submit' id='formsubmit' class='formsubmit zcwf_button' value='Conferma' title='Conferma'>
-        </form>
+      </div>
+            }
     </div>
+    <form style='display:none;' action='https://crm.zoho.com/crm/WebToLeadForm' name=WebToLeads1795052000067381020 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1795052000067381020()' accept-charset='UTF-8'>
+      <input type='text' style='display:none;' name='xnQsjsdp' value='1cb8d55592d59818ae418ed7651349a129bd2bc8447b44749f263b07d466b35a'></input>
+      <input type='hidden' name='zc_gad' id='zc_gad' value=''></input>
+      <input type='text' style='display:none;' name='xmIwtLD' value='05b6ae53a1907f411809af3777880fb3bc592ad6638308b896e9ad078e5ed2306c583e556638f03a7a763e898f5acbcf'></input>
+      <input type='text' style='display:none;' name='actionType' value='TGVhZHM='></input>
+      <input type='text' style='display:none;' name='returnURL' value='' id="redicrectUrlZoho"> </input>
+      <select class='zcwf_col_fld_slt' id='LEADCF19' name='LEADCF19'>
+        <option value='-None-'>-None-</option>
+        <option selected value='Alessia Limone'>Alessia Limone</option>
+      </select>
+      <select class='zcwf_col_fld_slt' id='Lead_Status' name='Lead Status'>
+        <option value='-None-'>-None-</option>
+        <option selected value='Attivo'>Attivo</option>
+      </select>
+      <select class='zcwf_col_fld_slt' id='Lead_Source' name='Lead Source'>
+        <option value='-None-'>-None-</option>
+        <option value='Pubblicit&agrave;'>Pubblicit&agrave;</option>
+        <option value='Webinar&#x20;produzione&#x20;-&#x20;ottobre&#x20;2017'>Webinar produzione - ottobre 2017</option>
+        <option value='Chiamata&#x20;urgente'>Chiamata urgente</option>
+        <option value='Segnalazione&#x20;dipendente'>Segnalazione dipendente</option>
+        <option value='Collegamenti&#x20;esterni'>Collegamenti esterni</option>
+        <option value='Negozio&#x20;online'>Negozio online</option>
+        <option value='Partner'>Partner</option>
+        <option value='Relazioni&#x20;pubbliche'>Relazioni pubbliche</option>
+        <option value='Mail&#x20;vendite'>Mail vendite</option>
+        <option value='Partner&#x20;seminario'>Partner seminario</option>
+        <option value='Seminario&#x20;-&#x20;interno'>Seminario - interno</option>
+        <option value='Mostra&#x20;affari'>Mostra affari</option>
+        <option value='Download&#x20;via&#x20;Web'>Download via Web</option>
+        <option value='Ricerca&#x20;sul&#x20;web'>Ricerca sul web</option>
+        <option value='Chat'>Chat</option>
+        <option value='Dynamicsoft.it'>Dynamicsoft.it</option>
+        <option selected value='wscprinter.com'>wscprinter.com</option>
+        <option value='Lostampatorefelice.it'>Lostampatorefelice.it</option>
+        <option value='Google&#x20;AdWords'>Google AdWords</option>
+        <option value='Ricerca&#x20;online'>Ricerca online</option>
+      </select>
+      <select class='zcwf_col_fld_slt' id='LEADCF8' name='LEADCF8'>
+        <option value='-None-'>-None-</option>
+        <option value='Nessuna'>Nessuna</option>
+        <option value='Demo&#x20;Wsc&#x20;Printer'>Demo Wsc Printer</option>
+        <option value='Informazioni'>Informazioni</option>
+        <option value='Dynamicsoft&#x20;Program'>Dynamicsoft Program</option>
+        <option value='Attivazione&#x20;Promo'>Attivazione Promo</option>
+        <option value='Voucher&#x20;digitalizzazione'>Voucher digitalizzazione</option>
+        <option value='Informazioni&#x20;Promo&#x20;Wsc&#x20;Printer&#x20;Ecommerce'>Informazioni Promo Wsc Printer Ecommerce</option>
+        <option value='Informazioni&#x20;Wsc&#x20;Printer&#x20;Industry&#x20;4.0'>Informazioni Wsc Printer Industry 4.0</option>
+        <option selected value='Creazione Wsc Printer Builder'>Creazione Wsc Printer Builder</option>
+      </select>
+      <input type='text' id='Company' name='Company' maxlength='200' value='@Model.theWalkingUser.SiteName'></input>
+      <input type='text' id='Last_Name' name='Last Name' maxlength='80' value='@Model.theWalkingUser.UserDeclaredName'></input>
+      <input type='text' ftype='email' id='Email' name='Email' maxlength='100' value='@Model.theWalkingUser.UserEmail'></input>
+      <input type='text' id='Phone' name='Phone' maxlength='30' value='@Model.theWalkingUser.UserPhone'></input>
+      <input type='text' id='LEADCF23' name='LEADCF23' maxlength='255' value=''></input>
+      <input type='text' id='LEADCF24' name='LEADCF24' maxlength='450' value=''></input>
+      <input type='submit' id='formsubmit' class='formsubmit zcwf_button' value='Conferma' title='Conferma'>
+    </form>
+  </div>
 </div>
 
 
@@ -310,44 +303,44 @@
 <script>
 
 
-    function checkMandatory1795052000035365001() {
-        var mndFileds = new Array('Last Name');
-        var fldLangVal = new Array('Cognome');
-        for (i = 0; i < mndFileds.length; i++) {
-            var fieldObj = document.forms['WebToLeads1795052000035365001'][mndFileds[i]];
-            if (fieldObj) {
-                if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
-                    if (fieldObj.type == 'file') {
-                        alert('Selezionare un file da caricare.');
-                        fieldObj.focus();
-                        return false;
-                    }
-                    alert(fldLangVal[i] + ' non può essere vuoto.');
-                    fieldObj.focus();
-                    return false;
-                } else if (fieldObj.nodeName == 'SELECT') {
-                    if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
-                        alert(fldLangVal[i] + ' non può essere nessuno.');
-                        fieldObj.focus();
-                        return false;
-                    }
-                } else if (fieldObj.type == 'checkbox') {
-                    if (fieldObj.checked == false) {
-                        alert('Please accept  ' + fldLangVal[i]);
-                        fieldObj.focus();
-                        return false;
-                    }
-                }
-                try {
-                    if (fieldObj.name == 'Last Name') {
-                        name = fieldObj.value;
-                    }
-                } catch (e) { }
-            }
+  function checkMandatory1795052000067381020() {
+    var mndFileds = new Array('Last Name');
+    var fldLangVal = new Array('Cognome');
+    for (i = 0; i < mndFileds.length; i++) {
+      var fieldObj = document.forms['WebToLeads1795052000067381020'][mndFileds[i]];
+      if (fieldObj) {
+        if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length == 0) {
+          if (fieldObj.type == 'file') {
+            alert('Selezionare un file da caricare.');
+            fieldObj.focus();
+            return false;
+          }
+          alert(fldLangVal[i] + ' non può essere vuoto.');
+          fieldObj.focus();
+          return false;
+        } else if (fieldObj.nodeName == 'SELECT') {
+          if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+            alert(fldLangVal[i] + ' non può essere nessuno.');
+            fieldObj.focus();
+            return false;
+          }
+        } else if (fieldObj.type == 'checkbox') {
+          if (fieldObj.checked == false) {
+            alert('Please accept  ' + fldLangVal[i]);
+            fieldObj.focus();
+            return false;
+          }
         }
-
-        //document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+        try {
+          if (fieldObj.name == 'Last Name') {
+            name = fieldObj.value;
+          }
+        } catch (e) { }
+      }
     }
+
+    //document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled', true);
+  }
 
 
 </script>

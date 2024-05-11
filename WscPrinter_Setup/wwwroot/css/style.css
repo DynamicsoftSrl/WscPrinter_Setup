@@ -14725,6 +14725,7 @@ body .theme-btn-nine {
   padding: 50px 20px 50px 5%;
   background-color: #fff;
   min-height: 100vh;
+  background-color: #ffffff;
   float: left;
 }
 
@@ -15759,6 +15760,8 @@ p {
     padding: 15px 20px 40px 5%;
     width: 100%;
     min-height: inherit;
+    background-color: #181F38;
+    background-image: linear-gradient(to top right,#2FB563,12%, #181F38 );
     float: none;
     min-height: unset;
   }
@@ -15768,6 +15771,7 @@ p {
     width: 100%;
     min-height: inherit;
     float: none;
+    background-color: #ffffff;
     min-height: unset;
   }
 
