@@ -14753,9 +14753,8 @@ body .theme-btn-nine {
 
 
   .wbuilder-info h2 {
-    font-family: "TT Norms Pro", sans-serif;
-    font-size: 72px;
-    line-height: 85px;
+    font-size: 68px;
+    line-height: 84px;
     font-weight: 700;
     color: #fff;
   }
@@ -14767,22 +14766,21 @@ body .theme-btn-nine {
 
 
   .wbuilder-info .text {
-    font-size: 25px;
+    font-size: 24px;
     color: #181f38;
-    line-height: 33px;
-    font-style: normal;
+    line-height: 32px;
+    font-weight: 400;
     padding: 35px 0 55px;
   }
 .wbuilder-column-1 .text {
   color: #fff;
 }
-  .wbuilder-info .text-2 {
-    font-size: 20px;
-    color: #181f38;
-    line-height: 28px;
-    font-style: normal;
-    padding: 35px 0 55px;
-  }
+.wbuilder-info .text-2 {
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 400;
+  color: #181f38;
+}
 
   .wbuilder-info .text-title {
     font-size: 21px;
@@ -14830,7 +14828,7 @@ body .theme-btn-nine {
   animation-fill-mode: forwards;
   animation-play-state: running;
   animation-name: highlight;
-  background-color: #2FB563;
+  background-color: #ffd041;
 }
 
 .highlighted:before, .underlined:before {
@@ -15730,11 +15728,65 @@ p {
   opacity: 1;
 }
 
+.wsc-logo-light {
+  display: block;
+}
+
 .wsc-logo {
-  height: 50px;
+  height: 30px;
 }
 .wsc-loading {
   height: 80px;
+}
+
+.wsc-button.default, .wsc-button.default a {
+  background-color: #2fb563;
+  color: #fff !important;
+}
+.wsc-button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 6px;
+  border: 0px;
+  transition: .15s background-color linear,.15s border-color linear,.15s color linear,.15s box-shadow linear;
+}
+
+  .wsc-button:hover {
+    text-decoration: none;
+  }
+
+
+  .wsc-button.border {
+    border: 2px solid;
+  }
+
+  .wsc-button.small-size {
+    min-height: 40px;
+    min-width: 136px;
+    padding: calc(10px - 2px) calc(16px - 2px);
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+.wbuilder-info h4 {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 700;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 /*  mobile  */
 @media (max-width: 991px) {

@@ -74,78 +74,83 @@
 -->
 <div class="wbuilder-page">
     <div class="wbuilder-column-1 d-lg-flex align-items-center">
-        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter_v_dark.svg" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print" class="wsc-logo"></a></div>
+        <div class="wbuilder-img-logo"><a asp-area="" asp-page="/Index"><img src="/images/website/logo_wscprinter_v_dark.svg" alt="Wsc Printer - Web To Print" title="Wsc Printer - Web To Print" class="wsc-logo  wsc-logo-light pr5"></a></div>
         <div class="wbuilder-info" data-aos="fade-right" data-aos-duration="1200">
           <h2>Choose a theme you like</h2>
         </div>
     </div>
     <div class="wbuilder-column-2 d-lg-flex align-items-center">
-        <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
-          <p class="text"><b>Here are some themes that may interest you</b><br /><br /> You can edit or change it later </p>
-            <div class="togglers">
-                <div id="alertError" class="alert alert-warning wbuilder-hidden">
-                    <div class="fa fa-warning"> <span> Choose a theme. Please.</span> </div>
-                </div>
-            </div>
+      <div class="wbuilder-info" data-aos="fade-left" data-aos-duration="1200">
+        <h4>Here are some themes that may interest you</h4>
+        <p class="text-2">
+          You can edit or change it later
+        </p>
 
-            <form id="chooseSkin" action="/WscBuilder/Step07_choose_layout/Index" method="get">
-                <div class="step-block">
-                    <div class="row ">
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_blue_dark" value="classB/classB_skin_blue_dark.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_blue_dark"><img src="/images/website/classB_skin_blue_dark.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_blue_light" value="classB/classB_skin_blue_light.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_blue_light"><img src="/images/website/classB_skin_blue_light.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_green" value="classB/classB_skin_green.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_green"><img src="/images/website/classB_skin_green.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_lime" value="classB/classB_skin_lime.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_lime"><img src="/images/website/classB_skin_lime.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_magenta" value="classB/classB_skin_magenta.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_magenta"><img src="/images/website/classB_skin_magenta.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_red" value="classB/classB_skin_red.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_red"><img src="/images/website/classB_skin_red.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_orange" value="classB/classB_skin_orange.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_orange"><img src="/images/website/classB_skin_orange.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 choose-skin">
-                            <div class="custom-radio">
-                                <input type="radio" name="skin" class="custom-control-input" id="classB_skin_yellow" value="classB/classB_skin_yellow.css" required="" onclick="hideAlert()">
-                                <label class="custom-control-label" for="classB_skin_yellow"><img src="/images/website/classB_skin_yellow.png" alt="" class="img-responsive"></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wbuilder-button mt-50">
-                    <a href="#" class="theme-btn-nine" onclick="validateSubmit('chooseSkin','skin')">@Localizer["Next"]</a>
-                </div>
-            </form>
+       
+        <div class="togglers">
+          <div id="alertError" class="alert alert-warning wbuilder-hidden">
+            <div class="fa fa-warning"> <span> Choose a theme. Please.</span> </div>
+          </div>
         </div>
+
+        <form id="chooseSkin" action="/WscBuilder/Step07_choose_layout/Index" method="get">
+          <div class="step-block">
+            <div class="row ">
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_blue_dark" value="classB/classB_skin_blue_dark.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_blue_dark"><img src="/images/website/classB_skin_blue_dark.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_blue_light" value="classB/classB_skin_blue_light.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_blue_light"><img src="/images/website/classB_skin_blue_light.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_green" value="classB/classB_skin_green.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_green"><img src="/images/website/classB_skin_green.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_lime" value="classB/classB_skin_lime.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_lime"><img src="/images/website/classB_skin_lime.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_magenta" value="classB/classB_skin_magenta.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_magenta"><img src="/images/website/classB_skin_magenta.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_red" value="classB/classB_skin_red.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_red"><img src="/images/website/classB_skin_red.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_orange" value="classB/classB_skin_orange.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_orange"><img src="/images/website/classB_skin_orange.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+              <div class="col-sm-6 choose-skin">
+                <div class="custom-radio">
+                  <input type="radio" name="skin" class="custom-control-input" id="classB_skin_yellow" value="classB/classB_skin_yellow.css" required="" onclick="hideAlert()">
+                  <label class="custom-control-label" for="classB_skin_yellow"><img src="/images/website/classB_skin_yellow.png" alt="" class="img-responsive"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wbuilder-button mt-50">
+            <a href="#" class="wsc-button small-size default" onclick="validateSubmit('chooseSkin','skin')">@Localizer["Next"]</a>
+          </div>
+        </form>
+      </div>
     </div>
 </div>
 
